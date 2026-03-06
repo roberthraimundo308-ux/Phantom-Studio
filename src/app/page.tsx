@@ -8,7 +8,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Numbers from "@/components/Numbers";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
-import AIProjectAssistant from "@/components/AIProjectAssistant";
 import { Check } from "lucide-react";
 
 export default function Home() {
@@ -47,9 +46,6 @@ export default function Home() {
 
       {/* Portfolio Section */}
       <Portfolio />
-
-      {/* AI Assistant Section */}
-      <AIProjectAssistant />
 
       {/* Comparison Section */}
       <section id="weapon" className="py-20 md:py-[140px] px-6 md:px-[52px] max-w-[1380px] mx-auto">
