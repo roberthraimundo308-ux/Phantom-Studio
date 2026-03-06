@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "adovasio-bg",
+      "description": "Abstract elegant Italian fashion background",
+      "imageUrl": "https://picsum.photos/seed/fashion1/820/490",
+      "imageHint": "italian fashion"
+    },
+    {
+      "id": "refract-bg",
+      "description": "High tech dark aesthetic background",
+      "imageUrl": "https://picsum.photos/seed/tech1/820/490",
+      "imageHint": "tech dark"
+    },
+    {
+      "id": "panuozzeria-bg",
+      "description": "Authentic rustic napolitan food textures",
+      "imageUrl": "https://picsum.photos/seed/food1/820/490",
+      "imageHint": "napolitan pizza"
+    }
+  ]
 }
