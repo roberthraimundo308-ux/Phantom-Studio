@@ -19,7 +19,7 @@ export default function CustomCursor() {
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
-      mousey = e.clientY;
+      mouseY = e.clientY;
       dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
     };
 
@@ -37,7 +37,7 @@ export default function CustomCursor() {
 
     const animate = () => {
       ringX += (mouseX - ringX) * 0.13;
-      ringY += (mousey - ringY) * 0.13;
+      ringY += (mouseY - ringY) * 0.13;
       ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
       requestAnimationFrame(animate);
     };
