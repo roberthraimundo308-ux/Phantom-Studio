@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -34,12 +35,12 @@ export default function Services() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section id="services" className="py-20 md:py-[140px] px-6 md:px-[52px] max-w-[1380px] mx-auto">
-      <ScrollReveal className="flex items-baseline justify-between border-b border-border pb-7 mb-[60px] rev">
+    <section id="services" className="py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
+      <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
         <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['02'] before:text-muted">
           O Que Fazemos
         </span>
-        <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em]">SERVIÇOS</h2>
+        <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">SERVIÇOS</h2>
       </ScrollReveal>
 
       <ul className="list-none">

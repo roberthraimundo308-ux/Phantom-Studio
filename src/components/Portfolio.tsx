@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -37,12 +38,12 @@ export default function Portfolio() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="portfolio" className="px-6 md:px-[52px] pb-[140px] max-w-[1380px] mx-auto">
-      <ScrollReveal className="flex items-baseline justify-between border-b border-border pb-7 mb-[60px] rev">
+    <section id="portfolio" className="px-6 md:pl-[180px] md:pr-[80px] pb-[140px] max-w-[1600px] mx-auto">
+      <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
         <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['03'] before:text-muted">
           Trabalhos
         </span>
-        <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em]">PORTFÓLIO</h2>
+        <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">PORTFÓLIO</h2>
       </ScrollReveal>
 
       <div className="flex flex-col items-center gap-4">

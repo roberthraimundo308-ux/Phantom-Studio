@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -8,7 +9,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Numbers from "@/components/Numbers";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
-import { Check } from "lucide-react";
 
 export default function Home() {
   return (
@@ -24,12 +24,12 @@ export default function Home() {
       <LogosCarousel />
 
       {/* Manifesto Section */}
-      <section id="manifesto" className="py-32 md:py-[140px] px-6 md:px-[52px] max-w-[1380px] mx-auto">
+      <section id="manifesto" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
         <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
           Manifesto
         </div>
         <ScrollReveal className="rev">
-          <p className="text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.28] text-foreground">
+          <p className="text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] text-foreground">
             <span className="text-muted">A maioria das agências cria sites.</span><br />
             Nós criamos <em className="not-italic text-accent">experiências que ninguém esquece.</em><br />
             <span className="text-muted">Enquanto seus concorrentes usam templates,</span><br />
@@ -48,16 +48,16 @@ export default function Home() {
       <Portfolio />
 
       {/* Comparison Section */}
-      <section id="weapon" className="py-20 md:py-[140px] px-6 md:px-[52px] max-w-[1380px] mx-auto">
-        <ScrollReveal className="flex items-baseline justify-between border-b border-border pb-7 mb-[60px] rev">
+      <section id="weapon" className="py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
+        <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-muted">
             A Diferença
           </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em]">SITE COMUM VS ARMA</h2>
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">SITE COMUM VS ARMA</h2>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 border border-border rev">
-          <div className="p-14 border-b lg:border-b-0 lg:border-r border-border">
+          <div className="p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-border">
             <div className="font-mono text-[9px] tracking-[0.28em] text-muted uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-muted">
               Site Comum
             </div>
@@ -73,7 +73,7 @@ export default function Home() {
               <div className="font-headline text-5xl text-muted">R$ 800</div>
             </div>
           </div>
-          <div className="p-14 bg-s1 relative overflow-hidden">
+          <div className="p-10 md:p-14 bg-s1 relative overflow-hidden">
             <div className="font-mono text-[9px] tracking-[0.28em] text-accent uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-accent">
               Phantom Studio
             </div>
@@ -93,16 +93,16 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="py-32 md:py-[140px] px-6 md:px-[52px] bg-s1">
-        <div className="max-w-[1380px] mx-auto">
-          <ScrollReveal className="flex items-baseline justify-between border-b border-border pb-7 mb-[60px] rev">
+      <section id="process" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
+        <div className="max-w-[1600px] mx-auto">
+          <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['05'] before:text-muted">
               Metodologia
             </span>
-            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em]">PROCESSO</h2>
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">PROCESSO</h2>
           </ScrollReveal>
           
-          <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-[1px] bg-border" stagger>
+          <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-[1px] bg-border border border-border" stagger>
             {[
               { n: '01', title: 'Descoberta', desc: 'Entendemos seu negócio e público a fundo.' },
               { n: '02', title: 'Estratégia', desc: 'Definimos arquitetura e metas de conversão.' },
@@ -110,7 +110,7 @@ export default function Home() {
               { n: '04', title: 'Código', desc: 'Desenvolvimento limpo, rápido e escalável.' },
               { n: '05', title: 'Lançamento', desc: 'SEO, testes e suporte pós-entrega.' }
             ].map((step, i) => (
-              <div key={i} className={`rev d${i} bg-s1 p-11 transition-colors duration-400 hover:bg-s2 group`}>
+              <div key={i} className={`rev d${i} bg-s1 p-10 transition-colors duration-400 hover:bg-s2 group`}>
                 <div className="font-headline text-7xl text-border mb-5 transition-colors duration-400 group-hover:text-accent leading-none">
                   {step.n}
                 </div>
@@ -127,15 +127,15 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-32 md:py-[140px] px-6 md:px-[52px] max-w-[1380px] mx-auto">
-        <ScrollReveal className="flex items-baseline justify-between border-b border-border pb-7 mb-[60px] rev">
+      <section id="pricing" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
+        <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-muted">
             Investimento
           </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em]">PLANOS</h2>
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">PLANOS</h2>
         </ScrollReveal>
 
-        <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-15" stagger>
+        <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
           {[
             { tag: 'Essencial', name: 'LAUNCH', price: '3.500', feat: ['Landing Page Conversão', 'Design Personalizado', 'Mobile-first', 'SEO On-page', 'Entrega em 10 dias'] },
             { tag: '★ Mais Popular', name: 'GROW', price: '8.500', feat: ['Site Multi-páginas', 'Design Premium', 'CMS Integrado', 'SEO Avançado', 'Core Web Vitals 90+'], highlight: true },
@@ -163,12 +163,12 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section id="cta" className="py-40 px-6 md:px-[52px] text-center relative overflow-hidden">
+      <section id="cta" className="py-40 px-6 md:pl-[180px] md:pr-[80px] text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_50%_50%,rgba(200,255,0,0.045)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="relative z-10">
           <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-7">Pronto para começar?</div>
           <ScrollReveal className="rev">
-            <h2 className="font-headline text-[clamp(52px,9.5vw,136px)] leading-[0.88] mb-11">
+            <h2 className="font-headline text-[clamp(52px,9.5vw,136px)] leading-[0.9] mb-11">
               O MELHOR SITE<br />
               <span className="word-out">DA SUA VIDA.</span>
             </h2>
@@ -185,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border p-13 md:p-[52px] flex flex-col md:flex-row items-center justify-between gap-7 text-center md:text-left">
+      <footer className="border-t border-border p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
         <div className="font-headline text-4xl tracking-[0.18em]">PHANTOM<span className="text-accent">.</span></div>
         <ul className="flex flex-wrap justify-center gap-9 list-none">
           <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-muted uppercase hover:text-accent transition-colors">Sobre</a></li>
