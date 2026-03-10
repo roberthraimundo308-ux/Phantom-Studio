@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -53,7 +52,7 @@ export default function Home() {
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-muted">
             A Diferença
           </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">SITE COMUM VS ARMA</h2>
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">SITE COMUM VS ARMA</h2>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 border border-border rev">
@@ -99,7 +98,7 @@ export default function Home() {
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['05'] before:text-muted">
               Metodologia
             </span>
-            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">PROCESSO</h2>
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">PROCESSO</h2>
           </ScrollReveal>
           
           <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-[1px] bg-border border border-border" stagger>
@@ -132,7 +131,7 @@ export default function Home() {
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-muted">
             Investimento
           </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight">PLANOS</h2>
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">PLANOS</h2>
         </ScrollReveal>
 
         <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
@@ -168,7 +167,7 @@ export default function Home() {
         <div className="relative z-10">
           <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-7">Pronto para começar?</div>
           <ScrollReveal className="rev">
-            <h2 className="font-headline text-[clamp(52px,9.5vw,136px)] leading-[0.9] mb-11">
+            <h2 className="font-headline text-[clamp(52px,9.5vw,136px)] leading-[0.9] mb-11 text-foreground">
               O MELHOR SITE<br />
               <span className="word-out">DA SUA VIDA.</span>
             </h2>
@@ -186,7 +185,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-border p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
-        <div className="font-headline text-4xl tracking-[0.18em]">PHANTOM<span className="text-accent">.</span></div>
+        <div className="font-headline text-4xl tracking-[0.18em] text-foreground">PHANTOM<span className="text-accent">.</span></div>
         <ul className="flex flex-wrap justify-center gap-9 list-none">
           <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-muted uppercase hover:text-accent transition-colors">Sobre</a></li>
           <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-muted uppercase hover:text-accent transition-colors">Portfólio</a></li>

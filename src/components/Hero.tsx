@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -63,7 +62,7 @@ export default function Hero() {
           Estúdio Digital · Experiências que Convertem
         </div>
 
-        <h1 className="font-display text-[clamp(60px,11.5vw,165px)] leading-[1] tracking-[-0.02em]">
+        <h1 className="font-display text-[clamp(60px,11.5vw,165px)] leading-[1] tracking-[-0.02em] text-foreground">
           <span className="block overflow-hidden py-1">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards]">NÃO FAZEMOS</span>
           </span>
