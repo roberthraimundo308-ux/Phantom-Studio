@@ -72,23 +72,18 @@ export default function Services() {
         {/* Container de Cards Empilhados */}
         <div className="relative h-full w-full">
           {SERVICES.map((s, i) => {
-            // Cada card entra em um intervalo de 25% do progresso total
             const start = i * 0.25;
             const end = (i + 1) * 0.25;
             
-            // Cálculo de opacidade e movimento
-            // O card anterior fica fixo ou sobe levemente
-            let translateY = 100; // Começa fora da tela (baixo)
+            let translateY = 100;
             let opacity = 0;
 
             if (scrollProgress >= start) {
-              // Progresso dentro do intervalo deste card (0 a 1)
               const cardProgress = Math.min(1, (scrollProgress - start) / 0.15); 
               translateY = 100 - (cardProgress * 100);
               opacity = cardProgress;
             }
 
-            // Se o próximo card começou, este aqui fica fixo no topo (0)
             if (scrollProgress > end) {
               translateY = 0;
               opacity = 1;
@@ -105,7 +100,7 @@ export default function Services() {
                 style={{ 
                   transform: `translateY(${translateY}%)`,
                   opacity: opacity,
-                  transition: scrollProgress > 0 ? 'none' : 'all 0.5s ease-out' // Suave apenas no início
+                  transition: scrollProgress > 0 ? 'none' : 'all 0.5s ease-out'
                 }}
               >
                 <div className="max-w-[1200px] w-full mt-20">
@@ -131,19 +126,6 @@ export default function Services() {
               </div>
             );
           })}
-        </div>
-
-        {/* Indicador de Progresso Lateral */}
-        <div className="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30">
-          {SERVICES.map((_, i) => (
-            <div 
-              key={i} 
-              className={cn(
-                "w-[2px] h-10 transition-all duration-300",
-                scrollProgress >= (i * 0.25) && scrollProgress < ((i + 1) * 0.25) ? "bg-accent h-16 shadow-[0_0_8px_rgba(200,255,0,0.5)]" : "bg-white/10"
-              )}
-            />
-          ))}
         </div>
       </div>
     </section>
