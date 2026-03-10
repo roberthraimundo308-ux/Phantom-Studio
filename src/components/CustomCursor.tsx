@@ -21,7 +21,6 @@ export default function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      // Correção da variável mousey para mouseY (CamelCase correto)
       dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
     };
 
@@ -38,7 +37,6 @@ export default function CustomCursor() {
     window.addEventListener("mouseover", handleInteraction);
 
     const animate = () => {
-      // Interpolação suave para o anel (ring)
       ringX += (mouseX - ringX) * 0.13;
       ringY += (mouseY - ringY) * 0.13;
       ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;

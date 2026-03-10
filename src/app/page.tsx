@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -22,7 +23,7 @@ export default function Home() {
       {/* Logos Carousel */}
       <LogosCarousel />
 
-      {/* Manifesto Section */}
+      {/* Manifesto Section (01) */}
       <section id="manifesto" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
         <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
           Manifesto
@@ -40,10 +41,10 @@ export default function Home() {
       {/* Numbers Section */}
       <Numbers />
 
-      {/* Services Section */}
+      {/* Services Section (02) */}
       <Services />
 
-      {/* Portfolio Section */}
+      {/* Portfolio Section (03) */}
       <Portfolio />
 
       {/* Comparison Section (04) */}
@@ -92,7 +93,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section (05) */}
       <section id="process" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
@@ -126,7 +127,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section (06) */}
       <section id="pricing" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
         <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-muted">
@@ -185,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
+      <footer className="border-t border-border p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-background">
         <div className="font-headline text-4xl tracking-[0.18em] text-foreground">PHANTOM<span className="text-accent">.</span></div>
         <ul className="flex flex-wrap justify-center gap-9 list-none">
           <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-muted uppercase hover:text-accent transition-colors">Sobre</a></li>
