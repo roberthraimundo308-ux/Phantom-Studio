@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -20,13 +21,13 @@ export default function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      // Atualização imediata do dot (ponto central)
+      // Correção da variável mousey para mouseY (CamelCase correto)
       dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
     };
 
     const handleInteraction = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.closest("a, button")) {
+      if (target.closest("a, button, .cursor-pointer")) {
         setIsGrowing(true);
       } else {
         setIsGrowing(false);
