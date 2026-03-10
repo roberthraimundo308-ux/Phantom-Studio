@@ -10,28 +10,24 @@ const SERVICES = [
     name: "LANDING PAGE",
     desc: "Uma página projetada para converter visitantes em clientes. Design estratégico, copywriting persuasivo e performance que impressiona.",
     pills: ["Design", "Conversão", "SEO", "Performance"],
-    color: "bg-s1"
   },
   {
     num: "02",
     name: "SITE INSTITUCIONAL",
     desc: "A vitrine digital da sua empresa. Multi-páginas, CMS integrado, otimizado para SEO e feito para impressionar em qualquer dispositivo.",
     pills: ["Multi-página", "CMS", "Responsivo"],
-    color: "bg-s2"
   },
   {
     num: "03",
     name: "E-COMMERCE",
     desc: "Lojas que vendem. Experiência de compra fluida, checkout otimizado e design que transmite confiança a cada scroll.",
     pills: ["Shopify", "WooCommerce", "Custom"],
-    color: "bg-s1"
   },
   {
     num: "04",
     name: "REDESIGN ESTRATÉGICO",
     desc: "Seu site não converte? Diagnosticamos os problemas e entregamos uma versão nova — mais rápida, mais bonita, mais eficaz.",
     pills: ["Auditoria UX", "Otimização", "CRO"],
-    color: "bg-s2"
   }
 ];
 
@@ -58,10 +54,10 @@ export default function Services() {
       ref={containerRef}
       className="relative h-[500vh] bg-background"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
         {/* Header Fixo da Seção */}
-        <div className="absolute top-0 left-0 w-full z-20 px-6 md:pl-[180px] md:pr-[80px] pt-20">
-          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 gap-4 bg-background/80 backdrop-blur-sm">
+        <div className="absolute top-0 left-0 w-full z-50 px-6 md:pl-[180px] md:pr-[80px] pt-20">
+          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 gap-4 bg-background/90 backdrop-blur-md">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['02'] before:text-muted">
               O Que Fazemos
             </span>
@@ -69,12 +65,14 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Container de Cards Empilhados */}
+        {/* Container de Conteúdo */}
         <div className="relative h-full w-full">
           {SERVICES.map((s, i) => {
             const start = i * 0.25;
             const end = (i + 1) * 0.25;
             
+            // Lógica de animação: o item sobe e fica fixo.
+            // Para não sobrepor texto sem background, vamos esmaecer o anterior.
             let translateY = 100;
             let opacity = 0;
 
@@ -84,26 +82,25 @@ export default function Services() {
               opacity = cardProgress;
             }
 
-            if (scrollProgress > end) {
+            // Se o próximo começar a subir, este aqui começa a sumir para não embolar o texto
+            const nextStart = (i + 1) * 0.25;
+            if (scrollProgress > nextStart) {
+              const exitProgress = Math.min(1, (scrollProgress - nextStart) / 0.1);
+              opacity = 1 - exitProgress;
               translateY = 0;
-              opacity = 1;
             }
 
             return (
               <div 
                 key={i} 
-                className={cn(
-                  "absolute inset-0 flex items-center justify-center px-6 md:pl-[180px] md:pr-[80px]",
-                  s.color,
-                  i === 0 ? "z-[1]" : `z-[${i + 1}]`
-                )}
+                className="absolute inset-0 flex items-center justify-center px-6 md:pl-[180px] md:pr-[80px] pointer-events-none"
                 style={{ 
-                  transform: `translateY(${translateY}%)`,
+                  transform: `translateY(${translateY}px)`, // Usando px para um movimento mais sutil se preferir, ou %
                   opacity: opacity,
-                  transition: scrollProgress > 0 ? 'none' : 'all 0.5s ease-out'
+                  zIndex: 10 + i
                 }}
               >
-                <div className="max-w-[1200px] w-full mt-20">
+                <div className="max-w-[1200px] w-full mt-24 pointer-events-auto">
                   <div className="flex items-start gap-8 md:gap-14">
                     <span className="font-mono text-xs md:text-sm tracking-[0.22em] text-accent mt-4">{s.num}</span>
                     <div className="flex-1">
