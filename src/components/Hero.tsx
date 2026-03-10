@@ -54,29 +54,29 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-svh flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] pt-[140px] pb-24 overflow-hidden">
+    <section id="hero" className="relative min-h-svh flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] pt-[140px] pb-32 overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
       
       <div className="relative z-10 w-full">
-        <div className="font-mono text-[10px] tracking-[0.32em] text-muted uppercase mb-[40px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 before:content-[''] before:w-7 before:h-[1px] before:bg-muted">
+        <div className="font-mono text-[10px] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 before:content-[''] before:w-7 before:h-[1px] before:bg-muted">
           Estúdio Digital · Experiências que Convertem
         </div>
 
         <h1 className="font-display text-[clamp(60px,11.5vw,165px)] leading-[1] tracking-[-0.02em] text-foreground">
-          <span className="block overflow-hidden py-1">
+          <span className="block overflow-hidden py-1 h-[1.1em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards]">NÃO FAZEMOS</span>
           </span>
-          <span className="block overflow-hidden py-1">
+          <span className="block overflow-hidden py-1 h-[1.1em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_0.08s_cubic-bezier(0.16,1,0.3,1)_forwards] word-out">SITES.</span>
           </span>
-          <span className="block overflow-hidden py-1">
+          <span className="block overflow-hidden py-1 h-[1.1em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_0.16s_cubic-bezier(0.16,1,0.3,1)_forwards]">
               CRIAMOS <span className="word-acc">EXPERIÊNCIAS.</span>
             </span>
           </span>
         </h1>
 
-        <div className="mt-16 flex items-end justify-between flex-wrap gap-10">
+        <div className="mt-20 flex items-end justify-between flex-wrap gap-10">
           <p className="text-[clamp(15px,1.8vw,19px)] font-normal leading-[1.65] text-muted max-w-[480px] animate-[fdUp_0.8s_0.75s_forwards] opacity-0">
             Cada pixel é uma decisão estratégica. Cada animação, uma intenção. O resultado? O melhor site que seus clientes já visitaram na vida.
           </p>

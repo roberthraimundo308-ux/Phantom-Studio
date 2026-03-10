@@ -46,7 +46,7 @@ export default function Home() {
       {/* Portfolio Section */}
       <Portfolio />
 
-      {/* Comparison Section */}
+      {/* Comparison Section (04) */}
       <section id="weapon" className="py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
         <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-muted">
@@ -56,34 +56,35 @@ export default function Home() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 border border-border rev">
-          <div className="p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-border">
+          <div className="p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-border bg-black/10">
             <div className="font-mono text-[9px] tracking-[0.28em] text-muted uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-muted">
               Site Comum
             </div>
-            <ul className="space-y-5 font-mono text-[13px] text-muted list-none">
-              <li className="flex gap-3.5 items-start"><span className="text-red-500">✕</span> Template igual ao do concorrente</li>
-              <li className="flex gap-3.5 items-start"><span className="text-red-500">✕</span> Carregamento lento (PageSpeed &lt; 60)</li>
-              <li className="flex gap-3.5 items-start"><span className="text-red-500">✕</span> Design esquecível, sem identidade</li>
-              <li className="flex gap-3.5 items-start"><span className="text-red-500">✕</span> Nenhuma estratégia de conversão</li>
-              <li className="flex gap-3.5 items-start"><span className="text-red-500">✕</span> Não ranqueia no Google</li>
+            <ul className="space-y-6 font-mono text-[13px] text-muted list-none">
+              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Template genérico e engessado</li>
+              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Carregamento lento (Prejudica o SEO)</li>
+              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Design esquecível, sem identidade</li>
+              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Nenhuma estratégia de conversão</li>
+              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Não ranqueia no Google</li>
             </ul>
-            <div className="mt-10 pt-8 border-t border-border">
+            <div className="mt-12 pt-8 border-t border-border">
               <div className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase mb-2">Custo médio</div>
-              <div className="font-headline text-5xl text-muted">R$ 800</div>
+              <div className="font-headline text-5xl text-muted opacity-40">R$ 800</div>
             </div>
           </div>
-          <div className="p-10 md:p-14 bg-s1 relative overflow-hidden">
+          <div className="p-10 md:p-14 bg-s1 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
             <div className="font-mono text-[9px] tracking-[0.28em] text-accent uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-accent">
               Phantom Studio
             </div>
-            <ul className="space-y-5 font-mono text-[13px] text-foreground list-none">
-              <li className="flex gap-3.5 items-start"><span className="text-accent">✓</span> Design único, 100% personalizado</li>
-              <li className="flex gap-3.5 items-start"><span className="text-accent">✓</span> Performance máxima (Core Vitals 95+)</li>
-              <li className="flex gap-3.5 items-start"><span className="text-accent">✓</span> Identidade visual impactante</li>
-              <li className="flex gap-3.5 items-start"><span className="text-accent">✓</span> CRO integrado em cada decisão</li>
-              <li className="flex gap-3.5 items-start"><span className="text-accent">✓</span> SEO técnico e on-page desde o dia 1</li>
+            <ul className="space-y-6 font-mono text-[13px] text-foreground list-none">
+              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Design único, 100% personalizado</li>
+              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Performance máxima (Core Vitals 95+)</li>
+              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Identidade visual impactante</li>
+              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> CRO integrado em cada decisão</li>
+              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> SEO técnico de elite</li>
             </ul>
-            <div className="mt-10 pt-8 border-t border-border">
+            <div className="mt-12 pt-8 border-t border-border">
               <div className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase mb-2">Investimento</div>
               <div className="font-headline text-5xl text-accent">A partir de R$ 3.500</div>
             </div>

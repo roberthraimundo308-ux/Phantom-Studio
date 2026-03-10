@@ -20,6 +20,7 @@ export default function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
+      // Corrigido: 'mouseY' com Y maiúsculo para seguir o mouse verticalmente
       dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
     };
 
