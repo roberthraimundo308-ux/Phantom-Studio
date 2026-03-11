@@ -43,21 +43,21 @@ function Counter({ target }: { target: number }) {
 
 export default function Numbers() {
   return (
-    <section id="numbers" className="py-20 md:py-[100px] px-6 md:pl-[180px] md:pr-[80px] border-t border-border">
+    <section id="numbers" className="py-20 md:py-[120px] px-6 md:pl-[180px] md:pr-[80px] bg-background">
       <ScrollReveal className="max-w-[1600px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-border border border-border" stagger>
         {DATA.map((item, i) => (
-          <div key={i} className={`rev d${i} bg-background p-10 flex flex-col gap-[10px] transition-colors duration-400 hover:bg-s1`}>
-            <div className="font-headline text-[clamp(44px,5vw,72px)] leading-none text-foreground">
-              {item.prefix && <span className="text-accent">{item.prefix}</span>}
+          <div key={i} className={`rev d${i} bg-background p-10 md:p-14 flex flex-col gap-[15px] transition-colors duration-400 hover:bg-s1`}>
+            <div className="font-headline text-[clamp(54px,6vw,86px)] leading-none text-foreground flex items-baseline">
+              {item.prefix && <span className="text-accent text-[0.45em] mr-1">{item.prefix}</span>}
               <Counter target={item.val} />
               <span className="text-accent">{item.suffix}</span>
             </div>
-            <div className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase">
+            <div className="font-mono text-[10px] tracking-[0.3em] text-muted uppercase">
               {item.label}
             </div>
-            <div className="mt-4 h-[1px] bg-border relative overflow-hidden">
+            <div className="mt-6 h-[2px] bg-border relative overflow-hidden">
               <div 
-                className="absolute inset-y-0 left-0 bg-accent transition-[width] duration-[1.8s] ease-[cubic-bezier(0.16,1,0.3,1)]"
+                className="absolute inset-y-0 left-0 bg-accent transition-[width] duration-[2.2s] ease-[cubic-bezier(0.16,1,0.3,1)]"
                 style={{ width: `${item.width}%` }}
               />
             </div>

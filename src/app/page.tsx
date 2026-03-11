@@ -18,79 +18,89 @@ export default function Home() {
       <SectionProgress />
       <Navbar />
 
-      {/* Hero Section */}
-      <Hero />
+      {/* Hero & Logos - Base do Site */}
+      <div className="relative z-10">
+        <Hero />
+        <LogosCarousel />
+      </div>
 
-      {/* Logos Carousel */}
-      <LogosCarousel />
-
-      {/* Manifesto Section (01) */}
-      <section id="manifesto" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
-        <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
-          Manifesto
+      {/* Manifesto Section (01) - Ficará fixo enquanto os números sobem */}
+      <section id="manifesto" className="sticky top-0 z-10 h-screen flex items-center py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
+        <div className="max-w-[1600px] mx-auto w-full">
+          <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
+            Manifesto
+          </div>
+          <ScrollReveal className="rev">
+            <p className="text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] text-foreground">
+              <span className="text-muted">A maioria das agências cria sites.</span><br />
+              Nós criamos <em className="not-italic text-accent">experiências que ninguém esquece.</em><br />
+              <span className="text-muted">Enquanto seus concorrentes usam templates,</span><br />
+              você terá um site que <em className="not-italic text-accent">é único no mundo.</em>
+            </p>
+          </ScrollReveal>
         </div>
-        <ScrollReveal className="rev">
-          <p className="text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] text-foreground">
-            <span className="text-muted">A maioria das agências cria sites.</span><br />
-            Nós criamos <em className="not-italic text-accent">experiências que ninguém esquece.</em><br />
-            <span className="text-muted">Enquanto seus concorrentes usam templates,</span><br />
-            você terá um site que <em className="not-italic text-accent">é único no mundo.</em>
-          </p>
-        </ScrollReveal>
       </section>
 
-      {/* Numbers Section */}
-      <Numbers />
+      {/* EFEITO CORTINA - A partir daqui tudo sobrepõe */}
 
-      {/* Services Section (02) - Sticky Scroll */}
-      <Services />
+      {/* Numbers Section (Z-20) */}
+      <div className="relative z-20 shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
+        <Numbers />
+      </div>
 
-      {/* Portfolio Section (03) - Curtain Effect */}
-      <div className="relative z-20">
+      {/* Services Section (Z-30) */}
+      <div className="relative z-30 shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
+        <Services />
+      </div>
+
+      {/* Portfolio & AI Assistant (Z-40) */}
+      <div className="relative z-40 shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
         <Portfolio />
         <AIProjectAssistant />
       </div>
 
-      {/* Comparison Section (04) */}
-      <section id="weapon" className="py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
-        <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
-          <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-muted">
-            A Diferença
-          </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">SITE COMUM VS ARMA</h2>
-        </ScrollReveal>
+      {/* Comparison Section (Z-50) */}
+      <section id="weapon" className="relative z-50 py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
+        <div className="max-w-[1600px] mx-auto">
+          <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
+            <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-muted">
+              A Diferença
+            </span>
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">SITE COMUM VS ARMA</h2>
+          </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 border border-border rev">
-          <div className="p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-border bg-black/10">
-            <div className="font-mono text-[9px] tracking-[0.28em] text-muted uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-muted">
-              Site Comum
+          <div className="grid grid-cols-1 lg:grid-cols-2 border border-border rev">
+            <div className="p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-border bg-black/10">
+              <div className="font-mono text-[9px] tracking-[0.28em] text-muted uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-muted">
+                Site Comum
+              </div>
+              <ul className="space-y-6 font-mono text-[13px] text-muted list-none">
+                <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Template genérico e engessado</li>
+                <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Carregamento lento (Prejudica o SEO)</li>
+                <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Design esquecível, sem identidade</li>
+                <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Nenhuma estratégia de conversão</li>
+                <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Não ranqueia no Google</li>
+              </ul>
             </div>
-            <ul className="space-y-6 font-mono text-[13px] text-muted list-none">
-              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Template genérico e engessado</li>
-              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Carregamento lento (Prejudica o SEO)</li>
-              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Design esquecível, sem identidade</li>
-              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Nenhuma estratégia de conversão</li>
-              <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Não ranqueia no Google</li>
-            </ul>
-          </div>
-          <div className="p-10 md:p-14 bg-s1 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-            <div className="font-mono text-[9px] tracking-[0.28em] text-accent uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-accent">
-              Phantom Studio
+            <div className="p-10 md:p-14 bg-s1 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="font-mono text-[9px] tracking-[0.28em] text-accent uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-accent">
+                Phantom Studio
+              </div>
+              <ul className="space-y-6 font-mono text-[13px] text-foreground list-none">
+                <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Design único, 100% personalizado</li>
+                <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Performance máxima (Core Vitals 95+)</li>
+                <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Identidade visual impactante</li>
+                <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> CRO integrado em cada decisão</li>
+                <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> SEO técnico de elite</li>
+              </ul>
             </div>
-            <ul className="space-y-6 font-mono text-[13px] text-foreground list-none">
-              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Design único, 100% personalizado</li>
-              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Performance máxima (Core Vitals 95+)</li>
-              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> Identidade visual impactante</li>
-              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> CRO integrado em cada decisão</li>
-              <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> SEO técnico de elite</li>
-            </ul>
           </div>
         </div>
       </section>
 
-      {/* Process Section (05) */}
-      <section id="process" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
+      {/* Process Section (Z-60) */}
+      <section id="process" className="relative z-[60] py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-s1 shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['05'] before:text-muted">
@@ -123,44 +133,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section (06) */}
-      <section id="pricing" className="py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
-        <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
-          <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-muted">
-            Investimento
-          </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">PLANOS</h2>
-        </ScrollReveal>
+      {/* Pricing Section (Z-70) */}
+      <section id="pricing" className="relative z-[70] py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
+        <div className="max-w-[1600px] mx-auto">
+          <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
+            <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-muted">
+              Investimento
+            </span>
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">PLANOS</h2>
+          </ScrollReveal>
 
-        <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
-          {[
-            { tag: 'Essencial', name: 'LAUNCH', price: '3.500', feat: ['Landing Page Conversão', 'Design Personalizado', 'Mobile-first', 'SEO On-page', 'Entrega em 10 dias'] },
-            { tag: '★ Mais Popular', name: 'GROW', price: '8.500', feat: ['Site Multi-páginas', 'Design Premium', 'CMS Integrado', 'SEO Avançado', 'Core Web Vitals 90+'], highlight: true },
-            { tag: 'Full Experience', name: 'DOMINATE', price: '18K+', feat: ['E-Commerce Completo', 'Animações GSAP', '100/100 PageSpeed', 'Copywriting Profissional', 'Suporte 90 dias'] },
-          ].map((plan, i) => (
-            <div key={i} className={`rev d${i} border border-border p-9 md:p-[44px] bg-s1 transition-all duration-350 hover:-translate-y-1 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-accent bg-s2' : ''}`}>
-              {plan.highlight && <div className="absolute top-0 inset-x-0 h-[1px] bg-accent"></div>}
-              <div className={`font-mono text-[9px] tracking-[0.26em] uppercase mb-2 ${plan.highlight ? 'text-accent' : 'text-muted'}`}>{plan.tag}</div>
-              <div className="font-headline text-4xl tracking-[0.05em] mb-7">{plan.name}</div>
-              <div className="font-headline text-6xl leading-none mb-1.5"><small className="text-lg text-muted align-middle mr-1">R$</small>{plan.price}</div>
-              <div className="font-mono text-[10px] tracking-[0.16em] text-muted mb-9">PAGAMENTO ÚNICO</div>
-              <ul className="list-none flex flex-col gap-3.5 mb-10">
-                {plan.feat.map((f, fIdx) => (
-                  <li key={fIdx} className="font-mono text-[11px] leading-tight text-muted flex gap-3 items-start before:content-['→'] before:text-accent before:shrink-0">
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <button className={`w-full py-4 font-mono text-[11px] tracking-[0.2em] uppercase border border-border transition-all duration-300 ${plan.highlight ? 'bg-accent text-black border-accent' : 'text-foreground hover:border-accent/40 hover:text-accent'}`}>
-                Começar Agora
-              </button>
-            </div>
-          ))}
-        </ScrollReveal>
+          <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
+            {[
+              { tag: 'Essencial', name: 'LAUNCH', price: '3.500', feat: ['Landing Page Conversão', 'Design Personalizado', 'Mobile-first', 'SEO On-page', 'Entrega em 10 dias'] },
+              { tag: '★ Mais Popular', name: 'GROW', price: '8.500', feat: ['Site Multi-páginas', 'Design Premium', 'CMS Integrado', 'SEO Avançado', 'Core Web Vitals 90+'], highlight: true },
+              { tag: 'Full Experience', name: 'DOMINATE', price: '18K+', feat: ['E-Commerce Completo', 'Animações GSAP', '100/100 PageSpeed', 'Copywriting Profissional', 'Suporte 90 dias'] },
+            ].map((plan, i) => (
+              <div key={i} className={`rev d${i} border border-border p-9 md:p-[44px] bg-s1 transition-all duration-350 hover:-translate-y-1 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-accent bg-s2' : ''}`}>
+                {plan.highlight && <div className="absolute top-0 inset-x-0 h-[1px] bg-accent"></div>}
+                <div className={`font-mono text-[9px] tracking-[0.26em] uppercase mb-2 ${plan.highlight ? 'text-accent' : 'text-muted'}`}>{plan.tag}</div>
+                <div className="font-headline text-4xl tracking-[0.05em] mb-7">{plan.name}</div>
+                <div className="font-headline text-6xl leading-none mb-1.5"><small className="text-lg text-muted align-middle mr-1">R$</small>{plan.price}</div>
+                <div className="font-mono text-[10px] tracking-[0.16em] text-muted mb-9">PAGAMENTO ÚNICO</div>
+                <ul className="list-none flex flex-col gap-3.5 mb-10">
+                  {plan.feat.map((f, fIdx) => (
+                    <li key={fIdx} className="font-mono text-[11px] leading-tight text-muted flex gap-3 items-start before:content-['→'] before:text-accent before:shrink-0">
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button className={`w-full py-4 font-mono text-[11px] tracking-[0.2em] uppercase border border-border transition-all duration-300 ${plan.highlight ? 'bg-accent text-black border-accent' : 'text-foreground hover:border-accent/40 hover:text-accent'}`}>
+                  Começar Agora
+                </button>
+              </div>
+            ))}
+          </ScrollReveal>
+        </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="cta" className="py-40 px-6 md:pl-[180px] md:pr-[80px] text-center relative overflow-hidden">
+      {/* CTA Section (Z-80) */}
+      <section id="cta" className="relative z-[80] py-40 px-6 md:pl-[180px] md:pr-[80px] text-center bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_50%_50%,rgba(200,255,0,0.045)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="relative z-10">
           <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-7">Pronto para começar?</div>
@@ -181,8 +193,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-background">
+      {/* Footer (Z-90) */}
+      <footer className="relative z-[90] border-t border-border p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-background">
         <div className="font-headline text-4xl tracking-[0.18em] text-foreground">PHANTOM<span className="text-accent">.</span></div>
         <ul className="flex flex-wrap justify-center gap-9 list-none">
           <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-muted uppercase hover:text-accent transition-colors">Sobre</a></li>
