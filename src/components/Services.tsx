@@ -50,20 +50,28 @@ export default function Services() {
           {SERVICES.map((s, i) => (
             <div
               key={i}
-              className="sticky w-full min-h-[520px] bg-s1 border border-border p-10 md:p-20 flex flex-col lg:flex-row gap-12 overflow-hidden group shadow-[0_-40px_80px_rgba(0,0,0,0.6)]"
+              className="sticky w-full min-h-[520px] bg-s1 border border-border p-10 md:p-20 flex flex-col lg:flex-row gap-12 overflow-hidden group shadow-[0_-40px_80px_rgba(0,0,0,0.8)]"
               style={{ 
                 top: `${100 + i * 40}px`,
-                borderRadius: '24px' // Arredondamento mais contido e moderno
+                borderRadius: '0px'
               }}
             >
+              {/* Indicador de Topo Esquerdo */}
+              <div className="absolute top-8 left-8 flex items-center gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                <div className="w-6 h-6 border border-accent/20 rounded-full flex items-center justify-center">
+                   <div className="w-4 h-4 border border-accent/40 rounded-full"></div>
+                </div>
+              </div>
+
               {/* Conteúdo Principal */}
-              <div className="flex-1 z-10">
+              <div className="flex-1 z-10 pt-8 lg:pt-0">
                 <div className="font-mono text-[11px] text-accent/40 mb-6 tracking-widest uppercase flex items-center gap-3">
                   <span className="w-6 h-[1px] bg-accent/20"></span>
                   Especialidade {s.num}
                 </div>
                 
-                <h3 className="font-headline text-[clamp(34px,4.5vw,64px)] tracking-wider leading-[1] text-foreground mb-8 max-w-[700px]">
+                <h3 className="font-headline text-[clamp(34px,4.5vw,64px)] tracking-wider leading-[1] text-foreground mb-8 max-w-[700px] uppercase">
                   {s.name}
                 </h3>
                 
@@ -71,15 +79,15 @@ export default function Services() {
                   {s.desc}
                 </p>
 
-                <button className="group/btn relative flex items-center gap-5 bg-accent text-black font-mono text-[11px] tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:bg-white overflow-hidden">
+                <button className="group/btn relative flex items-center gap-5 bg-accent text-black font-mono text-[11px] font-bold tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:bg-white">
                   <span className="relative z-10">Saber Mais</span>
                   <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover/btn:translate-x-1" />
                 </button>
 
-                {/* Lista de Features - Padronizada Geometricamente */}
-                <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Lista de Features - Totalmente Retangular */}
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-border/20 border border-border/20">
                   {s.features.map((f, idx) => (
-                    <div key={idx} className="flex items-center gap-4 bg-white/[0.02] p-5 border border-border/40 transition-colors hover:border-accent/20">
+                    <div key={idx} className="flex items-center gap-4 bg-s1 p-5 transition-colors hover:bg-white/[0.02]">
                       <div className="text-accent shrink-0">
                         {React.cloneElement(s.icon as React.ReactElement, { className: "w-4 h-4" })}
                       </div>
@@ -93,7 +101,7 @@ export default function Services() {
 
               {/* Elemento Gráfico Minimalista */}
               <div className="hidden lg:flex flex-1 items-center justify-end relative">
-                <div className="w-[1px] h-full bg-border absolute right-0"></div>
+                <div className="w-[1px] h-full bg-border/20 absolute right-0"></div>
                 <div className="relative z-10 w-48 h-48 border border-accent/10 flex items-center justify-center text-accent/20 group-hover:text-accent/40 transition-colors duration-700">
                   <div className="absolute inset-4 border border-dashed border-accent/5 animate-[spin_20s_linear_infinite]"></div>
                   {React.cloneElement(s.icon as React.ReactElement, { className: "w-16 h-16 stroke-[1px]" })}
