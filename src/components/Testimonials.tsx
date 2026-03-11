@@ -14,7 +14,7 @@ const TESTIMONIALS = [
     avatar: "https://picsum.photos/seed/person1/100/100",
     pos: "top-[15%] left-[5%]",
     color: "bg-accent",
-    speed: 120
+    speed: 150
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const TESTIMONIALS = [
     avatar: "https://picsum.photos/seed/person2/100/100",
     pos: "top-[25%] right-[10%]",
     color: "bg-s2",
-    speed: 80
+    speed: 100
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const TESTIMONIALS = [
     avatar: "https://picsum.photos/seed/person3/100/100",
     pos: "bottom-[25%] left-[12%]",
     color: "bg-accent",
-    speed: 160
+    speed: 200
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const TESTIMONIALS = [
     avatar: "https://picsum.photos/seed/person4/100/100",
     pos: "bottom-[10%] right-[20%]",
     color: "bg-s2",
-    speed: 100
+    speed: 130
   }
 ];
 
@@ -63,13 +63,13 @@ export default function Testimonials() {
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calcula o progresso de entrada e saída da sessão na tela (0 a 1)
+      // Calcula o progresso baseado na visibilidade da sessão na tela
       const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-      setScrollProgress(Math.max(0, Math.min(1, progress)));
+      setScrollProgress(progress);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Inicializa o valor
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -78,48 +78,48 @@ export default function Testimonials() {
     <section 
       ref={sectionRef}
       id="testimonials" 
-      className="relative h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
+      className="relative min-h-screen flex flex-col py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
     >
-      <div className="max-w-[1600px] mx-auto w-full h-full relative">
+      <div className="max-w-[1600px] mx-auto w-full relative z-10">
         
-        {/* Título da Sessão - Alinhado Horizontalmente */}
-        <div className="absolute top-0 left-0 z-10 pointer-events-none flex flex-col md:flex-row md:items-baseline gap-6">
-          <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase flex items-center gap-3 before:content-[''] before:w-5 before:h-[1px] before:bg-accent/30 shrink-0">
+        {/* Título Padronizado com Serviços */}
+        <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-white/10 pb-7 mb-20 gap-4">
+          <span className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase flex items-center gap-3 before:content-[''] before:w-5 before:h-[1px] before:bg-accent/30">
             Reconhecimento
-          </div>
-          <h2 className="font-headline text-[clamp(44px,6vw,84px)] tracking-tight leading-none text-foreground uppercase">
-            O QUE DIZEM<br />
-            <span className="word-out text-white/10">SOBRE NÓS</span>
+          </span>
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase text-right">
+            O QUE DIZEM <span className="word-out text-white/10">SOBRE NÓS</span>
           </h2>
         </div>
 
-        {/* Layout de Balões Flutuantes com Efeito de Scroll (Parallax) */}
-        <div className="relative w-full h-full pt-40 md:pt-0">
+        {/* Layout de Balões Flutuantes */}
+        <div className="relative w-full min-h-[600px] pointer-events-none">
           {TESTIMONIALS.map((t) => (
             <div
               key={t.id}
-              className={`absolute ${t.pos} z-20 group transition-all duration-300`}
+              className={`absolute ${t.pos} z-20 group pointer-events-auto`}
               onMouseEnter={() => setHoveredId(t.id)}
               onMouseLeave={() => setHoveredId(null)}
               style={{
-                transform: `translateY(${(0.5 - scrollProgress) * t.speed}px)`
+                transform: `translateY(${(0.5 - scrollProgress) * t.speed}px)`,
+                willChange: "transform"
               }}
             >
-              {/* Balão de Texto - Formas Retangulares Puras */}
-              <div className={`relative p-6 md:p-8 max-w-[320px] md:max-w-[420px] shadow-2xl transition-all duration-500 cursor-none border-0 ${
+              {/* Balão de Texto */}
+              <div className={`relative p-6 md:p-8 max-w-[320px] md:max-w-[420px] shadow-2xl transition-transform duration-500 cursor-none border-0 ${
                 t.color === 'bg-accent' ? 'bg-accent text-black' : 'bg-s1 text-white border border-white/10'
               } ${hoveredId === t.id ? 'scale-105' : 'scale-100'}`}>
                 <p className="font-mono text-[12px] md:text-[14px] leading-relaxed tracking-tight">
                   "{t.text}"
                 </p>
                 
-                {/* Cauda do balão - Triângulo retangular para baixo */}
+                {/* Cauda do balão */}
                 <div className={`absolute bottom-[-10px] left-8 w-5 h-5 rotate-45 ${
                   t.color === 'bg-accent' ? 'bg-accent' : 'bg-s1 border-r border-b border-white/10'
                 }`} />
               </div>
 
-              {/* Card de Autor (Aparece no Hover) - Cantos Retos */}
+              {/* Card de Autor */}
               <div className={`absolute top-full mt-6 left-0 flex items-center gap-4 bg-s2 p-4 border border-white/5 transition-all duration-500 pointer-events-none ${
                 hoveredId === t.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
@@ -141,7 +141,7 @@ export default function Testimonials() {
         </div>
 
         {/* Elemento Decorativo Central */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none z-0">
           <div className="font-headline text-[25vw] leading-none text-white word-out">
             PHANTOM
           </div>
