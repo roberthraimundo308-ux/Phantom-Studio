@@ -18,12 +18,12 @@ export default function Home() {
       <SectionProgress />
       <Navbar />
 
-      {/* Grupo Inicial: Hero, Logos, Manifesto e Números rolam juntos */}
+      {/* Bloco Inicial */}
       <div className="relative z-10">
         <Hero />
         <LogosCarousel />
         
-        {/* Manifesto Section (01) - Agora rola normalmente */}
+        {/* Manifesto Section */}
         <section id="manifesto" className="relative h-screen flex items-center py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto w-full">
             <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
@@ -39,26 +39,26 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </section>
+      </div>
 
-        {/* Numbers Section - Rola junto com o manifesto */}
+      {/* Seção de Números - Fixa para ser sobreposta */}
+      <div className="sticky top-0 z-10">
         <Numbers />
       </div>
 
-      {/* EFEITO CORTINA INICIA AQUI (Z-20+) */}
-
-      {/* Services Section (Z-20) - Começa a sobrepor o bloco anterior */}
-      <div className="relative z-20 shadow-[0_-50px_100px_rgba(0,0,0,0.6)]">
+      {/* Serviços - Inicia a sobreposição (Efeito Cortina) */}
+      <div className="relative z-20 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <Services />
       </div>
 
-      {/* Portfolio & AI Assistant (Z-30) */}
-      <div className="relative z-30 shadow-[0_-50px_100px_rgba(0,0,0,0.6)]">
+      {/* Portfólio - Sobrepõe Serviços */}
+      <div className="relative z-30 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <Portfolio />
         <AIProjectAssistant />
       </div>
 
-      {/* Comparison Section (Z-40) */}
-      <section id="weapon" className="relative z-40 py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.6)]">
+      {/* Comparação - Sobrepõe Portfólio */}
+      <section id="weapon" className="relative z-40 py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-muted">
@@ -97,8 +97,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section (Z-50) */}
-      <section id="process" className="relative z-50 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-s1 shadow-[0_-50px_100px_rgba(0,0,0,0.6)]">
+      {/* Processo - Sobrepõe Comparação */}
+      <section id="process" className="relative z-50 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-s1 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['05'] before:text-muted">
@@ -131,8 +131,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Section (Z-60) */}
-      <section id="pricing" className="relative z-60 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.6)]">
+      {/* Preços - Sobrepõe Processo */}
+      <section id="pricing" className="relative z-60 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-muted">
@@ -169,8 +169,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section (Z-70) */}
-      <section id="cta" className="relative z-70 py-40 px-6 md:pl-[180px] md:pr-[80px] text-center bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.6)]">
+      {/* CTA Section - Sobrepõe Preços */}
+      <section id="cta" className="relative z-70 py-40 px-6 md:pl-[180px] md:pr-[80px] text-center bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_50%_50%,rgba(200,255,0,0.045)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="relative z-10">
           <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-7">Pronto para começar?</div>
@@ -191,7 +191,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer (Normal Flow) */}
+      {/* Footer */}
       <footer className="relative z-80 border-t border-border p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-background">
         <div className="font-headline text-4xl tracking-[0.18em] text-foreground">PHANTOM<span className="text-accent">.</span></div>
         <ul className="flex flex-wrap justify-center gap-9 list-none">
