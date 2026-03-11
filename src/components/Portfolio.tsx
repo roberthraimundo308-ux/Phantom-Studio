@@ -50,7 +50,7 @@ export default function Portfolio() {
             Trabalhos
           </span>
           <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505]">
-            CONHEÇA O IMPACTO DA NOSSA EXPERTISE
+            NOSSAS CRIAÇÕES
           </h2>
         </ScrollReveal>
 
