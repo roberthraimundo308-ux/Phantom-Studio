@@ -10,6 +10,7 @@ import Numbers from "@/components/Numbers";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import AIProjectAssistant from "@/components/AIProjectAssistant";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -51,7 +52,12 @@ export default function Home() {
         <Services />
       </div>
 
-      {/* Portfólio - Inicia a transição para o branco (Desliza sobre Serviços) */}
+      {/* Depoimentos - Sobrepõe Serviços (Mantém Tema Escuro) */}
+      <div className="relative z-25 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
+        <Testimonials />
+      </div>
+
+      {/* Portfólio - Inicia a transição para o branco (Desliza sobre Depoimentos) */}
       <div className="relative z-30 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <Portfolio />
         <AIProjectAssistant />
