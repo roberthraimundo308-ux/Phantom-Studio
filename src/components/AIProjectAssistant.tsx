@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -33,30 +34,30 @@ export default function AIProjectAssistant() {
   };
 
   return (
-    <section className="py-20 px-6 md:px-[52px] bg-s1 border-y border-border">
-      <div className="max-w-[1000px] mx-auto">
-        <div className="flex flex-col md:flex-row gap-12">
+    <section className="py-24 px-6 md:px-[180px] bg-[#EDE8DE] text-[#050505] border-t border-black/5">
+      <div className="max-w-[1600px] mx-auto">
+        <div className="flex flex-col md:flex-row gap-20">
           <div className="flex-1">
-            <h3 className="font-headline text-4xl mb-4 flex items-center gap-3">
-              <Sparkles className="text-accent w-6 h-6" />
+            <h3 className="font-headline text-5xl mb-6 flex items-center gap-4">
+              <Sparkles className="text-[#050505] w-8 h-8" />
               AI ASSISTANT
             </h3>
-            <p className="font-mono text-xs text-muted mb-8 tracking-wider">
-              FERRAMENTA PARA GERAÇÃO DE CASE STUDIES E DESCRIÇÕES CRIATIVAS.
+            <p className="font-mono text-[11px] text-black/50 mb-12 tracking-[0.2em] uppercase leading-relaxed">
+              FERRAMENTA EXCLUSIVA PARA GERAÇÃO DE CASE STUDIES E DESCRIÇÕES CRIATIVAS DE PROJETOS.
             </p>
             
-            <form onSubmit={handleGenerate} className="flex flex-col gap-4">
+            <form onSubmit={handleGenerate} className="flex flex-col gap-5">
               <input
                 required
                 placeholder="NOME DO PROJETO"
-                className="bg-transparent border border-white/10 p-4 font-mono text-[10px] tracking-widest text-foreground focus:border-accent outline-none"
+                className="bg-transparent border border-black/10 p-5 font-mono text-[10px] tracking-widest text-[#050505] focus:border-black outline-none placeholder:text-black/20"
                 value={formData.projectName}
                 onChange={e => setOutputFormData({...formData, projectName: e.target.value})}
               />
               <input
                 required
                 placeholder="CLIENTE"
-                className="bg-transparent border border-white/10 p-4 font-mono text-[10px] tracking-widest text-foreground focus:border-accent outline-none"
+                className="bg-transparent border border-black/10 p-5 font-mono text-[10px] tracking-widest text-[#050505] focus:border-black outline-none placeholder:text-black/20"
                 value={formData.client}
                 onChange={e => setOutputFormData({...formData, client: e.target.value})}
               />
@@ -64,34 +65,34 @@ export default function AIProjectAssistant() {
                 required
                 rows={4}
                 placeholder="BREVE DESCRIÇÃO OU OBJETIVO DO PROJETO..."
-                className="bg-transparent border border-white/10 p-4 font-mono text-[10px] tracking-widest text-foreground focus:border-accent outline-none resize-none"
+                className="bg-transparent border border-black/10 p-5 font-mono text-[10px] tracking-widest text-[#050505] focus:border-black outline-none resize-none placeholder:text-black/20"
                 value={formData.brief}
                 onChange={e => setOutputFormData({...formData, brief: e.target.value})}
               />
               <button 
                 disabled={loading}
-                className="bg-accent text-black font-mono text-[10px] tracking-[0.2em] uppercase py-4 flex items-center justify-center gap-3 hover:bg-white transition-colors"
+                className="bg-[#050505] text-white font-mono text-[10px] tracking-[0.2em] uppercase py-5 flex items-center justify-center gap-3 hover:bg-black/80 transition-all"
               >
                 {loading ? <Loader2 className="animate-spin w-4 h-4" /> : <Send className="w-4 h-4" />}
-                GERAR DESCRIÇÃO
+                GERAR CASE STUDY
               </button>
             </form>
           </div>
 
           <div className="flex-1 flex flex-col">
-            <div className="flex-1 border border-white/10 p-6 font-mono text-[11px] leading-relaxed text-muted min-h-[300px] bg-black/30 relative">
+            <div className="flex-1 border border-black/10 p-10 font-mono text-[12px] leading-[1.8] text-black/70 min-h-[400px] bg-white/40 relative backdrop-blur-sm">
               {output ? (
-                <div className="animate-in fade-in duration-700">{output}</div>
+                <div className="animate-in fade-in slide-in-from-bottom-2 duration-700">{output}</div>
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-white/5 uppercase tracking-[0.3em] font-headline text-2xl">
-                  Aguardando Input...
+                <div className="absolute inset-0 flex items-center justify-center text-black/5 uppercase tracking-[0.4em] font-headline text-3xl text-center px-10">
+                  Aguardando Briefing...
                 </div>
               )}
             </div>
             {output && (
               <button 
-                onClick={() => { navigator.clipboard.writeText(output); alert("Copiado!"); }}
-                className="mt-4 self-end font-mono text-[9px] text-accent tracking-widest"
+                onClick={() => { navigator.clipboard.writeText(output); }}
+                className="mt-6 self-end font-mono text-[10px] text-black/40 tracking-widest hover:text-black transition-colors"
               >
                 [ COPIAR TEXTO ]
               </button>

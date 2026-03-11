@@ -9,6 +9,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Numbers from "@/components/Numbers";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
+import AIProjectAssistant from "@/components/AIProjectAssistant";
 
 export default function Home() {
   return (
@@ -41,11 +42,14 @@ export default function Home() {
       {/* Numbers Section */}
       <Numbers />
 
-      {/* Services Section (02) */}
+      {/* Services Section (02) - Sticky Scroll */}
       <Services />
 
-      {/* Portfolio Section (03) */}
-      <Portfolio />
+      {/* Portfolio Section (03) - Curtain Effect */}
+      <div className="relative z-20">
+        <Portfolio />
+        <AIProjectAssistant />
+      </div>
 
       {/* Comparison Section (04) */}
       <section id="weapon" className="py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] max-w-[1600px] mx-auto">
@@ -68,10 +72,6 @@ export default function Home() {
               <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Nenhuma estratégia de conversão</li>
               <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Não ranqueia no Google</li>
             </ul>
-            <div className="mt-12 pt-8 border-t border-border">
-              <div className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase mb-2">Custo médio</div>
-              <div className="font-headline text-5xl text-muted opacity-40">R$ 800</div>
-            </div>
           </div>
           <div className="p-10 md:p-14 bg-s1 relative overflow-hidden group">
             <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
@@ -85,10 +85,6 @@ export default function Home() {
               <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> CRO integrado em cada decisão</li>
               <li className="flex gap-4 items-start"><span className="text-accent font-bold">✓</span> SEO técnico de elite</li>
             </ul>
-            <div className="mt-12 pt-8 border-t border-border">
-              <div className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase mb-2">Investimento</div>
-              <div className="font-headline text-5xl text-accent">A partir de R$ 3.500</div>
-            </div>
           </div>
         </div>
       </section>
