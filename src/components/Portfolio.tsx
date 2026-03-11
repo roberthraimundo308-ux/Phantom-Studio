@@ -7,7 +7,6 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scrollableRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -16,7 +15,8 @@ export default function Portfolio() {
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calculate progress (0 to 1) within the section height (500vh to give space for zoom + internal scroll)
+      // Calculamos o progresso baseado na altura total da sessão (300vh)
+      // O zoom ocorre nos primeiros 60% do scroll da sessão
       const totalHeight = rect.height;
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
@@ -26,76 +26,101 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scale: starts smaller (fiel à imagem) and goes to full screen
-  // progress 0 -> 0.6 (zoom phase), 0.6 -> 1.0 (internal content focus or transition)
-  const zoomLimit = 0.75;
+  // Fases do Scroll:
+  // 0.0 -> 0.7: Zoom do card
+  // 0.7 -> 1.0: Scroll interno ou visualização estática antes de liberar a página
+  const zoomLimit = 0.7;
   const zoomProgress = Math.min(scrollProgress / zoomLimit, 1);
-  const scale = 0.65 + zoomProgress * 1.5; // Base 65% width to ~160% (full fill)
-  const opacity = 1 - zoomProgress * 1.5; // UI fades out quickly
   
-  // Internal content scroll simulation based on scroll progress
-  const internalScrollY = scrollProgress > 0.4 ? (scrollProgress - 0.4) * 800 : 0;
+  // Scale inicia em 0.7 (conforme imagem anterior) e vai até 1.0 (preencher tela)
+  const scale = 0.7 + (zoomProgress * 0.3);
+  const uiOpacity = 1 - (zoomProgress * 2); // UI labels desaparecem conforme o zoom completa
+  
+  // Scroll interno dos projetos (ativado após o zoom)
+  const internalScrollY = scrollProgress > zoomLimit ? (scrollProgress - zoomLimit) * 1200 : 0;
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[500vh] bg-background"
+      className="relative h-[400vh] bg-background"
     >
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         
-        {/* UI Labels - Fiel à referência */}
+        {/* UI Labels - Estilo Fiel à Referência */}
         <div 
           className="absolute inset-0 z-20 pointer-events-none p-10 md:p-[60px]"
-          style={{ opacity: Math.max(0, opacity) }}
+          style={{ opacity: Math.max(0, uiOpacity) }}
         >
-          {/* Top Header Labels */}
+          {/* Top Bar */}
           <div className="flex items-start justify-between w-full">
-            <div className="font-mono text-[10px] tracking-[0.4em] text-accent uppercase flex items-center gap-3">
-              <span className="text-white/20">◆</span> TRABALHOS
+            <div className="flex flex-col gap-1">
+              <div className="font-mono text-[11px] tracking-[0.25em] text-foreground uppercase flex items-center gap-2">
+                PHANTOM<span className="text-accent">.</span>
+              </div>
+              <div className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase opacity-60">
+                — TRABALHOS
+              </div>
             </div>
-            <div className="font-headline text-[22px] tracking-[0.2em] text-foreground uppercase">
-              NOSSAS CRIAÇÕES
+            
+            <div className="flex flex-col items-end gap-2">
+              <div className="px-5 py-2.5 border border-white/10 bg-white/5 backdrop-blur-sm font-mono text-[9px] tracking-[0.2em] text-white uppercase">
+                INICIAR PROJETO →
+              </div>
+              <div className="font-headline text-[18px] tracking-[0.2em] text-white/20 uppercase">
+                NOSSAS CRIAÇÕES
+              </div>
             </div>
           </div>
 
-          {/* Left Large Text */}
-          <div className="absolute left-10 md:left-[60px] top-1/2 -translate-y-1/2 max-w-[400px]">
-            <h2 className="font-display text-[clamp(60px,8vw,120px)] font-bold leading-[0.85] text-white tracking-tighter">
-              PHANTOM<span className="text-accent">.</span>
+          {/* Large Background Text */}
+          <div className="absolute left-10 md:left-[60px] top-1/2 -translate-y-1/2 select-none">
+            <h2 className="font-display text-[clamp(80px,12vw,180px)] font-bold leading-none text-white/5 tracking-tighter uppercase">
+              PHANTOM
             </h2>
           </div>
         </div>
 
-        {/* Central Card (The "Forma") */}
+        {/* Central Card (A "Arma") */}
         <div 
-          className="relative z-10 flex items-center justify-center will-change-transform"
+          className="relative z-10 flex items-center justify-center will-change-transform shadow-[0_0_100px_rgba(0,0,0,0.5)]"
           style={{ 
-            width: '80vw',
-            aspectRatio: '16/9',
+            width: '100vw',
+            height: '100vh',
             transform: `scale(${scale})`,
+            borderRadius: '0px'
           }}
         >
-           <div className="absolute inset-0 overflow-hidden bg-s1 border-0 border-white/5">
+           <div className="absolute inset-0 overflow-hidden bg-s1">
               {/* Internal Scrollable Content */}
               <div 
-                ref={scrollableRef}
-                className="w-full transition-transform duration-100 ease-out"
+                className="w-full h-full transition-transform duration-100 ease-out"
                 style={{ transform: `translateY(-${internalScrollY}px)` }}
               >
-                {/* List of Portfolio Works inside the frame */}
                 {PlaceHolderImages.map((img, i) => (
-                  <div key={img.id} className="relative w-full aspect-video border-b border-background">
+                  <div key={img.id} className="relative w-full h-screen">
                     <Image 
                       src={img.imageUrl} 
                       alt={img.description} 
                       fill 
-                      className="object-cover opacity-80"
+                      className="object-cover opacity-90"
                       priority={i === 0}
+                      sizes="100vw"
                     />
-                    <div className="absolute bottom-10 left-10 z-10">
-                       <div className="font-mono text-[8px] tracking-[0.3em] text-accent mb-2 uppercase">PROJETO {i + 1}</div>
-                       <div className="font-headline text-4xl text-white tracking-wider">{img.description.split(' ')[0]}</div>
+                    
+                    {/* Project Label - Bottom Left (conforme imagem) */}
+                    <div className="absolute bottom-12 left-12 z-10">
+                       <div className="font-mono text-[9px] tracking-[0.4em] text-accent mb-3 uppercase flex items-center gap-3">
+                         <span className="w-8 h-[1px] bg-accent/30"></span> PROJETO {i + 1}
+                       </div>
+                       <div className="flex items-center gap-4">
+                          <div className="w-10 h-10 border border-white/20 flex items-center justify-center font-mono text-xs text-white">
+                            N
+                          </div>
+                          <h3 className="font-headline text-6xl text-white tracking-[0.1em] uppercase">
+                            {img.description.split(' ')[0]}
+                          </h3>
+                       </div>
                     </div>
                   </div>
                 ))}
@@ -108,7 +133,7 @@ export default function Portfolio() {
           className="absolute inset-0 z-40 pointer-events-none"
           style={{ 
             backgroundColor: '#EDE8DE',
-            opacity: Math.max(0, (scrollProgress - 0.92) * 12) 
+            opacity: Math.max(0, (scrollProgress - 0.95) * 20) 
           }}
         />
       </div>
