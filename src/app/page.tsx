@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -10,7 +9,6 @@ import Numbers from "@/components/Numbers";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import AIProjectAssistant from "@/components/AIProjectAssistant";
-import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -42,7 +40,7 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Efeito Cortina: A partir de agora, cada sessão empilha sobre a anterior */}
+      {/* Efeito Cortina: Seções fixas e sobrepostas */}
       
       {/* Seção de Números - Fixa para ser sobreposta */}
       <div className="sticky top-0 z-10 h-screen overflow-hidden">
@@ -54,19 +52,14 @@ export default function Home() {
         <Services />
       </div>
 
-      {/* Depoimentos - Sobrepõe Serviços */}
-      <div className="relative z-30 bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.9)]">
-        <Testimonials />
-      </div>
-
-      {/* Portfólio - Inicia a transição para o branco (Desliza sobre Depoimentos) */}
-      <div className="relative z-40 bg-[#EDE8DE] text-[#050505] shadow-[0_-50px_100px_rgba(0,0,0,0.2)]">
+      {/* Portfólio - Sobrepõe Serviços e Inicia a transição para o claro */}
+      <div className="relative z-30 bg-[#EDE8DE] text-[#050505] shadow-[0_-50px_100px_rgba(0,0,0,0.3)]">
         <Portfolio />
         <AIProjectAssistant />
       </div>
 
       {/* Comparação - Tema Claro */}
-      <section id="weapon" className="relative z-50 py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE] text-[#050505]">
+      <section id="weapon" className="relative z-40 py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE] text-[#050505]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['04'] before:text-black/20">
@@ -106,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* Processo - Tema Claro */}
-      <section id="process" className="relative z-60 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-white">
+      <section id="process" className="relative z-50 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-white">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/5 pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['05'] before:text-black/20">
@@ -140,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* Preços - Tema Claro */}
-      <section id="pricing" className="relative z-70 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE]">
+      <section id="pricing" className="relative z-60 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
@@ -178,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section id="cta" className="relative z-80 py-40 px-6 md:pl-[180px] md:pr-[80px] text-center bg-[#EDE8DE]">
+      <section id="cta" className="relative z-70 py-40 px-6 md:pl-[180px] md:pr-[80px] text-center bg-[#EDE8DE]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_50%_50%,rgba(0,0,0,0.02)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="relative z-10">
           <div className="font-mono text-[10px] tracking-[0.32em] text-black/40 uppercase mb-7">Pronto para começar?</div>
@@ -200,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-90 border-t border-black/5 p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-[#EDE8DE]">
+      <footer className="relative z-80 border-t border-black/5 p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-[#EDE8DE]">
         <div className="font-headline text-4xl tracking-[0.18em] text-black">PHANTOM<span className="text-accent">.</span></div>
         <ul className="flex flex-wrap justify-center gap-9 list-none">
           <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-black/40 uppercase hover:text-black transition-colors">Sobre</a></li>
