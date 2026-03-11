@@ -1,125 +1,130 @@
 
 "use client";
 
-import React, { useState } from "react";
-import ScrollReveal from "./ScrollReveal";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-
-const PROJECTS = [
-  {
-    id: 0,
-    tag: "Moda · Itália",
-    title: "ADOVASIO",
-    desc: "Experiência editorial para marca de moda italiana.",
-    url: "adovasio.it",
-    image: PlaceHolderImages.find(img => img.id === 'adovasio-bg')?.imageUrl || "https://picsum.photos/seed/fashion1/820/490",
-    mockup: "adovasio"
-  },
-  {
-    id: 1,
-    tag: "Agência · Digital",
-    title: "REFRACT WEB",
-    desc: "Identidade digital para agência criativa global.",
-    url: "refractweb.com",
-    image: PlaceHolderImages.find(img => img.id === 'refract-bg')?.imageUrl || "https://picsum.photos/seed/tech1/820/490",
-    mockup: "refract"
-  },
-  {
-    id: 2,
-    tag: "Gastronomia · 1978",
-    title: "LA PANUOZZERIA",
-    desc: "Site imersivo para restaurante histórico napolitano.",
-    url: "lapanuozzeria1978.it",
-    image: PlaceHolderImages.find(img => img.id === 'panuozzeria-bg')?.imageUrl || "https://picsum.photos/seed/food1/820/490",
-    mockup: "panuozzeria"
-  }
-];
+import { ArrowRight } from "lucide-react";
 
 export default function Portfolio() {
-  const [active, setActive] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calcula o progresso (0 a 1) dentro da altura da seção (400vh)
+      const totalHeight = rect.height;
+      const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // O scale aumenta de 1 até cobrir a tela (aprox 2.5 dependendo da proporção)
+  const scale = 1 + scrollProgress * 2.2;
+  const opacity = 1 - Math.pow(scrollProgress, 1.5) * 1.2; // Elementos da interface somem conforme expande
+  const borderRadius = Math.max(0, (1 - scrollProgress * 1.5) * 2); // Bordas ficam retas no final
 
   return (
     <section 
+      ref={containerRef}
       id="portfolio" 
-      className="relative px-6 md:pl-[180px] md:pr-[80px] py-[140px] bg-[#EDE8DE] text-[#050505] z-10 shadow-[0_-50px_100px_rgba(0,0,0,0.5)]"
+      className="relative h-[400vh] bg-background"
     >
-      <div className="max-w-[1600px] mx-auto">
-        <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
-          <span className="font-mono text-[10px] tracking-[0.3em] text-[#050505] uppercase flex items-center gap-3 before:content-['03'] before:text-black/30">
-            Trabalhos
-          </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505]">
-            NOSSAS CRIAÇÕES
-          </h2>
-        </ScrollReveal>
-
-        <div className="flex flex-col items-center gap-4">
-          {PROJECTS.map((p, i) => (
-            <div
-              key={p.id}
-              onMouseEnter={() => setActive(i)}
-              className={`relative overflow-hidden cursor-none border border-black/5 transition-all duration-750 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-                active === i ? "w-full md:w-[820px] h-[360px] md:h-[490px] z-[5]" : "w-[220px] h-[220px] z-[1]"
-              }`}
-            >
-              <div className="absolute inset-0 transition-opacity duration-500 opacity-100 bg-black">
-                 <Image 
-                  src={p.image} 
-                  alt={p.title} 
-                  fill 
-                  className={`object-cover transition-transform duration-1000 ${active === i ? 'scale-110 opacity-60' : 'scale-100 opacity-30'}`}
-                />
-              </div>
-              
-              <div className={`absolute inset-0 flex flex-col transition-all duration-650 ease-[cubic-bezier(0.16,1,0.3,1)] ${active === i ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-                <div className="h-8 bg-black/95 border-b border-white/5 flex items-center px-3 gap-1.5 shrink-0">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
-                  <div className="flex-1 h-4 bg-white/5 rounded-[3px] mx-2 px-2 flex items-center font-mono text-[8px] tracking-[0.06em] text-white/25">
-                    {p.url}
-                  </div>
-                </div>
-                <div className="flex-1 overflow-y-auto bg-black scrollbar-hide relative">
-                   <Image 
-                    src={p.image} 
-                    alt={p.title} 
-                    fill 
-                    className="object-cover opacity-80"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center text-white/10 font-display text-4xl">
-                    {p.title}
-                  </div>
-                </div>
-              </div>
-
-              <div className={`absolute inset-0 flex flex-col items-center justify-center gap-[10px] z-[3] transition-opacity duration-300 ${active === i ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                <span className="font-mono text-[9px] tracking-[0.26em] text-white/30">0{i+1}</span>
-                <span className="font-headline text-xl tracking-[0.08em] text-white/55">{p.title}</span>
-                <span className="font-mono text-[9px] tracking-[0.2em] text-white/20 uppercase">{p.tag.split(' · ')[0]}</span>
-              </div>
-
-              <div className={`absolute bottom-0 left-0 right-0 p-5 md:p-6 bg-gradient-to-t from-black/85 to-transparent flex items-end justify-between z-[4] transition-all duration-400 ${active === i ? 'opacity-100 translate-y-0 delay-300' : 'opacity-0 translate-y-2'}`}>
-                <div>
-                  <div className="font-mono text-[9px] tracking-[0.24em] text-accent uppercase mb-1">{p.tag}</div>
-                  <div className="font-headline text-[26px] tracking-[0.04em] text-white">{p.title}</div>
-                  <div className="font-mono text-[10px] leading-[1.7] text-white/50 max-w-[280px]">{p.desc}</div>
-                </div>
-                <a href={`https://${p.url}`} target="_blank" className="font-mono text-[9px] tracking-[0.2em] uppercase text-accent no-underline border-b border-accent/30 pb-1 hover:border-accent whitespace-nowrap pointer-events-auto">
-                  Ver Site →
-                </a>
-              </div>
-            </div>
-          ))}
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+        
+        {/* Header da Seção (Estilo Showroom) */}
+        <div 
+          className="absolute top-10 left-10 md:left-20 z-20 flex items-center gap-3 font-mono text-[10px] tracking-[0.32em] text-white/40 uppercase pointer-events-none"
+          style={{ opacity }}
+        >
+          <span className="text-accent">◆</span> Showroom · Nossas Criações
         </div>
 
-        <ScrollReveal className="mt-12 w-full flex items-center justify-between rev">
-          <span className="font-mono text-[10px] tracking-[0.2em] text-black/40 uppercase">3 de 47 projetos exibidos</span>
-          <button className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#050505] no-underline border border-black/10 px-5 py-2.5 transition-all duration-300 hover:border-black/30 pointer-events-auto">
-            Ver Todos →
-          </button>
-        </ScrollReveal>
+        {/* Floating Navigation (Barra inferior da referência) */}
+        <div 
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-12 bg-black/80 backdrop-blur-xl px-12 py-5 border border-white/5 pointer-events-none"
+          style={{ opacity: Math.max(0, opacity) }}
+        >
+          <div className="w-5 h-5 border border-white/40 rounded-[2px] flex items-center justify-center">
+            <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+          </div>
+          <span className="font-mono text-[9px] tracking-[0.4em] text-white uppercase">Home</span>
+          <div className="flex flex-col gap-1.5 w-6">
+            <div className="h-[1px] bg-white/60"></div>
+            <div className="h-[1px] bg-white/30 w-2/3 ml-auto"></div>
+          </div>
+        </div>
+
+        {/* Textos Laterais */}
+        <div 
+          className="absolute inset-0 z-20 pointer-events-none flex flex-col md:flex-row items-center justify-between px-10 md:px-20 py-20"
+          style={{ opacity }}
+        >
+          <div className="max-w-[440px] mt-20 md:mt-0">
+            <h2 className="font-ui text-[clamp(32px,4.5vw,60px)] font-bold leading-[1.1] text-white tracking-tight">
+              Onde precisão e <br /> 
+              <span className="text-white/20 italic font-normal">criatividade se conectam.</span>
+            </h2>
+          </div>
+
+          <div className="flex flex-col items-end gap-10 text-right mb-20 md:mb-0">
+             <div className="space-y-2">
+                <div className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase">Localização</div>
+                <div className="font-mono text-[11px] text-white/40 max-w-[220px] leading-relaxed uppercase">
+                  Orbital 25 Business Park, Unit 11 Watford WD18 9DA, UK
+                </div>
+             </div>
+             <button className="flex items-center gap-4 bg-white/5 backdrop-blur-md border border-white/10 px-8 py-4 font-mono text-[10px] tracking-[0.3em] text-white uppercase hover:bg-accent hover:text-black transition-all duration-500 pointer-events-auto">
+                <ArrowRight className="w-4 h-4 rotate-45" /> Showroom
+             </button>
+          </div>
+        </div>
+
+        {/* Janela de Mídia Central que Expande */}
+        <div 
+          className="relative z-10 flex items-center justify-center transition-transform duration-75 ease-out"
+          style={{ 
+            width: '65vw',
+            aspectRatio: '16/9',
+            transform: `scale(${scale})`,
+          }}
+        >
+           <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: `${borderRadius}rem` }}>
+              <Image 
+                src={PlaceHolderImages[0].imageUrl} 
+                alt="Phantom Studio Case" 
+                fill 
+                className="object-cover opacity-80"
+                priority
+              />
+              
+              {/* Botão Play no Centro da Mídia */}
+              <div 
+                className="absolute inset-0 flex items-center justify-center"
+                style={{ opacity: 1 - scrollProgress * 3 }}
+              >
+                 <div className="bg-black/30 backdrop-blur-xl border border-white/10 px-10 py-5 font-mono text-[9px] tracking-[0.5em] text-white uppercase cursor-pointer hover:bg-white hover:text-black transition-all">
+                    Play
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        {/* Overlay Final de Transição para o Tema Claro */}
+        <div 
+          className="absolute inset-0 z-40 pointer-events-none"
+          style={{ 
+            backgroundColor: '#EDE8DE',
+            opacity: Math.max(0, (scrollProgress - 0.85) * 7) 
+          }}
+        />
       </div>
     </section>
   );
