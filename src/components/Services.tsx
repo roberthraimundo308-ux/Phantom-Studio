@@ -1,124 +1,112 @@
 
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
+import { ArrowRight, Layout, Globe, ShoppingCart, RefreshCw, CheckCircle2 } from "lucide-react";
 
 const SERVICES = [
   {
     num: "01",
-    name: "LANDING PAGE",
-    desc: "Uma página projetada para converter visitantes em clientes. Design estratégico, copywriting persuasivo e performance que impressiona.",
-    pills: ["Design", "Conversão", "SEO", "Performance"],
+    icon: <Layout className="w-5 h-5" />,
+    name: "Landing Pages de Alta Conversão",
+    desc: "Projetamos páginas focadas em um único objetivo: transformar visitantes em clientes. Design estratégico aliado a copywriting persuasivo.",
+    features: ["Design Exclusivo e Autoral", "SEO On-Page Avançado", "Performance Core Web Vitals 90+"],
+    color: "bg-accent"
   },
   {
     num: "02",
-    name: "SITE INSTITUCIONAL",
-    desc: "A vitrine digital da sua empresa. Multi-páginas, CMS integrado, otimizado para SEO e feito para impressionar em qualquer dispositivo.",
-    pills: ["Multi-página", "CMS", "Responsivo"],
+    icon: <Globe className="w-5 h-5" />,
+    name: "Sites Institucionais de Elite",
+    desc: "A vitrine digital definitiva para sua empresa. Estrutura multi-páginas, CMS integrado e identidade visual impactante.",
+    features: ["Painel de Edição (CMS)", "Blog Integrado", "Responsividade Fluida"],
+    color: "bg-accent"
   },
   {
     num: "03",
-    name: "E-COMMERCE",
-    desc: "Lojas que vendem. Experiência de compra fluida, checkout otimizado e design que transmite confiança a cada scroll.",
-    pills: ["Shopify", "WooCommerce", "Custom"],
+    icon: <ShoppingCart className="w-5 h-5" />,
+    name: "E-Commerce de Performance",
+    desc: "Lojas virtuais que vendem mais. Experiência de compra otimizada, checkout rápido e design que transmite autoridade.",
+    features: ["Checkout Otimizado (CRO)", "Integração com Pagamentos", "Gestão de Estoque Simples"],
+    color: "bg-accent"
   },
   {
     num: "04",
-    name: "REDESIGN ESTRATÉGICO",
-    desc: "Seu site não converte? Diagnosticamos os problemas e entregamos uma versão nova — mais rápida, mais bonita, mais eficaz.",
-    pills: ["Auditoria UX", "Otimização", "CRO"],
+    icon: <RefreshCw className="w-5 h-5" />,
+    name: "Redesign Estratégico",
+    desc: "Seu site atual não converte? Transformamos sua presença digital com um redesign focado em resultados e modernidade.",
+    features: ["Auditoria de UX/UI", "Otimização de Conversão", "Migração de Tecnologia"],
+    color: "bg-accent"
   }
 ];
 
 export default function Services() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const totalHeight = rect.height - window.innerHeight;
-      const progress = Math.max(0, Math.min(1, -rect.top / totalHeight));
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section 
-      id="services" 
-      ref={containerRef}
-      className="relative h-[400vh] bg-background z-0"
-    >
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
-        <div className="absolute top-0 left-0 w-full z-[100] px-6 md:pl-[180px] md:pr-[80px] pt-20 pointer-events-none">
-          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 gap-4 bg-background/80 backdrop-blur-lg pointer-events-auto">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['02'] before:text-muted">
-              O Que Fazemos
-            </span>
-            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">SERVIÇOS</h2>
-          </div>
+    <section id="services" className="relative py-32 px-6 md:pl-[180px] md:pr-[80px] bg-[#F7F7F7]">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/5 pb-7 mb-20 gap-4">
+          <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['02'] before:text-black/20">
+            Nossa Expertise
+          </span>
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black">SERVIÇOS</h2>
         </div>
 
-        <div className="relative h-full w-full">
-          {SERVICES.map((s, i) => {
-            const step = 1 / SERVICES.length;
-            const start = i * step;
-            const end = (i + 1) * step;
-            
-            let opacity = 0;
-            let translateY = 40;
+        <div className="flex flex-col gap-12">
+          {SERVICES.map((s, i) => (
+            <div
+              key={i}
+              className="sticky w-full min-h-[500px] bg-white rounded-[40px] shadow-[0_10px_50px_rgba(0,0,0,0.04)] border border-black/5 p-8 md:p-16 flex flex-col lg:flex-row gap-12 overflow-hidden group"
+              style={{ top: `${100 + i * 40}px` }}
+            >
+              {/* Conteúdo Principal */}
+              <div className="flex-1 z-10">
+                <h3 className="font-headline text-[clamp(32px,4vw,60px)] leading-[1.1] text-[#1A1A1A] mb-8 max-w-[600px]">
+                  {s.name}
+                </h3>
+                <p className="text-[17px] leading-relaxed text-black/60 max-w-[500px] mb-10">
+                  {s.desc}
+                </p>
 
-            if (scrollProgress >= start && scrollProgress < end) {
-              const progress = (scrollProgress - start) / step;
-              opacity = 1;
-              translateY = 40 * (1 - progress);
-            } else if (scrollProgress >= end) {
-              const exitProgress = Math.min(1, (scrollProgress - end) / (step * 0.5));
-              opacity = 1 - exitProgress;
-              translateY = 0;
-            } else if (i === 0 && scrollProgress < step) {
-              opacity = 1;
-              translateY = 0;
-            }
-
-            return (
-              <div 
-                key={i} 
-                className="absolute inset-0 flex items-center justify-center px-6 md:pl-[180px] md:pr-[80px] pointer-events-none"
-                style={{ 
-                  opacity: opacity,
-                  transform: `translateY(${translateY}px)`,
-                  zIndex: 10 + i,
-                  visibility: opacity <= 0 ? 'hidden' : 'visible'
-                }}
-              >
-                <div className="max-w-[1200px] w-full mt-24 pointer-events-auto">
-                  <div className="flex items-start gap-8 md:gap-14">
-                    <span className="font-mono text-xs md:text-sm tracking-[0.22em] text-accent mt-4">{s.num}</span>
-                    <div className="flex-1">
-                      <h3 className="font-headline text-[clamp(32px,6.5vw,94px)] tracking-[0.02em] text-foreground mb-6 leading-none">
-                        {s.name}
-                      </h3>
-                      <p className="text-[clamp(16px,2.2vw,22px)] leading-[1.6] text-muted max-w-[720px] mb-10">
-                        {s.desc}
-                      </p>
-                      <div className="flex gap-3 flex-wrap">
-                        {s.pills.map((p, pIdx) => (
-                          <span key={pIdx} className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent border border-accent/20 bg-accent/5 px-5 py-2 rounded-full">
-                            {p}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                <button className="flex items-center gap-3 bg-[#00E676] hover:bg-[#00C853] text-black font-bold px-6 py-3 rounded-full transition-all duration-300 group/btn">
+                  <span className="text-sm uppercase tracking-wider">Saber mais</span>
+                  <div className="bg-white/20 p-1.5 rounded-full group-hover/btn:translate-x-1 transition-transform">
+                    <ArrowRight className="w-4 h-4" />
                   </div>
+                </button>
+
+                {/* Lista de Features */}
+                <div className="mt-16 space-y-4">
+                  {s.features.map((f, idx) => (
+                    <div key={idx} className="flex items-center gap-4 bg-[#F9F9F9] p-4 rounded-2xl w-fit min-w-[300px] border border-black/[0.02]">
+                      <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                        {s.icon}
+                      </div>
+                      <span className="font-mono text-[11px] tracking-wider text-black/70 uppercase">
+                        {f}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            );
-          })}
+
+              {/* Elemento Gráfico (Simulado como na imagem) */}
+              <div className="hidden lg:flex flex-1 items-center justify-center relative">
+                <div className="absolute right-0 w-[400px] h-[400px] opacity-10 group-hover:opacity-20 transition-opacity duration-700">
+                  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#00E676]">
+                    <path fill="currentColor" d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,85.5,-0.9C83.9,13.9,77.3,27.8,68.4,39.6C59.5,51.4,48.3,61.1,35.3,68.1C22.3,75.1,7.5,79.4,-7.6,78.2C-22.7,77,-38.1,70.3,-51.1,60.6C-64.1,50.9,-74.7,38.2,-79.8,23.7C-84.9,9.2,-84.5,-7,-79.1,-21.5C-73.7,-36,-63.3,-48.8,-50.7,-56.4C-38.1,-64.1,-23.3,-66.6,-8.7,-71.4C5.9,-76.2,17.8,-83.3,31.4,-83.6C45,-83.9,60.4,-77.4,44.7,-76.4Z" transform="translate(100 100)" />
+                  </svg>
+                </div>
+                {/* Ícone Grande Central */}
+                <div className="relative z-10 w-32 h-32 rounded-full border-4 border-[#00E676]/20 flex items-center justify-center text-[#00E676] animate-pulse">
+                  {React.cloneElement(s.icon as React.ReactElement, { className: "w-16 h-16" })}
+                </div>
+              </div>
+
+              {/* Número no background */}
+              <div className="absolute top-[-20px] right-[-20px] font-headline text-[240px] text-black/[0.02] pointer-events-none select-none">
+                {s.num}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

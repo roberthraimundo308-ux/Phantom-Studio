@@ -46,7 +46,7 @@ export default function Home() {
         <Numbers />
       </div>
 
-      {/* Serviços - Inicia a sobreposição (Efeito Cortina) */}
+      {/* Serviços - Inicia a sobreposição (Efeito Cortina e Stacking) */}
       <div className="relative z-20 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
         <Services />
       </div>
