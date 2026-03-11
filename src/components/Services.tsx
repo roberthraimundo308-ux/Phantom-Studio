@@ -51,10 +51,9 @@ export default function Services() {
     <section 
       id="services" 
       ref={containerRef}
-      className="relative h-[400vh] bg-background"
+      className="relative h-[400vh] bg-background z-0"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
-        {/* Header Fixo */}
         <div className="absolute top-0 left-0 w-full z-[100] px-6 md:pl-[180px] md:pr-[80px] pt-20 pointer-events-none">
           <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 gap-4 bg-background/80 backdrop-blur-lg pointer-events-auto">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['02'] before:text-muted">
@@ -70,22 +69,18 @@ export default function Services() {
             const start = i * step;
             const end = (i + 1) * step;
             
-            // Opacidade e Movimento (Stacking effect suave)
             let opacity = 0;
             let translateY = 40;
 
             if (scrollProgress >= start && scrollProgress < end) {
-              // Ativo: subindo
               const progress = (scrollProgress - start) / step;
               opacity = 1;
               translateY = 40 * (1 - progress);
             } else if (scrollProgress >= end) {
-              // Passado: esmaecendo para o próximo brilhar
               const exitProgress = Math.min(1, (scrollProgress - end) / (step * 0.5));
               opacity = 1 - exitProgress;
               translateY = 0;
             } else if (i === 0 && scrollProgress < step) {
-              // Primeiro item aparece logo
               opacity = 1;
               translateY = 0;
             }
