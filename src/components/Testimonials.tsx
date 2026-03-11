@@ -1,8 +1,7 @@
 
 "use client";
 
-import React, { useState } from "react";
-import ScrollReveal from "./ScrollReveal";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const TESTIMONIALS = [
@@ -14,7 +13,8 @@ const TESTIMONIALS = [
     role: "CEO",
     avatar: "https://picsum.photos/seed/person1/100/100",
     pos: "top-[15%] left-[5%]",
-    color: "bg-accent"
+    color: "bg-accent",
+    speed: 120
   },
   {
     id: 2,
@@ -24,7 +24,8 @@ const TESTIMONIALS = [
     role: "Diretora de Arte",
     avatar: "https://picsum.photos/seed/person2/100/100",
     pos: "top-[25%] right-[10%]",
-    color: "bg-s2"
+    color: "bg-s2",
+    speed: 80
   },
   {
     id: 3,
@@ -34,7 +35,8 @@ const TESTIMONIALS = [
     role: "Marketing Manager",
     avatar: "https://picsum.photos/seed/person3/100/100",
     pos: "bottom-[25%] left-[12%]",
-    color: "bg-accent"
+    color: "bg-accent",
+    speed: 160
   },
   {
     id: 4,
@@ -44,20 +46,45 @@ const TESTIMONIALS = [
     role: "CTO",
     avatar: "https://picsum.photos/seed/person4/100/100",
     pos: "bottom-[10%] right-[20%]",
-    color: "bg-s2"
+    color: "bg-s2",
+    speed: 100
   }
 ];
 
 export default function Testimonials() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calcula o progresso de entrada e saída da sessão na tela (0 a 1)
+      const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+      setScrollProgress(Math.max(0, Math.min(1, progress)));
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Inicializa o valor
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section id="testimonials" className="relative h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5">
+    <section 
+      ref={sectionRef}
+      id="testimonials" 
+      className="relative h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
+    >
       <div className="max-w-[1600px] mx-auto w-full h-full relative">
         
-        {/* Título da Sessão */}
-        <div className="absolute top-0 left-0 z-10 pointer-events-none">
-          <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-4 flex items-center gap-3 before:content-[''] before:w-5 before:h-[1px] before:bg-accent/30">
+        {/* Título da Sessão - Alinhado Horizontalmente */}
+        <div className="absolute top-0 left-0 z-10 pointer-events-none flex flex-col md:flex-row md:items-baseline gap-6">
+          <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase flex items-center gap-3 before:content-[''] before:w-5 before:h-[1px] before:bg-accent/30 shrink-0">
             Reconhecimento
           </div>
           <h2 className="font-headline text-[clamp(44px,6vw,84px)] tracking-tight leading-none text-foreground uppercase">
@@ -66,19 +93,22 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        {/* Layout de Balões Flutuantes */}
+        {/* Layout de Balões Flutuantes com Efeito de Scroll (Parallax) */}
         <div className="relative w-full h-full pt-40 md:pt-0">
           {TESTIMONIALS.map((t) => (
             <div
               key={t.id}
-              className={`absolute ${t.pos} z-20 group transition-all duration-500`}
+              className={`absolute ${t.pos} z-20 group transition-all duration-300`}
               onMouseEnter={() => setHoveredId(t.id)}
               onMouseLeave={() => setHoveredId(null)}
+              style={{
+                transform: `translateY(${(0.5 - scrollProgress) * t.speed}px)`
+              }}
             >
               {/* Balão de Texto - Formas Retangulares Puras */}
-              <div className={`relative p-6 md:p-8 max-w-[320px] md:max-w-[420px] shadow-2xl transition-transform duration-500 cursor-none border-0 ${
+              <div className={`relative p-6 md:p-8 max-w-[320px] md:max-w-[420px] shadow-2xl transition-all duration-500 cursor-none border-0 ${
                 t.color === 'bg-accent' ? 'bg-accent text-black' : 'bg-s1 text-white border border-white/10'
-              } ${hoveredId === t.id ? 'scale-105 -translate-y-2' : 'scale-100'}`}>
+              } ${hoveredId === t.id ? 'scale-105' : 'scale-100'}`}>
                 <p className="font-mono text-[12px] md:text-[14px] leading-relaxed tracking-tight">
                   "{t.text}"
                 </p>
@@ -98,7 +128,7 @@ export default function Testimonials() {
                     src={t.avatar} 
                     alt={t.name} 
                     fill 
-                    className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                    className="object-cover grayscale"
                   />
                 </div>
                 <div>
