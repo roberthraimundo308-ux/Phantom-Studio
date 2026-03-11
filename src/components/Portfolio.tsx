@@ -25,9 +25,9 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scale increases from 1 to cover screen
-  const scale = 1 + scrollProgress * 2.2;
-  const opacity = 1 - Math.pow(scrollProgress, 1.5) * 1.5; // Interface fades out faster for immersion
+  // Scale starts from a fixed point and fills the screen
+  const scale = 1 + scrollProgress * 1.5;
+  const opacity = 1 - Math.pow(scrollProgress, 2); // Fades UI as it zooms
   
   return (
     <section 
@@ -37,45 +37,40 @@ export default function Portfolio() {
     >
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         
-        {/* Section Header - Standardized with the rest of the site */}
+        {/* Top Navigation / Labels */}
         <div 
-          className="absolute top-0 left-0 w-full z-20 py-20 px-6 md:pl-[180px] md:pr-[80px] pointer-events-none"
+          className="absolute top-0 left-0 w-full z-20 pt-16 px-6 md:pl-[120px] md:pr-[120px] pointer-events-none"
           style={{ opacity }}
         >
-          <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 gap-4">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['03'] before:text-muted">
-              Showroom
-            </span>
-            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase">
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-4">
+              <span className="font-mono text-[10px] tracking-[0.4em] text-accent uppercase flex items-center gap-3 before:content-['03'] before:text-muted/40">
+                TRABALHOS
+              </span>
+            </div>
+            <h2 className="font-headline text-[clamp(44px,6vw,96px)] tracking-[0.05em] leading-none text-foreground uppercase">
               NOSSAS CRIAÇÕES
             </h2>
           </div>
         </div>
 
-        {/* Parallax Content Layer */}
+        {/* Content Layer (Left Side Text) */}
         <div 
-          className="absolute inset-0 z-20 pointer-events-none flex items-center px-10 md:px-[180px] py-20"
+          className="absolute inset-0 z-20 pointer-events-none flex items-center px-6 md:pl-[120px]"
           style={{ opacity }}
         >
-          <div className="max-w-[540px]">
-            <h2 className="font-ui text-[clamp(32px,3.8vw,56px)] font-bold leading-[1.1] text-white tracking-tight">
-              ONDE PRECISÃO E <br /> 
-              <span className="text-white/20 italic font-normal">CRIATIVIDADE SE CONECTAM.</span>
+          <div className="max-w-[600px]">
+            <h2 className="font-display text-[clamp(60px,10vw,140px)] font-bold leading-[0.85] text-white tracking-tighter">
+              PHANTOM<span className="text-accent">.</span>
             </h2>
-            <div className="mt-12 space-y-2">
-              <div className="font-mono text-[9px] tracking-[0.3em] text-accent uppercase">Localização</div>
-              <div className="font-mono text-[11px] text-white/40 max-w-[220px] leading-relaxed uppercase">
-                Orbital 25 Business Park, Unit 11 Watford WD18 9DA, UK
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Central Media Window that Expands (Square Edges) */}
+        {/* Central Media Window - Fixed Ratio based on image */}
         <div 
           className="relative z-10 flex items-center justify-center transition-transform duration-75 ease-out"
           style={{ 
-            width: '65vw',
+            width: '80vw',
             aspectRatio: '16/9',
             transform: `scale(${scale})`,
           }}
@@ -85,7 +80,7 @@ export default function Portfolio() {
                 src={PlaceHolderImages[0].imageUrl} 
                 alt="Phantom Studio Case" 
                 fill 
-                className="object-cover opacity-60"
+                className="object-cover opacity-70"
                 priority
               />
            </div>
@@ -96,7 +91,7 @@ export default function Portfolio() {
           className="absolute inset-0 z-40 pointer-events-none"
           style={{ 
             backgroundColor: '#EDE8DE',
-            opacity: Math.max(0, (scrollProgress - 0.88) * 8) 
+            opacity: Math.max(0, (scrollProgress - 0.9) * 10) 
           }}
         />
       </div>
