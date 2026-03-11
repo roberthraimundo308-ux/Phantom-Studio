@@ -19,13 +19,13 @@ export default function Home() {
       <SectionProgress />
       <Navbar />
 
-      {/* Bloco Inicial */}
-      <div className="relative z-10">
+      {/* Bloco Inicial: Hero, Logos e Manifesto rolam normalmente */}
+      <div className="relative z-10 bg-background">
         <Hero />
         <LogosCarousel />
         
         {/* Manifesto Section */}
-        <section id="manifesto" className="relative h-screen flex items-center py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
+        <section id="manifesto" className="relative min-h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto w-full">
             <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
               Manifesto
@@ -42,29 +42,31 @@ export default function Home() {
         </section>
       </div>
 
+      {/* Efeito Cortina: A partir de agora, cada sessão empilha sobre a anterior */}
+      
       {/* Seção de Números - Fixa para ser sobreposta */}
-      <div className="sticky top-0 z-10">
+      <div className="sticky top-0 z-10 h-screen overflow-hidden">
         <Numbers />
       </div>
 
-      {/* Serviços - Sobrepõe Números (Mantém Tema Escuro) */}
-      <div className="relative z-20 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
+      {/* Serviços - Sobrepõe Números */}
+      <div className="relative z-20 bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.9)]">
         <Services />
       </div>
 
-      {/* Depoimentos - Sobrepõe Serviços (Mantém Tema Escuro) */}
-      <div className="relative z-25 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
+      {/* Depoimentos - Sobrepõe Serviços */}
+      <div className="relative z-30 bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.9)]">
         <Testimonials />
       </div>
 
       {/* Portfólio - Inicia a transição para o branco (Desliza sobre Depoimentos) */}
-      <div className="relative z-30 shadow-[0_-50px_100px_rgba(0,0,0,0.8)]">
+      <div className="relative z-40 bg-[#EDE8DE] text-[#050505] shadow-[0_-50px_100px_rgba(0,0,0,0.2)]">
         <Portfolio />
         <AIProjectAssistant />
       </div>
 
-      {/* Comparação - Mantém Tema Claro após a transição */}
-      <section id="weapon" className="relative z-40 py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE] text-[#050505] shadow-[0_-50px_100px_rgba(0,0,0,0.1)]">
+      {/* Comparação - Tema Claro */}
+      <section id="weapon" className="relative z-50 py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE] text-[#050505]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['04'] before:text-black/20">
@@ -103,8 +105,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Processo - Mantém Tema Claro */}
-      <section id="process" className="relative z-50 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-white shadow-[0_-50px_100px_rgba(0,0,0,0.05)]">
+      {/* Processo - Tema Claro */}
+      <section id="process" className="relative z-60 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-white">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/5 pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['05'] before:text-black/20">
@@ -137,8 +139,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Preços - Mantém Tema Claro */}
-      <section id="pricing" className="relative z-60 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE] shadow-[0_-50px_100px_rgba(0,0,0,0.05)]">
+      {/* Preços - Tema Claro */}
+      <section id="pricing" className="relative z-70 py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-[#EDE8DE]">
         <div className="max-w-[1600px] mx-auto">
           <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
@@ -175,8 +177,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section - Mantém Tema Claro */}
-      <section id="cta" className="relative z-70 py-40 px-6 md:pl-[180px] md:pr-[80px] text-center bg-[#EDE8DE] shadow-[0_-50px_100px_rgba(0,0,0,0.05)]">
+      {/* CTA Section */}
+      <section id="cta" className="relative z-80 py-40 px-6 md:pl-[180px] md:pr-[80px] text-center bg-[#EDE8DE]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_50%_50%,rgba(0,0,0,0.02)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="relative z-10">
           <div className="font-mono text-[10px] tracking-[0.32em] text-black/40 uppercase mb-7">Pronto para começar?</div>
@@ -197,8 +199,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer - Tema Claro Final */}
-      <footer className="relative z-80 border-t border-black/5 p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-[#EDE8DE]">
+      {/* Footer */}
+      <footer className="relative z-90 border-t border-black/5 p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left bg-[#EDE8DE]">
         <div className="font-headline text-4xl tracking-[0.18em] text-black">PHANTOM<span className="text-accent">.</span></div>
         <ul className="flex flex-wrap justify-center gap-9 list-none">
           <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-black/40 uppercase hover:text-black transition-colors">Sobre</a></li>
