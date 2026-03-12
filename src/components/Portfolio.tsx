@@ -2,50 +2,48 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const PROJECTS = [
   {
     id: "01",
     title: "Matos & Sejanoski",
     category: "LAW FIRM EXPERIENCE",
-    image: PlaceHolderImages[0].imageUrl,
+    url: "https://www.matosesejanoski.adv.br/",
     description: "Plataforma digital jurídica com foco em autoridade e precisão."
   },
   {
     id: "02",
     title: "Tidescape",
     category: "COASTAL LUXURY",
-    image: PlaceHolderImages[1].imageUrl,
+    url: "https://tidescape.framer.ai/",
     description: "Experiência imersiva para o mercado imobiliário de alto padrão."
   },
   {
     id: "03",
     title: "OCI Buzzworthy",
     category: "DIGITAL INNOVATION",
-    image: PlaceHolderImages[2].imageUrl,
+    url: "https://oci.madebybuzzworthy.com/",
     description: "Hub de inovação com interface dinâmica e futurista."
   },
   {
     id: "04",
     title: "Big Drop Inc",
     category: "GLOBAL AGENCY",
-    image: PlaceHolderImages[0].imageUrl,
+    url: "https://www.bigdropinc.com/",
     description: "Portfolio de elite para uma das maiores agências do mundo."
   },
   {
     id: "05",
     title: "Oak Island",
     category: "ENTERTAINMENT HUB",
-    image: PlaceHolderImages[1].imageUrl,
+    url: "https://thecurseofoakisland.com/",
     description: "Narrativa digital imersiva sobre mistérios e exploração."
   },
   {
     id: "06",
     title: "Reportage",
     category: "ARCHITECTURE & DESIGN",
-    image: PlaceHolderImages[2].imageUrl,
+    url: "https://reportage.com.tr/",
     description: "A vitrine digital definitiva para projetos arquitetônicos premium."
   }
 ];
@@ -69,8 +67,8 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Ajustado para acomodar 6 projetos com buffers laterais
-  const translateX = scrollProgress * 80; 
+  // Translação calculada para 6 projetos com buffers
+  const translateX = scrollProgress * 46; 
 
   return (
     <section 
@@ -80,7 +78,7 @@ export default function Portfolio() {
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        {/* Header Padronizado em Preto */}
+        {/* Header Padronizado em Preto Profundo */}
         <div className="pt-16 md:pt-24 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
           <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-7 mb-8 gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-[#050505] uppercase flex items-center gap-3 before:content-['04'] before:text-[#050505]/20 font-bold">
@@ -98,7 +96,7 @@ export default function Portfolio() {
             className="flex h-full items-center transition-transform duration-200 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}%)` }}
           >
-            {/* Espaçamento Inicial de 180px para alinhar com o menu */}
+            {/* Espaçamento Inicial de 180px */}
             <div className="min-w-[180px] h-full shrink-0"></div>
 
             {PROJECTS.map((project, idx) => (
@@ -117,31 +115,43 @@ export default function Portfolio() {
                   </h3>
                 </div>
                 
-                {/* Container da Imagem com Aspect Ratio Otimizado */}
-                <div className="relative w-full max-w-[1400px] aspect-[21/9] overflow-hidden grayscale contrast-125 transition-all duration-700 hover:grayscale-0 shadow-2xl bg-white/5">
-                  <div className="absolute inset-0 bg-[#050505]/5 mix-blend-multiply z-10 pointer-events-none"></div>
-                  <Image 
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
-                    sizes="80vw"
-                  />
+                {/* Container do Site Real (Iframe com Scroll Sincronizado) */}
+                <div className="relative w-full max-w-[1400px] aspect-[21/9] overflow-hidden grayscale contrast-125 transition-all duration-700 hover:grayscale-0 shadow-2xl bg-white/5 border border-[#050505]/5">
+                  <div className="absolute inset-0 z-10 pointer-events-none border-[12px] border-[#050505]/5"></div>
+                  
+                  {/* Iframe que simula o scroll conforme o usuário rola a página lateralmente */}
+                  <div 
+                    className="absolute inset-0 w-full transition-transform duration-500 ease-out"
+                    style={{ transform: `translateY(-${scrollProgress * 20}%)` }}
+                  >
+                    <iframe 
+                      src={project.url}
+                      className="w-full h-[4000px] border-none pointer-events-none scale-100 origin-top"
+                      title={project.title}
+                      loading="lazy"
+                    />
+                  </div>
+
                   <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#EDE8DE] border-l border-t border-[#050505]/10 flex items-center justify-center z-20 cursor-pointer hover:bg-[#050505] group/btn transition-colors">
                      <span className="text-3xl md:text-4xl text-[#050505] font-light group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all">→</span>
                   </div>
                 </div>
 
-                {/* Descrição em tom preto suave */}
-                <div className="mt-8 md:mt-10 max-w-[500px]">
-                  <p className="font-mono text-[11px] md:text-[12px] text-[#050505]/60 leading-relaxed uppercase tracking-tight">
-                    {project.description}
-                  </p>
+                {/* Descrição e Branding (N icon) */}
+                <div className="mt-8 md:mt-10 flex items-end justify-between">
+                  <div className="max-w-[500px]">
+                    <p className="font-mono text-[11px] md:text-[12px] text-[#050505]/60 leading-relaxed uppercase tracking-tight">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-[#050505] flex items-center justify-center text-[#EDE8DE] font-headline text-xl">N</div>
+                  </div>
                 </div>
               </div>
             ))}
 
-            {/* Espaçamento Final Simétrico de 180px */}
+            {/* Espaçamento Final Simétrico */}
             <div className="min-w-[180px] h-full shrink-0"></div>
           </div>
         </div>
