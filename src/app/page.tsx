@@ -8,7 +8,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Numbers from "@/components/Numbers";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
-import AIProjectAssistant from "@/components/AIProjectAssistant";
 
 export default function Home() {
   return (
@@ -57,7 +56,6 @@ export default function Home() {
 
       {/* Conteúdo em Tema Claro (Exibido após o zoom do Portfólio) */}
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
-        <AIProjectAssistant />
         
         {/* Comparação */}
         <section id="weapon" className="relative py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
@@ -136,7 +134,7 @@ export default function Home() {
         {/* Preços */}
         <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto">
-            <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
+            <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-20 gap-4">
               <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['07'] before:text-black/20">
                 INVESTIMENTO
               </span>
