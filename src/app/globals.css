@@ -24,6 +24,7 @@
     padding: 0;
     box-sizing: border-box;
     cursor: none !important;
+    border-radius: 0 !important;
   }
 
   html {
@@ -106,7 +107,6 @@ body::after {
   color: var(--accent);
 }
 
-/* Magnetic Button Support */
 .magnetic-btn {
   display: inline-flex;
   align-items: center;

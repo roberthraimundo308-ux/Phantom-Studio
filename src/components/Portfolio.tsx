@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -14,9 +13,6 @@ export default function Portfolio() {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
-      // Calculamos o progresso baseado na altura total da sessão (300vh)
-      // O zoom ocorre nos primeiros 60% do scroll da sessão
       const totalHeight = rect.height;
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
@@ -27,17 +23,17 @@ export default function Portfolio() {
   }, []);
 
   // Fases do Scroll:
-  // 0.0 -> 0.7: Zoom do card
-  // 0.7 -> 1.0: Scroll interno ou visualização estática antes de liberar a página
+  // 0.0 -> 0.7: Zoom do card até preencher a tela
+  // 0.7 -> 1.0: Scroll interno dos projetos
   const zoomLimit = 0.7;
   const zoomProgress = Math.min(scrollProgress / zoomLimit, 1);
   
-  // Scale inicia em 0.7 (conforme imagem anterior) e vai até 1.0 (preencher tela)
+  // Scale inicia em 0.7 (padronizado) e vai até 1.0 (preencher tela)
   const scale = 0.7 + (zoomProgress * 0.3);
-  const uiOpacity = 1 - (zoomProgress * 2); // UI labels desaparecem conforme o zoom completa
+  const uiOpacity = 1 - (zoomProgress * 2.5);
   
-  // Scroll interno dos projetos (ativado após o zoom)
-  const internalScrollY = scrollProgress > zoomLimit ? (scrollProgress - zoomLimit) * 1200 : 0;
+  // Scroll interno dos projetos (ativado após o zoom atingir o limite de 0.7)
+  const internalScrollY = scrollProgress > zoomLimit ? (scrollProgress - zoomLimit) * 1400 : 0;
 
   return (
     <section 
@@ -47,12 +43,11 @@ export default function Portfolio() {
     >
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         
-        {/* UI Labels - Estilo Fiel à Referência */}
+        {/* UI Labels Minimalistas */}
         <div 
           className="absolute inset-0 z-20 pointer-events-none p-10 md:p-[60px]"
           style={{ opacity: Math.max(0, uiOpacity) }}
         >
-          {/* Top Bar */}
           <div className="flex items-start justify-between w-full">
             <div className="flex flex-col gap-1">
               <div className="font-mono text-[11px] tracking-[0.25em] text-foreground uppercase flex items-center gap-2">
@@ -64,16 +59,12 @@ export default function Portfolio() {
             </div>
             
             <div className="flex flex-col items-end gap-2">
-              <div className="px-5 py-2.5 border border-white/10 bg-white/5 backdrop-blur-sm font-mono text-[9px] tracking-[0.2em] text-white uppercase">
-                INICIAR PROJETO →
-              </div>
               <div className="font-headline text-[18px] tracking-[0.2em] text-white/20 uppercase">
                 NOSSAS CRIAÇÕES
               </div>
             </div>
           </div>
 
-          {/* Large Background Text */}
           <div className="absolute left-10 md:left-[60px] top-1/2 -translate-y-1/2 select-none">
             <h2 className="font-display text-[clamp(80px,12vw,180px)] font-bold leading-none text-white/5 tracking-tighter uppercase">
               PHANTOM
@@ -81,9 +72,9 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Central Card (A "Arma") */}
+        {/* Card de Portfólio com Zoom e Scroll Interno */}
         <div 
-          className="relative z-10 flex items-center justify-center will-change-transform shadow-[0_0_100px_rgba(0,0,0,0.5)]"
+          className="relative z-10 flex items-center justify-center will-change-transform bg-s1 shadow-[0_0_100px_rgba(0,0,0,0.5)] overflow-hidden"
           style={{ 
             width: '100vw',
             height: '100vh',
@@ -91,49 +82,45 @@ export default function Portfolio() {
             borderRadius: '0px'
           }}
         >
-           <div className="absolute inset-0 overflow-hidden bg-s1">
-              {/* Internal Scrollable Content */}
-              <div 
-                className="w-full h-full transition-transform duration-100 ease-out"
-                style={{ transform: `translateY(-${internalScrollY}px)` }}
-              >
-                {PlaceHolderImages.map((img, i) => (
-                  <div key={img.id} className="relative w-full h-screen">
-                    <Image 
-                      src={img.imageUrl} 
-                      alt={img.description} 
-                      fill 
-                      className="object-cover opacity-90"
-                      priority={i === 0}
-                      sizes="100vw"
-                    />
-                    
-                    {/* Project Label - Bottom Left (conforme imagem) */}
-                    <div className="absolute bottom-12 left-12 z-10">
-                       <div className="font-mono text-[9px] tracking-[0.4em] text-accent mb-3 uppercase flex items-center gap-3">
-                         <span className="w-8 h-[1px] bg-accent/30"></span> PROJETO {i + 1}
-                       </div>
-                       <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 border border-white/20 flex items-center justify-center font-mono text-xs text-white">
-                            N
-                          </div>
-                          <h3 className="font-headline text-6xl text-white tracking-[0.1em] uppercase">
-                            {img.description.split(' ')[0]}
-                          </h3>
-                       </div>
-                    </div>
-                  </div>
-                ))}
+          <div 
+            className="w-full h-full transition-transform duration-100 ease-out"
+            style={{ transform: `translateY(-${internalScrollY}px)` }}
+          >
+            {PlaceHolderImages.map((img, i) => (
+              <div key={img.id} className="relative w-full h-screen">
+                <Image 
+                  src={img.imageUrl} 
+                  alt={img.description} 
+                  fill 
+                  className="object-cover opacity-90"
+                  priority={i === 0}
+                  sizes="100vw"
+                />
+                
+                <div className="absolute bottom-12 left-12 z-10">
+                   <div className="font-mono text-[9px] tracking-[0.4em] text-accent mb-3 uppercase flex items-center gap-3">
+                     <span className="w-8 h-[1px] bg-accent/30"></span> PROJETO {i + 1}
+                   </div>
+                   <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 border border-white/20 flex items-center justify-center font-mono text-xs text-white">
+                        {String.fromCharCode(65 + i)}
+                      </div>
+                      <h3 className="font-headline text-6xl text-white tracking-[0.1em] uppercase">
+                        {img.imageHint}
+                      </h3>
+                   </div>
+                </div>
               </div>
-           </div>
+            ))}
+          </div>
         </div>
 
-        {/* Final Transition Overlay to Light Theme */}
+        {/* Overlay de Transição para o Tema Claro ao Final */}
         <div 
           className="absolute inset-0 z-40 pointer-events-none"
           style={{ 
             backgroundColor: '#EDE8DE',
-            opacity: Math.max(0, (scrollProgress - 0.95) * 20) 
+            opacity: Math.max(0, (scrollProgress - 0.96) * 25) 
           }}
         />
       </div>
