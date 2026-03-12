@@ -126,9 +126,9 @@ export default function Home() {
 
             <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
               {[
-                { tag: 'Essencial', name: 'LAUNCH', price: '3.500', feat: ['Landing Page Conversão', 'Design Personalizado', 'Mobile-first', 'SEO On-page', 'Entrega em 10 dias'] },
-                { tag: '★ Mais Popular', name: 'GROW', price: '8.500', feat: ['Site Multi-páginas', 'Design Premium', 'CMS Integrado', 'SEO Avançado', 'Core Web Vitals 90+'], highlight: true },
-                { tag: 'Full Experience', name: 'DOMINATE', price: '18K+', feat: ['E-Commerce Completo', 'Animações GSAP', '100/100 PageSpeed', 'Copywriting Profissional', 'Suporte 90 dias'] },
+                { tag: 'Essencial', name: 'LANDING PAGE', price: '800', feat: ['Landing Page Conversão', 'Design Personalizado', 'Mobile-first', 'SEO On-page', 'Entrega em 10 dias'] },
+                { tag: '★ Mais Popular', name: 'SITE INSTITUCIONAL', price: '1.500', feat: ['Site Multi-páginas', 'Design Premium', 'CMS Integrado', 'SEO Avançado', 'Core Web Vitals 90+'], highlight: true },
+                { tag: 'Full Experience', name: 'SITE COMPLETO', price: '2.000', feat: ['E-Commerce Completo', 'Animações GSAP', '100/100 PageSpeed', 'Copywriting Profissional', 'Suporte 90 dias'] },
               ].map((plan, i) => (
                 <div key={i} className={`rev d${i} border border-black/10 p-9 md:p-[44px] bg-white transition-all duration-350 hover:-translate-y-1 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-black bg-[#FDFDFD]' : ''}`}>
                   {plan.highlight && <div className="absolute top-0 inset-x-0 h-[1px] bg-black"></div>}
