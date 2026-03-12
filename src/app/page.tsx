@@ -61,7 +61,7 @@ export default function Home() {
         {/* Processo - Novo Layout Imersivo */}
         <section id="process" className="relative bg-[#EDE8DE] min-h-screen flex flex-col md:flex-row border-t border-cobalt/10">
           {/* Coluna Esquerda: Sticky Headline */}
-          <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-cobalt/10">
+          <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-cobalt/10 relative">
             <div className="font-mono text-[10px] tracking-[0.3em] text-cobalt/40 uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-cobalt/20">
               METODOLOGIA
             </div>
@@ -71,6 +71,13 @@ export default function Home() {
             <p className="font-mono text-[12px] md:text-[14px] leading-relaxed text-cobalt/60 max-w-[400px] uppercase tracking-tight">
               Navegar pelas complexidades digitais exige precisão. Nossa metodologia transforma visão em performance bruta, guiando seu projeto com confiança absoluta.
             </p>
+
+            {/* Indicador Circular Estilo Cursor (Azul) - Alinhado com a Referência */}
+            <div className="absolute right-[-21px] top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-10 bg-[#EDE8DE] rounded-full">
+              <div className="w-10 h-10 border border-cobalt/20 rounded-full flex items-center justify-center">
+                <div className="w-1.5 h-1.5 bg-cobalt rounded-full"></div>
+              </div>
+            </div>
           </div>
 
           {/* Coluna Direita: Scrolling Cards */}
