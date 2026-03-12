@@ -79,7 +79,7 @@ export default function Testimonials() {
   return (
     <section 
       id="testimonials" 
-      className="relative h-screen flex flex-col py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
+      className="relative h-[140vh] flex flex-col py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
     >
       {/* Phantom Watermark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none z-0">
@@ -182,13 +182,8 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
         {t.text}
       </p>
 
-      {/* Footer Element [VOIR +] Style */}
-      <div className="mt-4 flex items-center justify-between">
-        <div className="font-mono text-[10px] text-accent tracking-[0.3em] flex items-center gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
-          [ VER_DETALHES + ]
-        </div>
-        
-        {/* Technical Dots Decor */}
+      {/* Footer Element - Technical Dots Decor Only */}
+      <div className="mt-4 flex items-center justify-end">
         <div className="flex gap-1.5 opacity-20">
           <div className="w-1 h-1 bg-white"></div>
           <div className="w-1 h-1 bg-white"></div>
@@ -202,4 +197,3 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
     </div>
   );
 }
-
