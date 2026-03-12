@@ -26,8 +26,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[500] flex items-center justify-between py-6 px-13 md:px-[52px] mix-blend-difference pointer-events-none">
-      <a href="#" className="font-headline text-[22px] tracking-[0.18em] text-foreground no-underline pointer-events-auto">
+    <nav className="fixed top-0 left-0 right-0 z-[500] flex items-center justify-between py-6 px-13 md:px-[52px] pointer-events-none">
+      <a href="#" className="font-headline text-[22px] tracking-[0.18em] text-foreground no-underline pointer-events-auto mix-blend-difference">
         PHANTOM<span className="text-accent">.</span>
       </a>
       <a
@@ -35,9 +35,8 @@ export default function Navbar() {
         href="#cta"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="magnetic-btn pointer-events-auto font-mono text-[10px] tracking-[0.22em] uppercase text-black bg-accent px-5 py-3 flex items-center gap-2 group relative overflow-hidden transition-all duration-300 hover:gap-4"
+        className="magnetic-btn pointer-events-auto font-mono text-[10px] tracking-[0.22em] uppercase text-white bg-black px-5 py-3 flex items-center gap-2 group relative overflow-hidden transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black"
       >
-        <span className="absolute inset-0 bg-white -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-400 ease-[cubic-bezier(0.76,0,0.24,1)]"></span>
         <span className="relative">Iniciar Projeto</span>
         <span className="relative">→</span>
       </a>
