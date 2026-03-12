@@ -34,11 +34,10 @@ export default function CustomCursor() {
     };
 
     const handleScroll = () => {
-      // O portfólio marca o início do tema claro no site
       const portfolioSection = document.getElementById("portfolio");
       if (portfolioSection) {
         const rect = portfolioSection.getBoundingClientRect();
-        // Se o topo do portfólio atingir o meio da tela, mudamos para azul
+        // Mudança de cor dinâmica: verde no topo (escuro), azul a partir do portfólio (claro)
         if (rect.top <= window.innerHeight * 0.5) {
           setColorMode("blue");
         } else {
@@ -52,8 +51,9 @@ export default function CustomCursor() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      ringX += (mouseX - ringX) * 0.13;
-      ringY += (mouseY - ringY) * 0.13;
+      // Velocidade de interpolação ajustada para 0.15 para ser mais responsivo
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
       ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
       requestAnimationFrame(animate);
     };

@@ -58,8 +58,8 @@ export default function Services() {
             >
               {/* Indicador de Topo Esquerdo - Ponto e Círculo (Estilo Cursor) */}
               <div className="absolute top-8 left-8 flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-cobalt is-cursor"></div>
-                <div className="w-6 h-6 border border-cobalt/30 is-cursor"></div>
+                <div className="w-1.5 h-1.5 bg-accent is-cursor"></div>
+                <div className="w-6 h-6 border border-accent/30 is-cursor"></div>
               </div>
 
               {/* Conteúdo Principal */}
