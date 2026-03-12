@@ -73,9 +73,9 @@ export default function Home() {
             </p>
 
             {/* Indicador Circular Estilo Cursor (Azul) - Alinhado com a Referência */}
-            <div className="absolute right-[-21px] top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-10 bg-[#EDE8DE] rounded-full">
-              <div className="w-10 h-10 border border-cobalt/20 rounded-full flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-cobalt rounded-full"></div>
+            <div className="absolute right-[-21px] top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-10 bg-[#EDE8DE] is-cursor">
+              <div className="w-10 h-10 border border-cobalt/20 is-cursor flex items-center justify-center">
+                <div className="w-1.5 h-1.5 bg-cobalt is-cursor"></div>
               </div>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function Home() {
         {/* Preços */}
         <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto">
-            <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-20 gap-4">
+            <ScrollReveal className="rev flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-20 gap-4">
               <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
                 INVESTIMENTO
               </span>
