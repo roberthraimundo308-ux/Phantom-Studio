@@ -4,14 +4,14 @@ import React, { useEffect, useState } from "react";
 
 const SECTIONS = [
   { id: "hero", label: "Início" },
-  { id: "manifesto", label: "Manifesto" },
-  { id: "numbers", label: "Números" },
-  { id: "services", label: "Serviços" },
-  { id: "portfolio", label: "Portfólio" },
-  { id: "weapon", label: "Comparação" },
-  { id: "process", label: "Processo" },
-  { id: "pricing", label: "Planos" },
-  { id: "cta", label: "Contato" },
+  { id: "manifesto", label: "01 Manifesto" },
+  { id: "numbers", label: "02 Números" },
+  { id: "services", label: "03 Serviços" },
+  { id: "portfolio", label: "04 Trabalhos" },
+  { id: "weapon", label: "05 Diferença" },
+  { id: "process", label: "06 Processo" },
+  { id: "pricing", label: "07 Planos" },
+  { id: "cta", label: "08 Contato" },
 ];
 
 export default function SectionProgress() {

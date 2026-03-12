@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -40,10 +39,10 @@ export default function Services() {
     <section id="services" className="relative py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-20 gap-4">
-          <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['02'] before:text-muted">
-            Nossa Expertise
+          <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['03'] before:text-muted">
+            NOSSA EXPERTISE
           </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground">SERVIÇOS</h2>
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase">SERVIÇOS</h2>
         </div>
 
         <div className="flex flex-col gap-10">

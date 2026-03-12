@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -27,7 +26,7 @@ export default function Home() {
         <section id="manifesto" className="relative min-h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto w-full">
             <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
-              Manifesto
+              MANIFESTO
             </div>
             <ScrollReveal className="rev">
               <p className="text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] text-foreground">
@@ -64,8 +63,8 @@ export default function Home() {
         <section id="weapon" className="relative py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto">
             <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['04'] before:text-black/20">
-                A Diferença
+              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['05'] before:text-black/20">
+                A DIFERENÇA
               </span>
               <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505]">SITE COMUM VS ARMA</h2>
             </ScrollReveal>
@@ -104,8 +103,8 @@ export default function Home() {
         <section id="process" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-white">
           <div className="max-w-[1600px] mx-auto">
             <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/5 pb-7 mb-[60px] rev gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['05'] before:text-black/20">
-                Metodologia
+              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
+                METODOLOGIA
               </span>
               <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black">PROCESSO</h2>
             </ScrollReveal>
@@ -138,8 +137,8 @@ export default function Home() {
         <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto">
             <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
-                Investimento
+              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['07'] before:text-black/20">
+                INVESTIMENTO
               </span>
               <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black">PLANOS</h2>
             </ScrollReveal>
@@ -176,7 +175,7 @@ export default function Home() {
         <section id="cta" className="relative py-40 px-6 md:pl-[180px] md:pr-[80px] text-center">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_50%_50%,rgba(0,0,0,0.02)_0%,transparent_70%)] pointer-events-none"></div>
           <div className="relative z-10">
-            <div className="font-mono text-[10px] tracking-[0.32em] text-black/40 uppercase mb-7">Pronto para começar?</div>
+            <div className="font-mono text-[10px] tracking-[0.32em] text-black/40 uppercase mb-7">PRONTO PARA COMEÇAR?</div>
             <ScrollReveal className="rev">
               <h2 className="font-headline text-[clamp(52px,9.5vw,136px)] leading-[0.9] mb-11 text-black">
                 O MELHOR SITE<br />
