@@ -27,6 +27,11 @@
     border-radius: 0 !important;
   }
 
+  /* Exceção específica para o cursor customizado permanecer circular */
+  .is-cursor {
+    border-radius: 50% !important;
+  }
+
   html {
     scroll-behavior: smooth;
     background: var(--bg);

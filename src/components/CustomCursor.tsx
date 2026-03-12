@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -55,12 +54,12 @@ export default function CustomCursor() {
     <>
       <div
         ref={dotRef}
-        className="fixed w-2 h-2 rounded-full bg-accent z-[99999] pointer-events-none mix-blend-difference"
+        className="fixed w-2 h-2 bg-accent z-[99999] pointer-events-none mix-blend-difference is-cursor"
         style={{ top: 0, left: 0 }}
       />
       <div
         ref={ringRef}
-        className={`fixed rounded-full border-[1.5px] border-accent/50 z-[99999] pointer-events-none transition-[width,height,border-color] duration-200 ${
+        className={`fixed border-[1.5px] border-accent/50 z-[99999] pointer-events-none transition-[width,height,border-color] duration-200 is-cursor ${
           isGrowing ? "w-14 h-14 border-accent" : "w-9 h-9"
         }`}
         style={{ top: 0, left: 0 }}

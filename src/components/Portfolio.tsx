@@ -8,6 +8,9 @@ export default function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  // Filtra para remover a segunda imagem (índice 1) conforme solicitado
+  const filteredProjects = PlaceHolderImages.filter((_, index) => index !== 1);
+
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -32,8 +35,8 @@ export default function Portfolio() {
   const scale = 0.7 + (zoomProgress * 0.3);
   const uiOpacity = 1 - (zoomProgress * 2.5);
   
-  // Scroll interno dos projetos (ativado após o zoom atingir o limite de 0.7)
-  const internalScrollY = scrollProgress > zoomLimit ? (scrollProgress - zoomLimit) * 1400 : 0;
+  // Scroll interno dos projetos
+  const internalScrollY = scrollProgress > zoomLimit ? (scrollProgress - zoomLimit) * 1200 : 0;
 
   return (
     <section 
@@ -86,7 +89,7 @@ export default function Portfolio() {
             className="w-full h-full transition-transform duration-100 ease-out"
             style={{ transform: `translateY(-${internalScrollY}px)` }}
           >
-            {PlaceHolderImages.map((img, i) => (
+            {filteredProjects.map((img, i) => (
               <div key={img.id} className="relative w-full h-screen">
                 <Image 
                   src={img.imageUrl} 
