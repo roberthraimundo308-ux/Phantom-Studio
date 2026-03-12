@@ -33,8 +33,6 @@ export default function Portfolio() {
       const windowHeight = window.innerHeight;
       const totalHeight = rect.height;
       
-      // Calcula o progresso de 0 a 1 dentro da altura da seção
-      // Reduzi a altura total para 300vh para um scroll mais ágil com 2 itens
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -43,14 +41,7 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /**
-   * CÁLCULO DE TRANSLATION PRECISO:
-   * Total de itens: 2 de 80vw cada = 160vw
-   * Buffers: 180px no início + 180px no fim = 360px (~25vw em telas comuns)
-   * Largura Total do Conteúdo: ~185vw
-   * Distância a percorrer: Conteúdo - Viewport (100vw) = ~85vw
-   * Multiplicador de 46% é o ideal para que o scroll termine exatamente no fim do conteúdo.
-   */
+  // Cálculo de translação para parar exatamente no fim do último item
   const translateX = scrollProgress * 46; 
 
   return (
@@ -61,17 +52,17 @@ export default function Portfolio() {
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        {/* Header de Impacto (Fiel ao Screenshot) */}
+        {/* Header de Impacto - Ajustado para evitar sobreposição */}
         <div className="pt-12 md:pt-16 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
           <div className="flex flex-col md:flex-row items-start justify-between border-b border-black/10 pb-6 mb-8 gap-4 relative">
-            <div className="flex items-center gap-6 mt-4">
+            <div className="flex items-center gap-6 mt-4 md:mt-10">
               <span className="font-mono text-[10px] tracking-[0.4em] text-black/20">04</span>
               <span className="font-mono text-[10px] tracking-[0.3em] text-black uppercase font-bold">
                 TRABALHOS SELECIONADOS
               </span>
             </div>
             
-            <h2 className="font-headline text-[clamp(60px,12vw,180px)] tracking-[-0.02em] leading-[0.8] text-black uppercase md:absolute md:right-0 md:top-0">
+            <h2 className="font-headline text-[clamp(60px,11vw,160px)] tracking-[-0.02em] leading-[0.7] text-black uppercase md:absolute md:right-0 md:top-2 select-none pointer-events-none">
               NOSSAS CRIAÇÕES
             </h2>
           </div>
@@ -83,7 +74,7 @@ export default function Portfolio() {
             className="flex h-full items-center transition-transform duration-200 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}%)` }}
           >
-            {/* Espaçamento Inicial (Equivalente à margem lateral do site) */}
+            {/* Espaçamento Inicial */}
             <div className="min-w-[180px] h-full shrink-0"></div>
 
             {PROJECTS.map((project, idx) => (
@@ -97,12 +88,12 @@ export default function Portfolio() {
                     <span className="w-6 h-[1px] bg-black/20"></span>
                     {project.category}
                   </div>
-                  <h3 className="font-headline text-[clamp(40px,5.5vw,80px)] text-black leading-[0.85] mb-4 md:mb-6 uppercase">
+                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-black leading-[0.85] mb-4 md:mb-6 uppercase">
                     {project.title}
                   </h3>
                 </div>
                 
-                {/* Container da Imagem com Aspect Ratio Cinema */}
+                {/* Container da Imagem */}
                 <div className="relative w-full max-w-[1400px] aspect-[21/9] overflow-hidden grayscale contrast-125 transition-all duration-700 hover:grayscale-0 shadow-2xl">
                   <div className="absolute inset-0 bg-black/5 mix-blend-multiply z-10 pointer-events-none"></div>
                   <Image 
@@ -112,13 +103,12 @@ export default function Portfolio() {
                     className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
                     sizes="80vw"
                   />
-                  {/* Botão de Detalhes Estilizado (Fiel à referência) */}
                   <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#EDE8DE] border-l border-t border-black/10 flex items-center justify-center z-20 cursor-pointer hover:bg-black group/btn transition-colors">
                      <span className="text-3xl md:text-4xl text-black font-light group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all">→</span>
                   </div>
                 </div>
 
-                {/* Descrição Compacta */}
+                {/* Descrição */}
                 <div className="mt-8 md:mt-10 max-w-[500px]">
                   <p className="font-mono text-[11px] md:text-[12px] text-black/60 leading-relaxed uppercase tracking-tight">
                     {project.description}
@@ -127,7 +117,7 @@ export default function Portfolio() {
               </div>
             ))}
 
-            {/* Espaçamento Final Simétrico */}
+            {/* Espaçamento Final */}
             <div className="min-w-[180px] h-full shrink-0"></div>
           </div>
         </div>
