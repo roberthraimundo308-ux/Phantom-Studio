@@ -21,10 +21,10 @@ const config: Config = {
         background: 'var(--bg)',
         foreground: 'var(--text)',
         accent: {
-          DEFAULT: '#C8FF00',
-          glow: 'rgba(200, 255, 0, 0.12)',
+          DEFAULT: '#e85500',
+          glow: 'rgba(232, 85, 0, 0.12)',
         },
-        cobalt: '#2E3192',
+        cobalt: '#e85500',
         muted: '#4A4540',
         border: 'rgba(240, 235, 227, 0.06)',
         s1: '#0D0D0D',

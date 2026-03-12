@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -7,7 +6,7 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const [isGrowing, setIsGrowing] = useState(false);
-  const [colorMode, setColorMode] = useState<"green" | "blue">("green");
+  const [colorMode, setColorMode] = useState<"accent" | "muted">("accent");
 
   useEffect(() => {
     const dot = dotRef.current;
@@ -40,7 +39,6 @@ export default function CustomCursor() {
       const pricing = document.getElementById("pricing");
       const cta = document.getElementById("cta");
 
-      // Função auxiliar para verificar se o ponto médio da tela está dentro de uma seção clara
       const isInLightSection = (el: HTMLElement | null) => {
         if (!el) return false;
         const rect = el.getBoundingClientRect();
@@ -49,9 +47,9 @@ export default function CustomCursor() {
       };
 
       if (isInLightSection(portfolio) || isInLightSection(process) || isInLightSection(pricing) || isInLightSection(cta)) {
-        setColorMode("blue");
+        setColorMode("muted");
       } else {
-        setColorMode("green");
+        setColorMode("accent");
       }
     };
 
@@ -60,7 +58,6 @@ export default function CustomCursor() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      // Interpolação de 0.38 para resposta rápida e precisa
       ringX += (mouseX - ringX) * 0.38;
       ringY += (mouseY - ringY) * 0.38;
       ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
@@ -76,8 +73,8 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const dotColorClass = colorMode === "green" ? "bg-accent" : "bg-cobalt";
-  const ringColorClass = colorMode === "green" ? "border-accent opacity-40" : "border-cobalt opacity-100";
+  const dotColorClass = "bg-accent";
+  const ringColorClass = colorMode === "accent" ? "border-accent opacity-40" : "border-accent opacity-80";
 
   return (
     <>
