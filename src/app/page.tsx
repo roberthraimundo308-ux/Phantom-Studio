@@ -58,7 +58,7 @@ export default function Home() {
       {/* Conteúdo em Tema Claro */}
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         
-        {/* Processo - Novo Layout Imersivo */}
+        {/* Processo - Layout Imersivo */}
         <section id="process" className="relative bg-[#EDE8DE] min-h-screen flex flex-col md:flex-row border-t border-cobalt/10">
           {/* Coluna Esquerda: Sticky Headline */}
           <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-cobalt/10 relative">
@@ -154,7 +154,6 @@ export default function Home() {
 
       {/* Seção Final: CTA e Footer (Layout TIWIS) */}
       <section id="cta" className="relative min-h-[90vh] bg-black text-white px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60]">
-        {/* Parte Superior: CTA Text e Botão (Direita) */}
         <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
           <div className="max-w-[520px] md:text-left">
             <h2 className="font-body text-[clamp(28px,3.8vw,48px)] leading-[1.1] mb-14 tracking-tight">
@@ -171,7 +170,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Parte Inferior: Logo e Footer Links */}
         <div className="flex flex-col md:flex-row items-end justify-between gap-16 md:gap-0 mt-20">
           <div className="flex flex-col items-start w-full md:w-auto">
             <p className="font-mono text-[10px] md:text-[12px] text-white/40 mb-6 max-w-[340px] leading-relaxed uppercase tracking-widest">
@@ -182,7 +180,6 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Footer Links (Canto Direito) */}
           <div className="flex flex-col items-end gap-3 pb-8 md:pb-12 w-full md:w-auto">
             <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">HELLO@PHANTOM.STUDIO</a>
             <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">LINKEDIN</a>
@@ -191,7 +188,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Overlay de Grão Decorativo */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
       </section>
     </main>

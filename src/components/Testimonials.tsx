@@ -1,9 +1,7 @@
-
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { Quote, Cpu, Zap, BarChart3, ShieldCheck, Box } from "lucide-react";
+import { Cpu, Zap, BarChart3, ShieldCheck, Box } from "lucide-react";
 
 const TESTIMONIALS = [
   {
