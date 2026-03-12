@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -152,18 +153,18 @@ export default function Home() {
         <Testimonials />
       </div>
 
-      {/* Seção Final: CTA e Footer (Layout TIWIS) */}
-      <section id="cta" className="relative min-h-[90vh] bg-black text-white px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60]">
+      {/* Seção Final: CTA e Rodapé (Layout TIWIS em Branco) */}
+      <section id="cta" className="relative min-h-[90vh] bg-white text-black px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-black/5">
         <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
           <div className="max-w-[520px] md:text-left">
-            <h2 className="font-body text-[clamp(28px,3.8vw,48px)] leading-[1.1] mb-14 tracking-tight">
+            <h2 className="font-body text-[clamp(28px,3.8vw,48px)] leading-[1.1] mb-14 tracking-tight text-black">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
             </h2>
             <a href="#" className="inline-flex items-center gap-3 group pointer-events-auto">
-              <div className="bg-white text-black px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-accent group-hover:px-12">
+              <div className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-cobalt group-hover:px-12">
                 Vamos conversar !
               </div>
-              <div className="bg-white text-black w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
+              <div className="bg-black text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-cobalt group-hover:scale-110">
                 <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
               </div>
             </a>
@@ -172,19 +173,19 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row items-end justify-between gap-16 md:gap-0 mt-20">
           <div className="flex flex-col items-start w-full md:w-auto">
-            <p className="font-mono text-[10px] md:text-[12px] text-white/40 mb-6 max-w-[340px] leading-relaxed uppercase tracking-widest">
+            <p className="font-mono text-[10px] md:text-[12px] text-black/40 mb-6 max-w-[340px] leading-relaxed uppercase tracking-widest">
               Estúdio digital especializado em performance e experiências únicas.
             </p>
-            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none">
+            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-black">
               PHANTOM
             </h1>
           </div>
 
           <div className="flex flex-col items-end gap-3 pb-8 md:pb-12 w-full md:w-auto">
-            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">HELLO@PHANTOM.STUDIO</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">LINKEDIN</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">NOTAS LEGAIS</a>
-            <div className="font-mono text-[9px] text-white/10 mt-6 tracking-[0.1em]">WEBSITE BY PHANTOM STUDIO — © 2025</div>
+            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-cobalt transition-colors">HELLO@PHANTOM.STUDIO</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-cobalt transition-colors">LINKEDIN</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-cobalt transition-colors">NOTAS LEGAIS</a>
+            <div className="font-mono text-[9px] text-black/10 mt-6 tracking-[0.1em]">WEBSITE BY PHANTOM STUDIO — © 2025</div>
           </div>
         </div>
 
