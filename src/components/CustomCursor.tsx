@@ -35,15 +35,23 @@ export default function CustomCursor() {
     };
 
     const handleScroll = () => {
-      const portfolioSection = document.getElementById("portfolio");
-      if (portfolioSection) {
-        const rect = portfolioSection.getBoundingClientRect();
-        // Mudança de cor dinâmica: verde no topo (escuro), azul a partir do portfólio (claro)
-        if (rect.top <= window.innerHeight * 0.5) {
-          setColorMode("blue");
-        } else {
-          setColorMode("green");
-        }
+      const portfolio = document.getElementById("portfolio");
+      const process = document.getElementById("process");
+      const pricing = document.getElementById("pricing");
+      const cta = document.getElementById("cta");
+
+      // Função auxiliar para verificar se o ponto médio da tela está dentro de uma seção clara
+      const isInLightSection = (el: HTMLElement | null) => {
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        const midPoint = window.innerHeight * 0.5;
+        return rect.top <= midPoint && rect.bottom >= midPoint;
+      };
+
+      if (isInLightSection(portfolio) || isInLightSection(process) || isInLightSection(pricing) || isInLightSection(cta)) {
+        setColorMode("blue");
+      } else {
+        setColorMode("green");
       }
     };
 
@@ -52,7 +60,7 @@ export default function CustomCursor() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      // Aumentado de 0.15 para 0.38 para uma resposta muito mais rápida e próxima do ponto
+      // Interpolação de 0.38 para resposta rápida e precisa
       ringX += (mouseX - ringX) * 0.38;
       ringY += (mouseY - ringY) * 0.38;
       ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
