@@ -30,7 +30,6 @@ const PROJECTS = [
 
 export default function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const horizontalRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -47,87 +46,75 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // O scroll horizontal acontece entre 0.2 e 0.9 do scroll da seção
-  const horizontalProgress = scrollProgress > 0.2 ? (scrollProgress - 0.2) / 0.7 : 0;
+  const horizontalProgress = scrollProgress > 0.1 ? (scrollProgress - 0.1) / 0.8 : 0;
   const translateX = Math.max(0, Math.min(1, horizontalProgress)) * 100;
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[400vh] bg-background"
+      className="relative h-[400vh] bg-[#EDE8DE]"
     >
-      <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden bg-[#EDE8DE]">
+      <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        {/* Camada de Background / Linhas Verticais */}
-        <div className="absolute inset-0 flex pointer-events-none">
-          <div className="flex-1 border-r border-[#0000FF]/10 h-full"></div>
-          <div className="flex-1 border-r border-[#0000FF]/10 h-full"></div>
-          <div className="flex-1 border-r border-[#0000FF]/10 h-full"></div>
-          <div className="flex-1 border-r border-[#0000FF]/10 h-full"></div>
-        </div>
-
-        {/* Título da Sessão */}
-        <div className="absolute top-12 left-6 md:left-[180px] z-20">
-          <div className="font-mono text-[10px] tracking-[0.3em] text-[#0000FF] uppercase flex items-center gap-3 mb-2">
-            <span className="w-8 h-[1px] bg-[#0000FF]/30"></span> 04 TRABALHOS
+        {/* Header Padronizado (Azul Cobalto) */}
+        <div className="pt-12 px-6 md:pl-[180px] md:pr-[80px] z-20">
+          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#0000FF]/10 pb-7 mb-10 gap-4">
+            <span className="font-mono text-[10px] tracking-[0.3em] text-[#0000FF] uppercase flex items-center gap-3 before:content-['04'] before:text-[#0000FF]/30">
+              TRABALHOS SELECIONADOS
+            </span>
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#0000FF] uppercase">NOSSAS CRIAÇÕES</h2>
           </div>
-          <h2 className="font-headline text-5xl md:text-7xl text-[#0000FF] tracking-tight leading-none">
-            NOSSAS CRIAÇÕES
-          </h2>
         </div>
 
         {/* Galeria Horizontal */}
-        <div 
-          className="flex gap-0 h-full items-center px-6 md:pl-[180px] transition-transform duration-200 ease-out will-change-transform"
-          style={{ transform: `translateX(-${translateX}%)` }}
-        >
-          {PROJECTS.map((project, idx) => (
-            <div 
-              key={idx} 
-              className="relative flex flex-col justify-center min-w-[100vw] md:min-w-[60vw] h-full px-12 md:px-20 border-r border-[#0000FF]/10 group"
-            >
-              <div className="mb-10">
-                <div className="font-mono text-[11px] text-[#0000FF]/40 mb-3 tracking-widest uppercase">
-                  {project.category}
+        <div className="flex-1 flex items-center">
+          <div 
+            className="flex gap-0 h-full items-center px-6 md:pl-[180px] transition-transform duration-200 ease-out will-change-transform"
+            style={{ transform: `translateX(-${translateX}%)` }}
+          >
+            {PROJECTS.map((project, idx) => (
+              <div 
+                key={idx} 
+                className="relative flex flex-col justify-center min-w-[100vw] md:min-w-[70vw] h-full px-12 md:px-20 border-r border-[#0000FF]/5 group"
+              >
+                <div className="mb-10">
+                  <div className="font-mono text-[11px] text-[#0000FF]/40 mb-3 tracking-widest uppercase">
+                    {project.category}
+                  </div>
+                  <h3 className="font-headline text-[clamp(40px,6vw,84px)] text-[#0000FF] leading-[0.9] mb-8">
+                    {project.title}
+                  </h3>
                 </div>
-                <h3 className="font-headline text-[clamp(40px,6vw,84px)] text-[#0000FF] leading-tight mb-8">
-                  {project.title}
-                </h3>
-              </div>
-              
-              <div className="relative w-full aspect-[16/9] overflow-hidden grayscale contrast-125 transition-all duration-700 group-hover:grayscale-0">
-                {/* Overlay Azul Halftone Effect Simulado */}
-                <div className="absolute inset-0 bg-[#0000FF]/20 mix-blend-multiply z-10 pointer-events-none transition-opacity group-hover:opacity-0"></div>
-                <Image 
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
-                />
                 
-                {/* Seta Ícone minimalista como na imagem */}
-                <div className="absolute bottom-0 right-0 w-20 h-20 bg-white border-l border-t border-[#0000FF]/10 flex items-center justify-center z-20">
-                   <span className="text-3xl text-[#0000FF] font-light">→</span>
+                <div className="relative w-full aspect-[16/9] overflow-hidden grayscale contrast-125 transition-all duration-700 group-hover:grayscale-0">
+                  <div className="absolute inset-0 bg-[#0000FF]/15 mix-blend-multiply z-10 pointer-events-none transition-opacity group-hover:opacity-0"></div>
+                  <Image 
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
+                  />
+                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-[#EDE8DE] border-l border-t border-[#0000FF]/10 flex items-center justify-center z-20">
+                     <span className="text-4xl text-[#0000FF] font-light group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                </div>
+
+                <div className="mt-8 max-w-[450px]">
+                  <p className="font-mono text-[13px] text-[#0000FF]/60 leading-relaxed uppercase tracking-tight">
+                    {project.description}
+                  </p>
                 </div>
               </div>
-
-              <div className="mt-8 max-w-[400px]">
-                <p className="font-mono text-[13px] text-[#0000FF]/60 leading-relaxed uppercase">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          ))}
-
-          {/* Espaço Final para completar a rolagem */}
-          <div className="min-w-[20vw]"></div>
+            ))}
+            <div className="min-w-[20vw]"></div>
+          </div>
         </div>
 
         {/* Marca d'água lateral fixa */}
-        <div className="absolute right-12 bottom-12 z-20 pointer-events-none opacity-10">
-           <div className="font-headline text-2xl text-[#0000FF] tracking-[0.4em] rotate-90 origin-right">
-             PHANTOM STUDIO.
+        <div className="absolute right-12 bottom-12 z-20 pointer-events-none opacity-[0.03]">
+           <div className="font-headline text-3xl text-[#0000FF] tracking-[0.4em] rotate-90 origin-right">
+             PHANTOM.
            </div>
         </div>
       </div>
