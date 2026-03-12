@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useRef } from "react";
@@ -34,9 +35,9 @@ export default function Navbar() {
         href="#cta"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="magnetic-btn pointer-events-auto font-mono text-[10px] tracking-[0.22em] uppercase text-black bg-foreground px-5 py-3 flex items-center gap-2 group relative overflow-hidden transition-all duration-300 hover:gap-4"
+        className="magnetic-btn pointer-events-auto font-mono text-[10px] tracking-[0.22em] uppercase text-black bg-accent px-5 py-3 flex items-center gap-2 group relative overflow-hidden transition-all duration-300 hover:gap-4"
       >
-        <span className="absolute inset-0 bg-accent -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-400 ease-[cubic-bezier(0.76,0,0.24,1)]"></span>
+        <span className="absolute inset-0 bg-white -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-400 ease-[cubic-bezier(0.76,0,0.24,1)]"></span>
         <span className="relative">Iniciar Projeto</span>
         <span className="relative">→</span>
       </a>

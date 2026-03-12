@@ -60,23 +60,23 @@ export default function Home() {
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         
         {/* Processo - Layout Imersivo */}
-        <section id="process" className="relative bg-[#EDE8DE] min-h-screen flex flex-col md:flex-row border-t border-cobalt/10">
+        <section id="process" className="relative bg-[#EDE8DE] min-h-screen flex flex-col md:flex-row border-t border-accent/10">
           {/* Coluna Esquerda: Sticky Headline */}
-          <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-cobalt/10 relative">
-            <div className="font-mono text-[10px] tracking-[0.3em] text-cobalt/40 uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-cobalt/20">
+          <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-accent/10 relative">
+            <div className="font-mono text-[10px] tracking-[0.3em] text-accent/40 uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20">
               METODOLOGIA
             </div>
-            <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-cobalt uppercase mb-12">
+            <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-accent uppercase mb-12">
               FORJADO EM<br />CADA ETAPA.
             </h2>
-            <p className="font-mono text-[12px] md:text-[14px] leading-relaxed text-cobalt/60 max-w-[400px] uppercase tracking-tight">
+            <p className="font-mono text-[12px] md:text-[14px] leading-relaxed text-accent/60 max-w-[400px] uppercase tracking-tight">
               Navegar pelas complexidades digitais exige precisão. Nossa metodologia transforma visão em performance bruta, guiando seu projeto com confiança absoluta.
             </p>
 
-            {/* Indicador Circular Estilo Cursor (Azul) */}
+            {/* Indicador Circular Estilo Cursor (Laranja) */}
             <div className="absolute right-[-21px] top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-10 bg-[#EDE8DE] is-cursor">
-              <div className="w-10 h-10 border border-cobalt/20 is-cursor flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-cobalt is-cursor"></div>
+              <div className="w-10 h-10 border border-accent/20 is-cursor flex items-center justify-center">
+                <div className="w-1.5 h-1.5 bg-accent is-cursor"></div>
               </div>
             </div>
           </div>
@@ -91,18 +91,18 @@ export default function Home() {
               { n: '05', title: 'Lançamento', desc: 'SEO avançado, testes rigorosos de qualidade e suporte contínuo para garantir o sucesso.' }
             ].map((step, i) => (
               <ScrollReveal key={i} className="rev">
-                <div className="bg-white p-10 md:p-14 shadow-[20px_20px_60px_rgba(46,49,146,0.05)] border border-cobalt/5 relative group hover:-translate-y-2 transition-transform duration-500">
-                  <div className="flex justify-between items-start mb-12 border-b border-cobalt/10 pb-6">
-                    <h3 className="font-headline text-4xl md:text-5xl text-cobalt tracking-wide uppercase">{step.title}</h3>
-                    <span className="font-headline text-5xl md:text-6xl text-cobalt/10 group-hover:text-cobalt/20 transition-colors">{step.n}</span>
+                <div className="bg-white p-10 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.05)] border border-accent/5 relative group hover:-translate-y-2 transition-transform duration-500">
+                  <div className="flex justify-between items-start mb-12 border-b border-accent/10 pb-6">
+                    <h3 className="font-headline text-4xl md:text-5xl text-accent tracking-wide uppercase">{step.title}</h3>
+                    <span className="font-headline text-5xl md:text-6xl text-accent/10 group-hover:text-accent/20 transition-colors">{step.n}</span>
                   </div>
-                  <p className="font-mono text-[11px] md:text-[13px] leading-relaxed text-cobalt/60 uppercase tracking-tight">
+                  <p className="font-mono text-[11px] md:text-[13px] leading-relaxed text-accent/60 uppercase tracking-tight">
                     {step.desc}
                   </p>
-                  <div className="absolute top-0 left-0 w-4 h-[1px] bg-cobalt/20"></div>
-                  <div className="absolute top-0 left-0 w-[1px] h-4 bg-cobalt/20"></div>
-                  <div className="absolute bottom-0 right-0 w-4 h-[1px] bg-cobalt/20"></div>
-                  <div className="absolute bottom-0 right-0 w-[1px] h-4 bg-cobalt/20"></div>
+                  <div className="absolute top-0 left-0 w-4 h-[1px] bg-accent/20"></div>
+                  <div className="absolute top-0 left-0 w-[1px] h-4 bg-accent/20"></div>
+                  <div className="absolute bottom-0 right-0 w-4 h-[1px] bg-accent/20"></div>
+                  <div className="absolute bottom-0 right-0 w-[1px] h-4 bg-accent/20"></div>
                 </div>
               </ScrollReveal>
             ))}
@@ -153,7 +153,7 @@ export default function Home() {
         <Testimonials />
       </div>
 
-      {/* Seção Final: CTA e Rodapé (Layout TIWIS em Branco) */}
+      {/* Seção Final: CTA e Rodapé (Tema Claro) */}
       <section id="cta" className="relative min-h-[90vh] bg-white text-black px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-black/5">
         <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
           <div className="max-w-[520px] md:text-left">
@@ -161,10 +161,10 @@ export default function Home() {
               Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
             </h2>
             <a href="#" className="inline-flex items-center gap-3 group pointer-events-auto">
-              <div className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-cobalt group-hover:px-12">
+              <div className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-accent group-hover:px-12">
                 Vamos conversar !
               </div>
-              <div className="bg-black text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-cobalt group-hover:scale-110">
+              <div className="bg-black text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
                 <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
               </div>
             </a>
@@ -182,9 +182,9 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-end gap-3 pb-8 md:pb-12 w-full md:w-auto">
-            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-cobalt transition-colors">HELLO@PHANTOM.STUDIO</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-cobalt transition-colors">LINKEDIN</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-cobalt transition-colors">NOTAS LEGAIS</a>
+            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">HELLO@PHANTOM.STUDIO</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">LINKEDIN</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">NOTAS LEGAIS</a>
             <div className="font-mono text-[9px] text-black/10 mt-6 tracking-[0.1em]">WEBSITE BY PHANTOM STUDIO — © 2025</div>
           </div>
         </div>
