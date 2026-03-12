@@ -33,6 +33,7 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Ajuste para sincronizar o final da rolagem horizontal com o início da próxima sessão
   const translateX = scrollProgress * 46; 
 
   return (
@@ -43,7 +44,7 @@ export default function Portfolio() {
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        {/* Header Padronizado */}
+        {/* Header Padronizado em Azul Cobalto */}
         <div className="pt-16 md:pt-24 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
           <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-cobalt/10 pb-7 mb-8 gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-cobalt uppercase flex items-center gap-3 before:content-['04'] before:text-cobalt/20 font-bold">
@@ -61,7 +62,7 @@ export default function Portfolio() {
             className="flex h-full items-center transition-transform duration-200 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}%)` }}
           >
-            {/* Espaçamento Inicial */}
+            {/* Espaçamento Inicial de 180px para alinhar com o menu */}
             <div className="min-w-[180px] h-full shrink-0"></div>
 
             {PROJECTS.map((project, idx) => (
@@ -80,7 +81,7 @@ export default function Portfolio() {
                   </h3>
                 </div>
                 
-                {/* Container da Imagem */}
+                {/* Container da Imagem com Aspect Ratio Otimizado */}
                 <div className="relative w-full max-w-[1400px] aspect-[21/9] overflow-hidden grayscale contrast-125 transition-all duration-700 hover:grayscale-0 shadow-2xl">
                   <div className="absolute inset-0 bg-cobalt/5 mix-blend-multiply z-10 pointer-events-none"></div>
                   <Image 
@@ -95,7 +96,7 @@ export default function Portfolio() {
                   </div>
                 </div>
 
-                {/* Descrição */}
+                {/* Descrição em tom azul cobalto suave */}
                 <div className="mt-8 md:mt-10 max-w-[500px]">
                   <p className="font-mono text-[11px] md:text-[12px] text-cobalt/60 leading-relaxed uppercase tracking-tight">
                     {project.description}
@@ -104,12 +105,12 @@ export default function Portfolio() {
               </div>
             ))}
 
-            {/* Espaçamento Final Simétrico */}
+            {/* Espaçamento Final Simétrico de 180px */}
             <div className="min-w-[180px] h-full shrink-0"></div>
           </div>
         </div>
 
-        {/* Branding Lateral */}
+        {/* Branding Lateral Minimalista */}
         <div className="absolute right-8 bottom-8 z-20 pointer-events-none opacity-[0.03]">
            <div className="font-headline text-2xl md:text-4xl text-cobalt tracking-[0.5em] rotate-90 origin-right">
              PHANTOM.

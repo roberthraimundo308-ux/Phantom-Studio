@@ -6,6 +6,7 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const [isGrowing, setIsGrowing] = useState(false);
+  const [colorMode, setColorMode] = useState<"green" | "blue">("green");
 
   useEffect(() => {
     const dot = dotRef.current;
@@ -32,8 +33,23 @@ export default function CustomCursor() {
       }
     };
 
+    const handleScroll = () => {
+      // O portfólio marca o início do tema claro no site
+      const portfolioSection = document.getElementById("portfolio");
+      if (portfolioSection) {
+        const rect = portfolioSection.getBoundingClientRect();
+        // Se o topo do portfólio atingir o meio da tela, mudamos para azul
+        if (rect.top <= window.innerHeight * 0.5) {
+          setColorMode("blue");
+        } else {
+          setColorMode("green");
+        }
+      }
+    };
+
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseover", handleInteraction);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
       ringX += (mouseX - ringX) * 0.13;
@@ -46,21 +62,25 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseover", handleInteraction);
+      window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(frame);
     };
   }, []);
+
+  const dotColorClass = colorMode === "green" ? "bg-accent" : "bg-cobalt";
+  const ringColorClass = colorMode === "green" ? "border-accent opacity-40" : "border-cobalt opacity-100";
 
   return (
     <>
       <div
         ref={dotRef}
-        className="fixed w-2 h-2 bg-cobalt z-[99999] pointer-events-none is-cursor"
+        className={`fixed w-2 h-2 z-[99999] pointer-events-none is-cursor transition-colors duration-300 ${dotColorClass}`}
         style={{ top: 0, left: 0 }}
       />
       <div
         ref={ringRef}
-        className={`fixed border-[1.5px] border-cobalt z-[99999] pointer-events-none transition-[width,height,border-color] duration-200 is-cursor ${
-          isGrowing ? "w-14 h-14 opacity-100" : "w-9 h-9 opacity-40"
+        className={`fixed border-[1.5px] z-[99999] pointer-events-none transition-all duration-300 is-cursor ${ringColorClass} ${
+          isGrowing ? "w-14 h-14" : "w-9 h-9"
         }`}
         style={{ top: 0, left: 0 }}
       />
