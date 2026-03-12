@@ -103,6 +103,12 @@ body::after {
   -webkit-text-stroke: 1px var(--text);
   color: transparent;
 }
+
+.word-out-cobalt {
+  -webkit-text-stroke: 1.5px var(--cobalt);
+  color: transparent;
+}
+
 .word-acc {
   color: var(--accent);
 }

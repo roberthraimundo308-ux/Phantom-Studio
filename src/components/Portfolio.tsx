@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -85,7 +84,7 @@ export default function Portfolio() {
               TRABALHOS SELECIONADOS
             </span>
             <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-cobalt uppercase">
-              NOSSAS CRIAÇÕES
+              <span className="word-out-cobalt mr-4">NOSSAS</span> CRIAÇÕES
             </h2>
           </div>
         </div>
