@@ -72,7 +72,7 @@ export default function Home() {
               Navegar pelas complexidades digitais exige precisão. Nossa metodologia transforma visão em performance bruta, guiando seu projeto com confiança absoluta.
             </p>
 
-            {/* Indicador Circular Estilo Cursor (Azul) - Alinhado com a Referência */}
+            {/* Indicador Circular Estilo Cursor (Azul) */}
             <div className="absolute right-[-21px] top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-10 bg-[#EDE8DE] is-cursor">
               <div className="w-10 h-10 border border-cobalt/20 is-cursor flex items-center justify-center">
                 <div className="w-1.5 h-1.5 bg-cobalt is-cursor"></div>
@@ -98,7 +98,6 @@ export default function Home() {
                   <p className="font-mono text-[11px] md:text-[13px] leading-relaxed text-cobalt/60 uppercase tracking-tight">
                     {step.desc}
                   </p>
-                  {/* Linhas decorativas técnicas */}
                   <div className="absolute top-0 left-0 w-4 h-[1px] bg-cobalt/20"></div>
                   <div className="absolute top-0 left-0 w-[1px] h-4 bg-cobalt/20"></div>
                   <div className="absolute bottom-0 right-0 w-4 h-[1px] bg-cobalt/20"></div>
@@ -108,11 +107,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        {/* Depoimentos - Integrados ao Tema Claro */}
-        <div className="relative z-45 bg-[#EDE8DE]">
-          <Testimonials />
-        </div>
 
         {/* Preços */}
         <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
@@ -151,41 +145,55 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </section>
+      </div>
 
-        {/* CTA Section */}
-        <section id="cta" className="relative py-40 px-6 md:pl-[180px] md:pr-[80px] text-center">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_55%_at_50%_50%,rgba(0,0,0,0.02)_0%,transparent_70%)] pointer-events-none"></div>
-          <div className="relative z-10">
-            <div className="font-mono text-[10px] tracking-[0.32em] text-black/40 uppercase mb-7">PRONTO PARA COMEÇAR?</div>
-            <ScrollReveal className="rev">
-              <h2 className="font-headline text-[clamp(52px,9.5vw,136px)] leading-[0.9] mb-11 text-black">
-                O MELHOR SITE<br />
-                <span className="text-black/20">DA SUA VIDA.</span>
-              </h2>
-            </ScrollReveal>
-            <p className="rev d1 text-[17px] text-black/50 max-w-[440px] mx-auto mb-13 leading-relaxed">
-              Não existe segunda chance para causar uma primeira impressão. Seu site é sua arma mais poderosa. Vamos forjar a sua.
-            </p>
-            <a href="#" className="big-btn pointer-events-auto inline-flex items-center gap-[18px] font-mono text-[12px] tracking-[0.22em] uppercase text-white bg-black px-[52px] py-[20px] group relative overflow-hidden transition-all duration-350 hover:gap-7">
-              <span className="absolute inset-0 bg-accent -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-450 ease-[cubic-bezier(0.76,0,0.24,1)]"></span>
-              <span className="relative z-10 group-hover:text-black transition-colors duration-300">Iniciar Projeto</span>
-              <span className="relative z-10 group-hover:text-black transition-colors duration-300">→</span>
+      {/* Depoimentos - Volta ao Tema Escuro */}
+      <div className="relative z-50">
+        <Testimonials />
+      </div>
+
+      {/* Seção Final: CTA e Footer (Novo Layout TIWIS) */}
+      <section id="cta" className="relative min-h-[90vh] bg-black text-white px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60]">
+        {/* Parte Superior: CTA Text e Botão (Direita) */}
+        <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
+          <div className="max-w-[520px] md:text-left">
+            <h2 className="font-body text-[clamp(28px,3.8vw,48px)] leading-[1.1] mb-14 tracking-tight">
+              An idea, a project, or simply need to challenge the status quo?
+            </h2>
+            <a href="#" className="inline-flex items-center gap-3 group pointer-events-auto">
+              <div className="bg-white text-black px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-accent group-hover:px-12">
+                Let's talk !
+              </div>
+              <div className="bg-white text-black w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
+                <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
+              </div>
             </a>
           </div>
-        </section>
+        </div>
 
-        {/* Footer */}
-        <footer className="relative border-t border-black/5 p-10 md:pl-[180px] md:pr-[80px] flex flex-col md:flex-row items-center justify-between gap-10 text-center md:text-left">
-          <div className="font-headline text-4xl tracking-[0.18em] text-black">PHANTOM<span className="text-accent">.</span></div>
-          <ul className="flex flex-wrap justify-center gap-9 list-none">
-            <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-black/40 uppercase hover:text-black transition-colors">Sobre</a></li>
-            <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-black/40 uppercase hover:text-black transition-colors">Portfólio</a></li>
-            <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-black/40 uppercase hover:text-black transition-colors">Blog</a></li>
-            <li><a href="#" className="font-mono text-[10px] tracking-[0.2em] text-black/40 uppercase hover:text-black transition-colors">Contato</a></li>
-          </ul>
-          <div className="font-mono text-[9px] tracking-[0.15em] text-black/30">© 2025 PHANTOM STUDIO — Todos os direitos reservados</div>
-        </footer>
-      </div>
+        {/* Parte Inferior: Logo e Footer Links */}
+        <div className="flex flex-col md:flex-row items-end justify-between gap-16 md:gap-0 mt-20">
+          <div className="flex flex-col items-start w-full md:w-auto">
+            <p className="font-mono text-[10px] md:text-[12px] text-white/40 mb-6 max-w-[340px] leading-relaxed uppercase tracking-widest">
+              Digital agency specialized in performance and unique experiences.
+            </p>
+            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none">
+              PHANTOM
+            </h1>
+          </div>
+
+          {/* Footer Links (Canto Direito) */}
+          <div className="flex flex-col items-end gap-3 pb-8 md:pb-12 w-full md:w-auto">
+            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">HELLO@PHANTOM.STUDIO</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">LINKEDIN</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">LEGAL MENTIONS</a>
+            <div className="font-mono text-[9px] text-white/10 mt-6 tracking-[0.1em]">WEBSITE BY PHANTOM STUDIO — © 2025</div>
+          </div>
+        </div>
+
+        {/* Overlay de Grão Decorativo */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+      </section>
     </main>
   );
 }
