@@ -54,49 +54,9 @@ export default function Home() {
         <Portfolio />
       </div>
 
-      {/* Conteúdo em Tema Claro (Exibido após o zoom do Portfólio) */}
+      {/* Conteúdo em Tema Claro (Exibido após o Portfólio) */}
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         
-        {/* Comparação */}
-        <section id="weapon" className="relative py-20 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
-          <div className="max-w-[1600px] mx-auto">
-            <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-[60px] rev gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['05'] before:text-black/20">
-                A DIFERENÇA
-              </span>
-              <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505]">SITE COMUM VS ARMA</h2>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 border border-black/5 rev shadow-sm">
-              <div className="p-10 md:p-14 border-b lg:border-b-0 lg:border-r border-black/5 bg-black/[0.02]">
-                <div className="font-mono text-[9px] tracking-[0.28em] text-black/40 uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-black/10">
-                  Site Comum
-                </div>
-                <ul className="space-y-6 font-mono text-[13px] text-black/50 list-none">
-                  <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Template genérico e engessado</li>
-                  <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Carregamento lento (Prejudica o SEO)</li>
-                  <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Design esquecível, sem identidade</li>
-                  <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Nenhuma estratégia de conversão</li>
-                  <li className="flex gap-4 items-start"><span className="text-red-500 font-bold">✕</span> Não ranqueia no Google</li>
-                </ul>
-              </div>
-              <div className="p-10 md:p-14 bg-white relative overflow-hidden group">
-                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                <div className="font-mono text-[9px] tracking-[0.28em] text-black uppercase mb-8 flex items-center gap-2.5 before:content-[''] before:w-5 before:h-[1px] before:bg-black">
-                  Phantom Studio
-                </div>
-                <ul className="space-y-6 font-mono text-[13px] text-black list-none">
-                  <li className="flex gap-4 items-start"><span className="text-[#00E676] font-bold">✓</span> Design único, 100% personalizado</li>
-                  <li className="flex gap-4 items-start"><span className="text-[#00E676] font-bold">✓</span> Performance máxima (Core Vitals 95+)</li>
-                  <li className="flex gap-4 items-start"><span className="text-[#00E676] font-bold">✓</span> Identidade visual impactante</li>
-                  <li className="flex gap-4 items-start"><span className="text-[#00E676] font-bold">✓</span> CRO integrado em cada decisão</li>
-                  <li className="flex gap-4 items-start"><span className="text-[#00E676] font-bold">✓</span> SEO técnico de elite</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Processo */}
         <section id="process" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-white">
           <div className="max-w-[1600px] mx-auto">
