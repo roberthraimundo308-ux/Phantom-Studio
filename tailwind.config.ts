@@ -24,6 +24,7 @@ const config: Config = {
           DEFAULT: '#C8FF00',
           glow: 'rgba(200, 255, 0, 0.12)',
         },
+        cobalt: '#2E3192',
         muted: '#4A4540',
         border: 'rgba(240, 235, 227, 0.06)',
         s1: '#0D0D0D',
