@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -138,7 +137,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <button className={`w-full py-4 font-mono text-[11px] tracking-[0.2em] uppercase border border-black/10 transition-all duration-300 ${plan.highlight ? 'bg-black text-white border-black' : 'text-black hover:border-black/40 hover:bg-black hover:text-white'}`}>
+                  <button className={`w-full py-4 font-mono text-[11px] tracking-[0.2em] uppercase border border-black/10 transition-all duration-300 ${plan.highlight ? 'bg-black text-white border-black hover:bg-accent hover:text-black hover:border-accent' : 'text-black hover:border-accent hover:bg-accent hover:text-black'}`}>
                     Começar Agora
                   </button>
                 </div>
@@ -161,10 +160,10 @@ export default function Home() {
               Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
             </h2>
             <a href="#" className="inline-flex items-center gap-3 group pointer-events-auto">
-              <div className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-accent group-hover:px-12">
+              <div className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-accent group-hover:text-black group-hover:px-12">
                 Vamos conversar !
               </div>
-              <div className="bg-black text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent group-hover:scale-110">
+              <div className="bg-black text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent group-hover:text-black group-hover:scale-110">
                 <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
               </div>
             </a>

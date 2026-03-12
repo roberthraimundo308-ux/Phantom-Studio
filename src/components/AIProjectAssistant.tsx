@@ -75,7 +75,7 @@ export default function AIProjectAssistant() {
               />
               <button 
                 disabled={loading}
-                className="bg-[#050505] text-white font-mono text-[10px] tracking-[0.2em] uppercase py-5 flex items-center justify-center gap-3 hover:bg-black/80 transition-all rounded-none"
+                className="bg-[#050505] text-white font-mono text-[10px] tracking-[0.2em] uppercase py-5 flex items-center justify-center gap-3 hover:bg-accent hover:text-black transition-all rounded-none"
               >
                 {loading ? <Loader2 className="animate-spin w-4 h-4" /> : <Send className="w-4 h-4" />}
                 GERAR AGORA
@@ -96,7 +96,7 @@ export default function AIProjectAssistant() {
             {output && (
               <button 
                 onClick={() => { navigator.clipboard.writeText(output); }}
-                className="mt-6 self-end font-mono text-[10px] text-black/40 tracking-widest hover:text-black transition-colors"
+                className="mt-6 self-end font-mono text-[10px] text-black/40 tracking-widest hover:text-accent transition-colors"
               >
                 [ COPIAR TEXTO ]
               </button>
