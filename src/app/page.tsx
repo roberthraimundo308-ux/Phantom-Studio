@@ -8,6 +8,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Numbers from "@/components/Numbers";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -57,45 +58,60 @@ export default function Home() {
       {/* Conteúdo em Tema Claro (Exibido após o Portfólio) */}
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         
-        {/* Processo */}
-        <section id="process" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px] bg-white">
-          <div className="max-w-[1600px] mx-auto">
-            <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/5 pb-7 mb-[60px] rev gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
-                METODOLOGIA
-              </span>
-              <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black">PROCESSO</h2>
-            </ScrollReveal>
-            
-            <ScrollReveal className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-[1px] bg-black/5 border border-black/5" stagger>
-              {[
-                { n: '01', title: 'Descoberta', desc: 'Entendemos seu negócio e público a fundo.' },
-                { n: '02', title: 'Estratégia', desc: 'Definimos arquitetura e metas de conversão.' },
-                { n: '03', title: 'Design', desc: 'Criamos identidade visual única. Sem templates.' },
-                { n: '04', title: 'Código', desc: 'Desenvolvimento limpo, rápido e escalável.' },
-                { n: '05', title: 'Lançamento', desc: 'SEO, testes e suporte pós-entrega.' }
-              ].map((step, i) => (
-                <div key={i} className={`rev d${i} bg-white p-10 transition-colors duration-400 hover:bg-[#F9F9F9] group`}>
-                  <div className="font-headline text-7xl text-black/5 mb-5 transition-colors duration-400 group-hover:text-black/10 leading-none">
-                    {step.n}
+        {/* Processo - Novo Layout Imersivo */}
+        <section id="process" className="relative bg-[#EDE8DE] min-h-screen flex flex-col md:flex-row border-t border-cobalt/10">
+          {/* Coluna Esquerda: Sticky Headline */}
+          <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-cobalt/10">
+            <div className="font-mono text-[10px] tracking-[0.3em] text-cobalt/40 uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-cobalt/20">
+              METODOLOGIA
+            </div>
+            <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-cobalt uppercase mb-12">
+              FORJADO EM<br />CADA ETAPA.
+            </h2>
+            <p className="font-mono text-[12px] md:text-[14px] leading-relaxed text-cobalt/60 max-w-[400px] uppercase tracking-tight">
+              Navegar pelas complexidades digitais exige precisão. Nossa metodologia transforma visão em performance bruta, guiando seu projeto com confiança absoluta.
+            </p>
+          </div>
+
+          {/* Coluna Direita: Scrolling Cards */}
+          <div className="w-full md:w-1/2 px-6 md:px-20 py-20 md:py-40 flex flex-col gap-24 md:gap-40">
+            {[
+              { n: '01', title: 'Descoberta', desc: 'Mergulhamos profundamente no seu ecossistema para entender objetivos, dores e o público-alvo.' },
+              { n: '02', title: 'Estratégia', desc: 'Definimos a arquitetura de informação e as metas de conversão. Cada clique é planejado.' },
+              { n: '03', title: 'Design', desc: 'Criamos uma identidade visual única e disruptiva. Design autoral que comunica força e autoridade.' },
+              { n: '04', title: 'Código', desc: 'Desenvolvimento de elite. Limpo, rápido e escalável. Focamos em performance máxima em qualquer dispositivo.' },
+              { n: '05', title: 'Lançamento', desc: 'SEO avançado, testes rigorosos de qualidade e suporte contínuo para garantir o sucesso.' }
+            ].map((step, i) => (
+              <ScrollReveal key={i} className="rev">
+                <div className="bg-white p-10 md:p-14 shadow-[20px_20px_60px_rgba(46,49,146,0.05)] border border-cobalt/5 relative group hover:-translate-y-2 transition-transform duration-500">
+                  <div className="flex justify-between items-start mb-12 border-b border-cobalt/10 pb-6">
+                    <h3 className="font-headline text-4xl md:text-5xl text-cobalt tracking-wide uppercase">{step.title}</h3>
+                    <span className="font-headline text-5xl md:text-6xl text-cobalt/10 group-hover:text-cobalt/20 transition-colors">{step.n}</span>
                   </div>
-                  <div className="font-ui text-[18px] font-bold text-black mb-2.5">
-                    {step.title}
-                  </div>
-                  <div className="font-mono text-[11px] leading-[1.75] text-black/40">
+                  <p className="font-mono text-[11px] md:text-[13px] leading-relaxed text-cobalt/60 uppercase tracking-tight">
                     {step.desc}
-                  </div>
+                  </p>
+                  {/* Linhas decorativas técnicas */}
+                  <div className="absolute top-0 left-0 w-4 h-[1px] bg-cobalt/20"></div>
+                  <div className="absolute top-0 left-0 w-[1px] h-4 bg-cobalt/20"></div>
+                  <div className="absolute bottom-0 right-0 w-4 h-[1px] bg-cobalt/20"></div>
+                  <div className="absolute bottom-0 right-0 w-[1px] h-4 bg-cobalt/20"></div>
                 </div>
-              ))}
-            </ScrollReveal>
+              </ScrollReveal>
+            ))}
           </div>
         </section>
+
+        {/* Depoimentos - Integrados ao Tema Claro */}
+        <div className="relative z-45 bg-[#EDE8DE]">
+          <Testimonials />
+        </div>
 
         {/* Preços */}
         <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto">
             <ScrollReveal className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-20 gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['07'] before:text-black/20">
+              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
                 INVESTIMENTO
               </span>
               <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black">PLANOS</h2>

@@ -8,10 +8,9 @@ const SECTIONS = [
   { id: "numbers", label: "02 Números" },
   { id: "services", label: "03 Serviços" },
   { id: "portfolio", label: "04 Trabalhos" },
-  { id: "weapon", label: "05 Diferença" },
-  { id: "process", label: "06 Processo" },
-  { id: "pricing", label: "07 Planos" },
-  { id: "cta", label: "08 Contato" },
+  { id: "process", label: "05 Processo" },
+  { id: "pricing", label: "06 Planos" },
+  { id: "cta", label: "07 Contato" },
 ];
 
 export default function SectionProgress() {
