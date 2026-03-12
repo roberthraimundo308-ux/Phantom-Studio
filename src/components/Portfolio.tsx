@@ -52,17 +52,13 @@ export default function Portfolio() {
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        {/* Header de Impacto - Ajustado para evitar sobreposição */}
-        <div className="pt-12 md:pt-16 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
-          <div className="flex flex-col md:flex-row items-start justify-between border-b border-black/10 pb-6 mb-8 gap-4 relative">
-            <div className="flex items-center gap-6 mt-4 md:mt-10">
-              <span className="font-mono text-[10px] tracking-[0.4em] text-black/20">04</span>
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black uppercase font-bold">
-                TRABALHOS SELECIONADOS
-              </span>
-            </div>
-            
-            <h2 className="font-headline text-[clamp(60px,11vw,160px)] tracking-[-0.02em] leading-[0.7] text-black uppercase md:absolute md:right-0 md:top-2 select-none pointer-events-none">
+        {/* Header Padronizado */}
+        <div className="pt-16 md:pt-24 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
+          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-8 gap-4">
+            <span className="font-mono text-[10px] tracking-[0.3em] text-black uppercase flex items-center gap-3 before:content-['04'] before:text-black/20 font-bold">
+              TRABALHOS SELECIONADOS
+            </span>
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black uppercase">
               NOSSAS CRIAÇÕES
             </h2>
           </div>
@@ -117,7 +113,7 @@ export default function Portfolio() {
               </div>
             ))}
 
-            {/* Espaçamento Final */}
+            {/* Espaçamento Final Simétrico */}
             <div className="min-w-[180px] h-full shrink-0"></div>
           </div>
         </div>
