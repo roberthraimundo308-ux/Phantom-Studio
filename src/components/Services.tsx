@@ -38,6 +38,7 @@ export default function Services() {
   return (
     <section id="services" className="relative py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background">
       <div className="max-w-[1400px] mx-auto">
+        {/* Header Padronizado */}
         <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-20 gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['03'] before:text-muted">
             NOSSA EXPERTISE
@@ -55,12 +56,10 @@ export default function Services() {
                 borderRadius: '0px'
               }}
             >
-              {/* Indicador de Topo Esquerdo */}
+              {/* Indicador de Topo Esquerdo - Ponto e Círculo (Estilo Cursor) */}
               <div className="absolute top-8 left-8 flex items-center gap-3">
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-                <div className="w-6 h-6 border border-accent/20 rounded-full flex items-center justify-center">
-                   <div className="w-4 h-4 border border-accent/40 rounded-full"></div>
-                </div>
+                <div className="w-1.5 h-1.5 bg-accent is-cursor"></div>
+                <div className="w-6 h-6 border border-accent/30 is-cursor"></div>
               </div>
 
               {/* Conteúdo Principal */}
@@ -83,7 +82,7 @@ export default function Services() {
                   <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover/btn:translate-x-1" />
                 </button>
 
-                {/* Lista de Features - Totalmente Retangular */}
+                {/* Lista de Features */}
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-border/20 border border-border/20">
                   {s.features.map((f, idx) => (
                     <div key={idx} className="flex items-center gap-4 bg-s1 p-5 transition-colors hover:bg-white/[0.02]">
