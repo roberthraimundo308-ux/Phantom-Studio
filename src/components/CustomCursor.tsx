@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -51,9 +52,9 @@ export default function CustomCursor() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      // Velocidade de interpolação ajustada para 0.15 para ser mais responsivo
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
+      // Aumentado de 0.15 para 0.38 para uma resposta muito mais rápida e próxima do ponto
+      ringX += (mouseX - ringX) * 0.38;
+      ringY += (mouseY - ringY) * 0.38;
       ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
       requestAnimationFrame(animate);
     };
