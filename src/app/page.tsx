@@ -99,27 +99,27 @@ export default function Home() {
       </div>
 
       <section id="cta" className="relative min-h-[60vh] bg-[#EDE8DE] text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-center py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
-        <div className="flex flex-col md:flex-row justify-center md:justify-end items-center md:items-center">
-          <div className="max-w-[800px] text-center md:text-left">
-            <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
-              Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
-            </h2>
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              <a 
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-8 py-4 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
-              >
-                <span className="relative">Iniciar Projeto</span>
-                <span className="relative transition-all group-hover:translate-x-1">→</span>
-              </a>
+        <div className="max-w-[1600px] mx-auto w-full flex flex-col">
+          <div className="flex flex-col md:flex-row justify-center md:justify-end items-center mb-24">
+            <div className="max-w-[800px] text-center md:text-left">
+              <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
+                Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
+              </h2>
+              <div className="flex justify-center md:justify-start">
+                <a 
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-8 py-4 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
+                >
+                  <span className="relative">Iniciar Projeto</span>
+                  <span className="relative transition-all group-hover:translate-x-1">→</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex flex-col md:flex-row items-center md:items-end justify-center md:justify-between gap-16 md:gap-0 mt-20">
-          <div className="flex flex-col items-center md:items-start w-full md:w-auto">
+          <div className="flex justify-center md:justify-start">
             <h1 className="font-headline text-[clamp(80px,18vw,320px)] leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text">
               PHANTOM
             </h1>
