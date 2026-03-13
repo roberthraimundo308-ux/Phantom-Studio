@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -26,7 +27,6 @@ const PROJECTS = [
 export default function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const whatsappUrl = "https://wa.me/5547999144160";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +35,7 @@ export default function Portfolio() {
       const windowHeight = window.innerHeight;
       const totalHeight = rect.height;
       
-      // Calculamos o progresso real baseado na altura total do container
+      // Cálculo do progresso real baseado na altura total do container de scroll vertical
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -44,7 +44,7 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Para 3 projetos, reduzimos o multiplicador para que o scroll horizontal termine exatamente no último card.
+  // Multiplicador de transição horizontal para 3 itens
   const translateX = scrollProgress * 155; 
 
   return (
@@ -92,29 +92,20 @@ export default function Portfolio() {
                   <div className="absolute inset-0 z-10 pointer-events-none border-[12px] border-[#050505]/5"></div>
                   
                   <div 
-                    className="absolute inset-0 w-full transition-transform duration-500 ease-out"
+                    className="absolute inset-0 w-full transition-transform duration-300 ease-out"
                     style={{ 
-                      transform: `translateY(-${scrollProgress * 15}%)`,
+                      // Aumentado multiplicador de 15 para 45 para dar mais sensação de scroll interno
+                      transform: `translateY(-${scrollProgress * 45}%)`,
                       transformOrigin: 'top center'
                     }}
                   >
                     <iframe 
                       src={project.url}
-                      className="w-full h-[4500px] border-none pointer-events-none scale-100 origin-top"
+                      className="w-full h-[6000px] border-none pointer-events-none scale-100 origin-top"
                       title={project.title}
                       loading="lazy"
                     />
                   </div>
-
-                  <a 
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute bottom-8 right-8 z-30 bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 flex items-center gap-2 group/btn transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black"
-                  >
-                    <span className="relative">Iniciar Projeto</span>
-                    <span className="relative transition-all group-hover/btn:translate-x-1">→</span>
-                  </a>
                 </div>
               </div>
             ))}
