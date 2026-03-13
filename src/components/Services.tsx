@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Layout, Globe, ShoppingCart, RefreshCw } from "lucide-react";
+import { Layout, Globe, ShoppingCart, RefreshCw } from "lucide-react";
 
 const SERVICES = [
   {
@@ -75,7 +75,7 @@ export default function Services() {
                   {s.desc}
                 </p>
 
-                <button className="group/btn relative flex items-center gap-5 bg-accent text-black font-mono text-[11px] font-bold tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:bg-accent hover:brightness-110">
+                <button className="group/btn relative flex items-center gap-5 bg-black text-white font-mono text-[11px] font-bold tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:bg-accent hover:text-black">
                   <span className="relative z-10">Saber Mais</span>
                   <span className="relative z-10 text-lg transition-transform group-hover/btn:translate-x-1">→</span>
                 </button>

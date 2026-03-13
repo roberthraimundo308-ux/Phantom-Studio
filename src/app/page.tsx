@@ -105,7 +105,7 @@ export default function Home() {
               <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
                 INVESTIMENTO
               </span>
-              <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black">PLANOS</h2>
+              <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black uppercase">PLANOS</h2>
             </ScrollReveal>
 
             <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
