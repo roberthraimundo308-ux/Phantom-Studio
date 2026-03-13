@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
@@ -17,6 +16,7 @@ export default function Navbar() {
       const checkInView = (el: HTMLElement | null) => {
         if (!el) return false;
         const rect = el.getBoundingClientRect();
+        // Verifica se o topo da tela está dentro da seção
         return rect.top <= 60 && rect.bottom >= 60;
       };
 
@@ -55,9 +55,16 @@ export default function Navbar() {
     ? "bg-black text-white hover:bg-accent hover:text-black" 
     : "bg-accent text-black hover:brightness-110";
 
+  const logoStyles = isLightSection 
+    ? "text-[#050505]" 
+    : "text-foreground";
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-[500] flex items-center justify-between py-6 px-6 md:px-[52px] pointer-events-none">
-      <a href="#" className="font-headline text-[22px] tracking-[0.18em] text-foreground no-underline pointer-events-auto mix-blend-difference">
+      <a 
+        href="#" 
+        className={`font-headline text-[22px] tracking-[0.18em] no-underline pointer-events-auto transition-colors duration-300 ${logoStyles}`}
+      >
         PHANTOM<span className="text-accent">.</span>
       </a>
       <a
