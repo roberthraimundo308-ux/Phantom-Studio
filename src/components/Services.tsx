@@ -38,7 +38,6 @@ export default function Services() {
   return (
     <section id="services" className="relative py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background">
       <div className="max-w-[1400px] mx-auto">
-        {/* Header Padronizado */}
         <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-20 gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['03'] before:text-muted">
             NOSSA EXPERTISE
@@ -56,13 +55,11 @@ export default function Services() {
                 borderRadius: '0px'
               }}
             >
-              {/* Indicador de Topo Esquerdo - Ponto e Círculo (Estilo Cursor) */}
               <div className="absolute top-8 left-8 flex items-center gap-3">
                 <div className="w-1.5 h-1.5 bg-accent is-cursor"></div>
                 <div className="w-6 h-6 border border-accent/30 is-cursor"></div>
               </div>
 
-              {/* Conteúdo Principal */}
               <div className="flex-1 z-10 pt-8 lg:pt-0">
                 <div className="font-mono text-[11px] text-accent/40 mb-6 tracking-widest uppercase flex items-center gap-3">
                   <span className="w-6 h-[1px] bg-accent/20"></span>
@@ -73,23 +70,22 @@ export default function Services() {
                   {s.name}
                 </h3>
                 
-                <p className="font-mono text-[13px] leading-relaxed text-muted max-w-[540px] mb-12">
+                <p className="font-body text-[clamp(15px,1.6vw,19px)] leading-[1.65] text-muted max-w-[540px] mb-12">
                   {s.desc}
                 </p>
 
                 <button className="group/btn relative flex items-center gap-5 bg-accent text-black font-mono text-[11px] font-bold tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:brightness-110">
                   <span className="relative z-10">Saber Mais</span>
-                  <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover/btn:translate-x-1" />
+                  <span className="relative z-10 text-lg transition-transform group-hover/btn:translate-x-1">→</span>
                 </button>
 
-                {/* Lista de Features */}
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-border/20 border border-border/20">
                   {s.features.map((f, idx) => (
                     <div key={idx} className="flex items-center gap-4 bg-s1 p-5 transition-colors hover:bg-white/[0.02]">
                       <div className="text-accent shrink-0">
                         {React.cloneElement(s.icon as React.ReactElement, { className: "w-4 h-4" })}
                       </div>
-                      <span className="font-mono text-[10px] tracking-[0.15em] text-foreground/50 uppercase">
+                      <span className="font-body text-[clamp(12px,1.3vw,14px)] text-foreground/50">
                         {f}
                       </span>
                     </div>
@@ -97,7 +93,6 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* Elemento Gráfico Minimalista */}
               <div className="hidden lg:flex flex-1 items-center justify-end relative">
                 <div className="w-[1px] h-full bg-border/20 absolute right-0"></div>
                 <div className="relative z-10 w-48 h-48 border border-accent/10 flex items-center justify-center text-accent/20 group-hover:text-accent/40 transition-colors duration-700">
@@ -106,7 +101,6 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* Número no background - Estilo Outline */}
               <div className="absolute bottom-[-40px] right-[-20px] font-headline text-[320px] leading-none text-white/[0.02] pointer-events-none select-none word-out opacity-20 group-hover:opacity-40 transition-opacity duration-1000">
                 {s.num}
               </div>

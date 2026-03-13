@@ -100,12 +100,12 @@ export default function Testimonials() {
           <div className="flex items-center gap-4">
              <div className="w-8 h-[1px] bg-accent/40"></div>
              <span className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase">
-              RECONHECIMENTO_DIGITAL
+              RECONHECIMENTO DIGITAL
             </span>
           </div>
           <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase">
             <span className="word-out text-white/10 mr-4">O QUE</span>
-            <span className="text-foreground">DIZEM_</span>
+            <span className="text-foreground">DIZEM</span>
           </h2>
         </div>
 
@@ -175,12 +175,12 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
 
       <div className="relative">
         <h3 className="font-headline text-3xl md:text-4xl text-foreground tracking-wide uppercase group-hover:text-accent transition-colors">
-          {t.name}_
+          {t.name}
         </h3>
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-accent/0 group-hover:bg-accent/40 transition-all duration-500 group-hover:-left-8"></div>
       </div>
 
-      <p className="font-mono text-[11px] md:text-[13px] leading-relaxed text-muted group-hover:text-foreground/70 transition-colors uppercase tracking-tight">
+      <p className="font-body text-[clamp(14px,1.5vw,16px)] leading-[1.65] text-muted group-hover:text-foreground/70 transition-colors">
         {t.text}
       </p>
 

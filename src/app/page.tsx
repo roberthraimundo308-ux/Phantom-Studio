@@ -17,12 +17,10 @@ export default function Home() {
       <SectionProgress />
       <Navbar />
 
-      {/* Bloco Inicial: Hero, Logos e Manifesto */}
       <div className="relative z-10 bg-background">
         <Hero />
         <LogosCarousel />
         
-        {/* Manifesto Section */}
         <section id="manifesto" className="relative min-h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto w-full">
             <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
@@ -40,27 +38,21 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Seção de Números - Fixa para o efeito de cortina */}
       <div className="sticky top-0 z-10 h-screen overflow-hidden">
         <Numbers />
       </div>
 
-      {/* Serviços - Sobrepõe Números */}
       <div className="relative z-20 bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.9)]">
         <Services />
       </div>
 
-      {/* Portfólio Imersivo */}
       <div className="relative z-30">
         <Portfolio />
       </div>
 
-      {/* Conteúdo em Tema Claro */}
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         
-        {/* Processo - Layout Imersivo */}
         <section id="process" className="relative bg-[#EDE8DE] min-h-screen flex flex-col md:flex-row border-t border-accent/10">
-          {/* Coluna Esquerda: Sticky Headline */}
           <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-accent/10 relative">
             <div className="font-mono text-[10px] tracking-[0.3em] text-accent/40 uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20">
               METODOLOGIA
@@ -68,11 +60,10 @@ export default function Home() {
             <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-accent uppercase mb-12">
               FORJADO EM<br />CADA ETAPA.
             </h2>
-            <p className="font-mono text-[12px] md:text-[14px] leading-relaxed text-accent/60 max-w-[400px] uppercase tracking-tight">
+            <p className="font-body text-[clamp(15px,1.6vw,18px)] leading-[1.65] text-accent/60 max-w-[400px]">
               Navegar pelas complexidades digitais exige precisão. Nossa metodologia transforma visão em performance bruta, guiando seu projeto com confiança absoluta.
             </p>
 
-            {/* Indicador Circular Estilo Cursor (Laranja) */}
             <div className="absolute right-[-21px] top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center z-10 bg-[#EDE8DE] is-cursor">
               <div className="w-10 h-10 border border-accent/20 is-cursor flex items-center justify-center">
                 <div className="w-1.5 h-1.5 bg-accent is-cursor"></div>
@@ -80,7 +71,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Coluna Direita: Scrolling Cards */}
           <div className="w-full md:w-1/2 px-6 md:px-20 py-20 md:py-40 flex flex-col gap-24 md:gap-40">
             {[
               { n: '01', title: 'Descoberta', desc: 'Mergulhamos profundamente no seu ecossistema para entender objetivos, dores e o público-alvo.' },
@@ -95,7 +85,7 @@ export default function Home() {
                     <h3 className="font-headline text-4xl md:text-5xl text-accent tracking-wide uppercase">{step.title}</h3>
                     <span className="font-headline text-5xl md:text-6xl text-accent/10 group-hover:text-accent/20 transition-colors">{step.n}</span>
                   </div>
-                  <p className="font-mono text-[11px] md:text-[13px] leading-relaxed text-accent/60 uppercase tracking-tight">
+                  <p className="font-body text-[clamp(14px,1.5vw,17px)] leading-[1.65] text-accent/60">
                     {step.desc}
                   </p>
                   <div className="absolute top-0 left-0 w-4 h-[1px] bg-accent/20"></div>
@@ -108,7 +98,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Preços */}
         <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto">
             <ScrollReveal className="rev flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-20 gap-4">
@@ -129,10 +118,10 @@ export default function Home() {
                   <div className={`font-mono text-[9px] tracking-[0.26em] uppercase mb-2 ${plan.highlight ? 'text-black' : 'text-black/30'}`}>{plan.tag}</div>
                   <div className="font-headline text-4xl tracking-[0.05em] mb-7 text-black">{plan.name}</div>
                   <div className="font-headline text-6xl leading-none mb-1.5 text-black"><small className="text-lg text-black/30 align-middle mr-1">R$</small>{plan.price}</div>
-                  <div className="font-mono text-[10px] tracking-[0.16em] text-black/30 mb-9">PAGAMENTO ÚNICO</div>
+                  <div className="font-mono text-[10px] tracking-[0.16em] text-black/30 mb-9 uppercase">Pagamento Único</div>
                   <ul className="list-none flex flex-col gap-3.5 mb-10">
                     {plan.feat.map((f, fIdx) => (
-                      <li key={fIdx} className="font-mono text-[11px] leading-tight text-black/60 flex gap-3 items-start before:content-['→'] before:text-black before:shrink-0">
+                      <li key={fIdx} className="font-body text-[clamp(13px,1.4vw,15px)] leading-tight text-black/60 flex gap-3 items-start before:content-['→'] before:text-black before:shrink-0">
                         {f}
                       </li>
                     ))}
@@ -147,21 +136,19 @@ export default function Home() {
         </section>
       </div>
 
-      {/* Depoimentos - Volta ao Tema Escuro */}
       <div className="relative z-50">
         <Testimonials />
       </div>
 
-      {/* Seção Final: CTA e Rodapé (Tema Claro) */}
       <section id="cta" className="relative min-h-[90vh] bg-white text-black px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-black/5">
         <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
-          <div className="max-w-[520px] md:text-left">
-            <h2 className="font-body text-[clamp(28px,3.8vw,48px)] leading-[1.1] mb-14 tracking-tight text-black">
+          <div className="max-w-[550px] md:text-left">
+            <h2 className="font-body text-[clamp(28px,3.2vw,44px)] leading-[1.5] mb-14 tracking-tight text-black font-normal">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
             </h2>
             <a href="#" className="inline-flex items-center gap-3 group pointer-events-auto">
               <div className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-accent group-hover:text-black group-hover:px-12">
-                Vamos conversar !
+                Vamos conversar
               </div>
               <div className="bg-black text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent group-hover:text-black group-hover:scale-110">
                 <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
@@ -172,7 +159,7 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row items-end justify-between gap-16 md:gap-0 mt-20">
           <div className="flex flex-col items-start w-full md:w-auto">
-            <p className="font-mono text-[10px] md:text-[12px] text-black/40 mb-6 max-w-[340px] leading-relaxed uppercase tracking-widest">
+            <p className="font-body text-[clamp(14px,1.5vw,16px)] text-black/40 mb-6 max-w-[340px] leading-relaxed">
               Estúdio digital especializado em performance e experiências únicas.
             </p>
             <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-black">
