@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -24,7 +25,6 @@ export default function Hero() {
             y: r * (H / rows),
             ox: c * (W / cols),
             oy: r * (H / rows),
-            // Calibração: Velocidade dos pontos aumentada de 0.3 para 0.8
             vx: (Math.random() - 0.5) * 0.8,
             vy: (Math.random() - 0.5) * 0.8,
             a: Math.random() * 0.5 + 0.1,
@@ -63,21 +63,21 @@ export default function Hero() {
           Estúdio Digital · Experiências que Convertem
         </div>
 
-        <h1 className="font-display text-[clamp(60px,11.5vw,165px)] leading-[1] tracking-[-0.02em] text-foreground">
-          <span className="block overflow-hidden py-1 h-[1.1em]">
+        <h1 className="font-display text-[clamp(45px,11.5vw,165px)] leading-[1] tracking-[-0.02em] text-foreground">
+          <span className="block overflow-hidden py-1 h-[1.2em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards]">NÃO FAZEMOS</span>
           </span>
-          <span className="block overflow-hidden py-1 h-[1.1em]">
+          <span className="block overflow-hidden py-1 h-[1.2em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_0.08s_cubic-bezier(0.16,1,0.3,1)_forwards] word-out">SITES.</span>
           </span>
-          <span className="block overflow-hidden py-1 h-[1.1em]">
+          <span className="block overflow-hidden py-1 h-[1.2em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_0.16s_cubic-bezier(0.16,1,0.3,1)_forwards]">
               CRIAMOS <span className="word-acc">EXPERIÊNCIAS.</span>
             </span>
           </span>
         </h1>
 
-        <div className="mt-20 flex items-end justify-between flex-wrap gap-10">
+        <div className="mt-12 md:mt-20 flex items-end justify-between flex-wrap gap-10">
           <p className="text-[clamp(15px,1.8vw,19px)] font-normal leading-[1.65] text-muted max-w-[480px] animate-[fdUp_0.8s_0.75s_forwards] opacity-0">
             Cada pixel é uma decisão estratégica. Cada animação, uma intenção. O resultado? O melhor site que seus clientes já visitaram na vida.
           </p>

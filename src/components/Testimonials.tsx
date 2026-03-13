@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -81,13 +82,13 @@ const TESTIMONIALS = [
 ];
 
 export default function Testimonials() {
-  const col1 = [...TESTIMONIALS.slice(0, 4), ...TESTIMONIALS.slice(0, 4)];
-  const col2 = [...TESTIMONIALS.slice(4, 8), ...TESTIMONIALS.slice(4, 8)];
+  const row1 = [...TESTIMONIALS.slice(0, 4), ...TESTIMONIALS.slice(0, 4)];
+  const row2 = [...TESTIMONIALS.slice(4, 8), ...TESTIMONIALS.slice(4, 8)];
 
   return (
     <section 
       id="testimonials" 
-      className="relative h-[160vh] md:h-[140vh] flex flex-col py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
+      className="relative py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none z-0">
         <div className="font-headline text-[25vw] leading-none text-white tracking-[0.1em]">
@@ -95,8 +96,8 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="max-w-[1600px] mx-auto w-full h-full flex flex-col relative z-10">
-        <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-white/10 pb-7 mb-16 gap-4 shrink-0">
+      <div className="max-w-[1600px] mx-auto w-full relative z-10">
+        <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-white/10 pb-7 mb-16 gap-4">
           <div className="flex items-center gap-4">
              <div className="w-8 h-[1px] bg-accent/40"></div>
              <span className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase">
@@ -109,19 +110,23 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden mask-vertical">
-          <div className="relative overflow-hidden h-full">
-            <div className="animate-scroll-up flex flex-col gap-10 py-10">
-              {col1.map((t, idx) => (
-                <TestimonialCard key={`col1-${t.id}-${idx}`} testimonial={t} />
+        <div className="flex flex-col gap-10 mask-horizontal">
+          <div className="relative overflow-hidden w-full">
+            <div className="animate-scroll-left flex gap-10 w-max">
+              {row1.map((t, idx) => (
+                <div key={`row1-${t.id}-${idx}`} className="w-[85vw] md:w-[450px] shrink-0">
+                  <TestimonialCard testimonial={t} />
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="relative overflow-hidden h-full">
-            <div className="animate-scroll-down flex flex-col gap-10 py-10">
-              {col2.map((t, idx) => (
-                <TestimonialCard key={`col2-${t.id}-${idx}`} testimonial={t} />
+          <div className="relative overflow-hidden w-full">
+            <div className="animate-scroll-right flex gap-10 w-max">
+              {row2.map((t, idx) => (
+                <div key={`row2-${t.id}-${idx}`} className="w-[85vw] md:w-[450px] shrink-0">
+                  <TestimonialCard testimonial={t} />
+                </div>
               ))}
             </div>
           </div>
@@ -129,25 +134,22 @@ export default function Testimonials() {
       </div>
 
       <style jsx>{`
-        .animate-scroll-up {
-          animation: scrollUp 40s linear infinite;
+        .animate-scroll-left {
+          animation: scrollLeft 40s linear infinite;
         }
-        .animate-scroll-down {
-          animation: scrollDown 40s linear infinite;
+        .animate-scroll-right {
+          animation: scrollRight 40s linear infinite;
         }
-        .animate-scroll-up:hover, .animate-scroll-down:hover {
-          animation-play-state: paused;
+        @keyframes scrollLeft {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
-        @keyframes scrollUp {
-          from { transform: translateY(0); }
-          to { transform: translateY(-50%); }
+        @keyframes scrollRight {
+          from { transform: translateX(-50%); }
+          to { transform: translateX(0); }
         }
-        @keyframes scrollDown {
-          from { transform: translateY(-50%); }
-          to { transform: translateY(0); }
-        }
-        .mask-vertical {
-          mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+        .mask-horizontal {
+          mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
       `}</style>
     </section>
@@ -158,7 +160,7 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
   const avatarUrl = PlaceHolderImages.find(img => img.id === t.avatarId)?.imageUrl || "https://picsum.photos/seed/user/100/100";
 
   return (
-    <div className="group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-10 md:p-12 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-8">
+    <div className="group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-8 md:p-12 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-8 h-full">
       <div className="flex justify-between items-start">
         <div className="relative w-12 h-12 md:w-16 md:h-16 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-white/5 is-cursor">
            <Image 
@@ -169,28 +171,27 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
              data-ai-hint="person portrait"
            />
         </div>
-        <div className="flex flex-col items-end">
-          <span className="font-mono text-[9px] tracking-[0.2em] text-white/20 group-hover:text-white/40 uppercase">
+        <div className="flex flex-col items-end text-right">
+          <span className="font-mono text-[9px] tracking-[0.2em] text-white/20 group-hover:text-white/40 uppercase block">
             {t.company}
           </span>
-          <span className="font-mono text-[9px] tracking-[0.2em] text-accent/40 uppercase">
+          <span className="font-mono text-[9px] tracking-[0.2em] text-accent/40 uppercase block">
             {t.role}
           </span>
         </div>
       </div>
 
       <div className="relative">
-        <h3 className="font-headline text-3xl md:text-5xl text-foreground tracking-[-0.01em] uppercase group-hover:text-accent transition-colors">
+        <h3 className="font-headline text-2xl md:text-5xl text-foreground tracking-[-0.01em] uppercase group-hover:text-accent transition-colors">
           {t.name}
         </h3>
-        <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-accent/0 group-hover:bg-accent/40 transition-all duration-500 group-hover:-left-8"></div>
       </div>
 
-      <p className="font-body text-[clamp(14px,1.5vw,16px)] leading-[1.65] text-muted group-hover:text-foreground/70 transition-colors">
+      <p className="font-body text-[14px] md:text-[16px] leading-[1.65] text-muted group-hover:text-foreground/70 transition-colors">
         {t.text}
       </p>
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-auto pt-4 flex items-center justify-between">
         <div className="text-accent/20 group-hover:text-accent/60 transition-colors">
           {t.icon}
         </div>

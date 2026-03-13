@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -73,7 +74,7 @@ export default function Home() {
                 ].map((step, i) => (
                   <div key={i} className="sticky top-[10vh] md:top-[15vh] w-full" style={{ paddingTop: `${i * 32}px` }}>
                     <ScrollReveal className="rev">
-                      <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500 translate-x-[10%] md:translate-x-0 group-in-view:translate-x-0">
+                      <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500">
                         <div className="flex justify-between items-start mb-8 md:mb-12 border-b border-accent/10 pb-6">
                           <h3 className="font-headline text-3xl md:text-6xl text-[#050505] tracking-[-0.01em] uppercase">{step.title}</h3>
                           <span className="font-headline text-4xl md:text-7xl text-accent/10 group-hover:text-accent transition-colors">{step.n}</span>
@@ -108,8 +109,11 @@ export default function Home() {
               ].map((plan, i) => (
                 <div 
                   key={i} 
-                  className={`sticky w-full border border-[#050505]/10 p-9 md:p-[44px] bg-white transition-all duration-350 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-[#050505] shadow-xl z-20' : 'z-10'}`}
-                  style={{ top: `${15 + i * 5}vh` }}
+                  className={`sticky w-full border border-[#050505]/10 p-9 md:p-[44px] bg-white transition-all duration-350 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-[#050505] shadow-xl' : ''}`}
+                  style={{ 
+                    top: `${15 + i * 5}vh`,
+                    zIndex: (i + 1) * 10
+                  }}
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
                     <div className="flex-1">
@@ -172,7 +176,7 @@ export default function Home() {
             <p className="font-body text-[clamp(14px,1.5vw,16px)] text-accent mb-6 max-w-[340px] leading-relaxed">
               Estúdio digital especializado em performance e experiências únicas.
             </p>
-            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none phantom-footer-text animate-phantom-color">
+            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-[#050505]">
               PHANTOM
             </h1>
           </div>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -61,25 +62,25 @@ export default function LogosCarousel() {
   }, []);
 
   return (
-    <div className="logos-section relative py-12 md:py-20 overflow-hidden bg-transparent flex flex-col gap-8 md:gap-12 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-[100px] md:before:w-[200px] before:z-[2] before:bg-gradient-to-r before:from-background before:to-transparent after:content-[''] after:absolute after:inset-y-0 after:right-0 after:w-[100px] md:after:w-[200px] after:z-[2] after:bg-gradient-to-l after:from-background after:to-transparent">
+    <div className="logos-section relative py-8 md:py-14 overflow-hidden bg-transparent flex flex-col gap-6 md:gap-10 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-[80px] md:before:w-[200px] before:z-[2] before:bg-gradient-to-r before:from-background before:to-transparent after:content-[''] after:absolute after:inset-y-0 after:right-0 after:w-[80px] md:after:w-[200px] after:z-[2] after:bg-gradient-to-l after:from-background after:to-transparent">
       {/* Row 1 */}
-      <div ref={track1Ref} className="flex items-center gap-[60px] md:gap-[100px] w-max will-change-transform">
+      <div ref={track1Ref} className="flex items-center gap-[40px] md:gap-[100px] w-max will-change-transform">
         {[...LOGOS, ...LOGOS].map((logo, idx) => (
           <div
             key={`r1-${idx}`}
-            className={`logo-item inline-flex items-center gap-2.5 font-body font-semibold tracking-[0.06em] text-white/20 whitespace-nowrap transition-colors duration-300 hover:text-accent/60 cursor-none ${logo.className || "text-[18px]"}`}
+            className={`logo-item inline-flex items-center gap-2.5 font-body font-semibold tracking-[0.06em] text-white/20 whitespace-nowrap transition-colors duration-300 hover:text-accent/60 cursor-none ${logo.className || "text-[16px] md:text-[18px]"}`}
           >
             {logo.name}
           </div>
         ))}
       </div>
       
-      {/* Row 2 - Visible on all but animated differently */}
-      <div ref={track2Ref} className="flex items-center gap-[60px] md:gap-[100px] w-max will-change-transform">
-        {[...LOGOS.reverse(), ...LOGOS].map((logo, idx) => (
+      {/* Row 2 */}
+      <div ref={track2Ref} className="flex items-center gap-[40px] md:gap-[100px] w-max will-change-transform">
+        {[...LOGOS.slice().reverse(), ...LOGOS.slice().reverse()].map((logo, idx) => (
           <div
             key={`r2-${idx}`}
-            className={`logo-item inline-flex items-center gap-2.5 font-body font-semibold tracking-[0.06em] text-white/20 whitespace-nowrap transition-colors duration-300 hover:text-accent/60 cursor-none ${logo.className || "text-[18px]"}`}
+            className={`logo-item inline-flex items-center gap-2.5 font-body font-semibold tracking-[0.06em] text-white/20 whitespace-nowrap transition-colors duration-300 hover:text-accent/60 cursor-none ${logo.className || "text-[16px] md:text-[18px]"}`}
           >
             {logo.name}
           </div>
