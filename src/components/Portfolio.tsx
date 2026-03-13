@@ -35,6 +35,7 @@ export default function Portfolio() {
       const windowHeight = window.innerHeight;
       const totalHeight = rect.height;
       
+      // Calculamos o progresso de 0 a 1 baseado no scroll da seção
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -43,18 +44,20 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const translateX = scrollProgress * 180; 
+  // Com 3 itens de 85vw, o multiplicador 170-180 é o ideal para chegar no fim sem sobras
+  const translateX = scrollProgress * 170; 
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[400vh] bg-[#EDE8DE]"
+      className="relative h-[280vh] bg-[#EDE8DE]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        <div className="pt-8 md:pt-12 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
-          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-4 mb-4 gap-4">
+        {/* Cabeçalho da Seção com margens reduzidas */}
+        <div className="pt-6 md:pt-10 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
+          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-3 mb-2 gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-accent/20 font-bold">
               TRABALHOS SELECIONADOS
             </span>
@@ -64,11 +67,13 @@ export default function Portfolio() {
           </div>
         </div>
 
+        {/* Trilha Horizontal */}
         <div className="flex-1 relative flex items-center min-h-0">
           <div 
             className="flex h-full items-center transition-transform duration-150 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}%)` }}
           >
+            {/* Spacer inicial */}
             <div className="min-w-[120px] h-full shrink-0"></div>
 
             {PROJECTS.map((project, idx) => (
@@ -86,13 +91,15 @@ export default function Portfolio() {
                   </h3>
                 </div>
                 
-                <div className="relative w-full max-w-[1300px] aspect-video max-h-[65vh] overflow-hidden transition-all duration-700 shadow-2xl bg-white/5 border border-[#050505]/10">
-                  <div className="absolute inset-0 z-20 pointer-events-none border-[8px] border-[#050505]/5"></div>
+                {/* Moldura do Projeto */}
+                <div className="relative w-full max-w-[1300px] aspect-video max-h-[65vh] overflow-hidden transition-all duration-700 shadow-2xl bg-white border border-[#050505]/10">
+                  <div className="absolute inset-0 z-20 pointer-events-none border-[6px] border-[#050505]/5"></div>
                   
+                  {/* Container do Iframe com Scroll Automático Profundo */}
                   <div 
                     className="absolute inset-0 w-full transition-transform duration-300 ease-out z-10"
                     style={{ 
-                      transform: `translateY(-${scrollProgress * 65}%)`,
+                      transform: `translateY(-${scrollProgress * 75}%)`,
                       transformOrigin: 'top center'
                     }}
                   >
@@ -107,10 +114,12 @@ export default function Portfolio() {
               </div>
             ))}
 
-            <div className="min-w-[120px] h-full shrink-0"></div>
+            {/* Spacer final reduzido para alinhar o último card */}
+            <div className="min-w-[40px] h-full shrink-0"></div>
           </div>
         </div>
 
+        {/* Marca d'água lateral */}
         <div className="absolute right-8 bottom-8 z-20 pointer-events-none opacity-[0.03]">
            <div className="font-headline text-xl md:text-3xl text-[#050505] tracking-[0.5em] rotate-90 origin-right">
              PHANTOM.
