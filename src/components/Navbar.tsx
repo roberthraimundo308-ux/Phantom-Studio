@@ -10,7 +10,6 @@ export default function Navbar() {
     const handleScroll = () => {
       const portfolio = document.getElementById("portfolio");
       const process = document.getElementById("process");
-      const pricing = document.getElementById("pricing");
       const cta = document.getElementById("cta");
 
       const checkInView = (el: HTMLElement | null) => {
@@ -19,7 +18,7 @@ export default function Navbar() {
         return rect.top <= 60 && rect.bottom >= 60;
       };
 
-      if (checkInView(portfolio) || checkInView(process) || checkInView(pricing) || checkInView(cta)) {
+      if (checkInView(portfolio) || checkInView(process) || checkInView(cta)) {
         setIsLightSection(true);
       } else {
         setIsLightSection(false);
@@ -68,7 +67,7 @@ export default function Navbar() {
       </a>
       <a
         ref={btnRef}
-        href="https://wa.me/5547999144160"
+        href="https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio"
         target="_blank"
         rel="noopener noreferrer"
         onMouseMove={handleMouseMove}

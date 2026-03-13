@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -16,50 +17,70 @@ const LOGOS = [
 ];
 
 export default function LogosCarousel() {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const track1Ref = useRef<HTMLDivElement>(null);
+  const track2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
+    const animateTrack = (track: HTMLDivElement | null, speed: number) => {
+      if (!track) return;
+      let offset = 0;
+      let velocity = speed;
+      const baseSpeed = speed;
 
-    let offset = 0;
-    let velocity = -0.6;
-    const baseSpeed = -0.6;
+      const onWheel = (e: WheelEvent) => {
+        velocity += e.deltaY * (speed > 0 ? 0.12 : -0.12);
+      };
 
-    const onWheel = (e: WheelEvent) => {
-      // Calibração: Intensidade de resposta ao scroll aumentada
-      velocity += e.deltaY * -0.12;
+      window.addEventListener("wheel", onWheel, { passive: true });
+
+      const animate = () => {
+        velocity += (baseSpeed - velocity) * 0.12;
+        offset += velocity;
+
+        const halfWidth = track.scrollWidth / 2;
+        if (offset <= -halfWidth) offset += halfWidth;
+        if (offset >= 0) offset -= halfWidth;
+
+        track.style.transform = `translateX(${offset}px)`;
+        requestAnimationFrame(animate);
+      };
+
+      const frame = requestAnimationFrame(animate);
+      return () => {
+        window.removeEventListener("wheel", onWheel);
+        cancelAnimationFrame(frame);
+      };
     };
 
-    window.addEventListener("wheel", onWheel, { passive: true });
+    const cleanup1 = animateTrack(track1Ref.current, -0.6);
+    const cleanup2 = animateTrack(track2Ref.current, 0.45);
 
-    const animate = () => {
-      // Calibração: Retorno ao baseSpeed mais rápido (0.07 -> 0.12)
-      velocity += (baseSpeed - velocity) * 0.12;
-      offset += velocity;
-
-      const halfWidth = track.scrollWidth / 2;
-      if (offset <= -halfWidth) offset += halfWidth;
-      if (offset >= 0) offset -= halfWidth;
-
-      track.style.transform = `translateX(${offset}px)`;
-      requestAnimationFrame(animate);
-    };
-
-    const frame = requestAnimationFrame(animate);
     return () => {
-      window.removeEventListener("wheel", onWheel);
-      cancelAnimationFrame(frame);
+      cleanup1?.();
+      cleanup2?.();
     };
   }, []);
 
   return (
-    <div className="logos-section relative py-12 overflow-hidden bg-transparent before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-[200px] before:z-[2] before:bg-gradient-to-r before:from-background before:to-transparent after:content-[''] after:absolute after:inset-y-0 after:right-0 after:w-[200px] after:z-[2] after:bg-gradient-to-l after:from-background after:to-transparent">
-      <div ref={trackRef} className="flex items-center gap-[100px] w-max will-change-transform">
+    <div className="logos-section relative py-8 md:py-14 overflow-hidden bg-transparent flex flex-col gap-6 md:gap-10 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-[80px] md:before:w-[200px] before:z-[2] before:bg-gradient-to-r before:from-background before:to-transparent after:content-[''] after:absolute after:inset-y-0 after:right-0 after:w-[80px] md:after:w-[200px] after:z-[2] after:bg-gradient-to-l after:from-background after:to-transparent">
+      {/* Row 1 */}
+      <div ref={track1Ref} className="flex items-center gap-[40px] md:gap-[100px] w-max will-change-transform">
         {[...LOGOS, ...LOGOS].map((logo, idx) => (
           <div
-            key={idx}
-            className={`logo-item inline-flex items-center gap-2.5 font-body font-semibold tracking-[0.06em] text-white/20 whitespace-nowrap transition-colors duration-300 hover:text-accent/60 cursor-none ${logo.className || "text-[18px]"}`}
+            key={`r1-${idx}`}
+            className={`logo-item inline-flex items-center gap-2.5 font-body font-semibold tracking-[0.06em] text-white/20 whitespace-nowrap transition-colors duration-300 hover:text-accent/60 cursor-none ${logo.className || "text-[16px] md:text-[18px]"}`}
+          >
+            {logo.name}
+          </div>
+        ))}
+      </div>
+      
+      {/* Row 2 */}
+      <div ref={track2Ref} className="flex items-center gap-[40px] md:gap-[100px] w-max will-change-transform">
+        {[...LOGOS.slice().reverse(), ...LOGOS.slice().reverse()].map((logo, idx) => (
+          <div
+            key={`r2-${idx}`}
+            className={`logo-item inline-flex items-center gap-2.5 font-body font-semibold tracking-[0.06em] text-white/20 whitespace-nowrap transition-colors duration-300 hover:text-accent/60 cursor-none ${logo.className || "text-[16px] md:text-[18px]"}`}
           >
             {logo.name}
           </div>

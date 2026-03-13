@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -35,8 +34,6 @@ export default function Portfolio() {
       const windowHeight = window.innerHeight;
       const totalHeight = rect.height;
       
-      // Calculamos o progresso de 0 a 1 baseado no scroll da seção
-      // h-[220vh] garante uma transição mais rápida e sem vácuo no final
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -45,8 +42,6 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Calibrado para 3 itens de 85vw. 
-  // Multiplicador 160vw cobre a distância necessária para o último card colar na margem direita.
   const translateX = scrollProgress * 160; 
 
   return (
@@ -58,7 +53,7 @@ export default function Portfolio() {
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
         {/* Cabeçalho da Seção */}
-        <div className="pt-6 md:pt-10 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
+        <div className="pt-24 md:pt-10 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0 bg-[#EDE8DE]">
           <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-3 mb-2 gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-accent/20 font-bold">
               TRABALHOS SELECIONADOS
@@ -75,13 +70,12 @@ export default function Portfolio() {
             className="flex h-full items-center transition-transform duration-100 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}vw)` }}
           >
-            {/* Spacer inicial */}
-            <div className="min-w-[120px] md:min-w-[180px] h-full shrink-0"></div>
+            <div className="min-w-[40px] md:min-w-[180px] h-full shrink-0"></div>
 
             {PROJECTS.map((project, idx) => (
               <div 
                 key={idx} 
-                className="relative flex flex-col justify-center min-w-[85vw] h-full pr-10 md:pr-40 group"
+                className="relative flex flex-col justify-center min-w-[90vw] md:min-w-[85vw] h-full pr-6 md:pr-40 group"
               >
                 <div className="mb-4">
                   <div className="font-mono text-[10px] text-accent mb-2 tracking-widest uppercase flex items-center gap-3">
@@ -94,16 +88,11 @@ export default function Portfolio() {
                 </div>
                 
                 {/* Moldura do Projeto */}
-                <div className="relative w-full max-w-[1300px] aspect-video max-h-[65vh] overflow-hidden transition-all duration-700 shadow-2xl bg-white border border-[#050505]/10">
-                  <div className="absolute inset-0 z-20 pointer-events-none border-[6px] border-[#050505]/5"></div>
+                <div className="relative w-full aspect-[4/5] md:aspect-video max-h-[60vh] md:max-h-[65vh] overflow-hidden transition-all duration-700 shadow-2xl bg-white border border-[#050505]/10">
+                  <div className="absolute inset-0 z-20 pointer-events-none border-[4px] md:border-[6px] border-[#050505]/5"></div>
                   
-                  {/* Container do Iframe com Scroll Automático */}
                   <div 
-                    className="absolute inset-0 w-full transition-transform duration-300 ease-out z-10"
-                    style={{ 
-                      transform: `translateY(-${scrollProgress * 85}%)`,
-                      transformOrigin: 'top center'
-                    }}
+                    className="absolute inset-0 w-full z-10 overflow-auto"
                   >
                     <iframe 
                       src={project.url}
@@ -116,13 +105,11 @@ export default function Portfolio() {
               </div>
             ))}
 
-            {/* Spacer final mínimo conforme pedido ("5cm") */}
             <div className="min-w-[5vw] h-full shrink-0"></div>
           </div>
         </div>
 
-        {/* Marca d'água lateral */}
-        <div className="absolute right-8 bottom-8 z-20 pointer-events-none opacity-[0.03]">
+        <div className="absolute right-8 bottom-8 z-20 pointer-events-none opacity-[0.03] hidden md:block">
            <div className="font-headline text-xl md:text-3xl text-[#050505] tracking-[0.5em] rotate-90 origin-right">
              PHANTOM.
            </div>

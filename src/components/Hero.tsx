@@ -58,18 +58,18 @@ export default function Hero() {
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
       
       <div className="relative z-10 w-full flex flex-col items-center md:items-start text-center md:text-left">
-        <div className="font-mono text-[7px] md:text-[10px] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 md:before:content-[''] md:before:w-7 md:before:h-[1px] md:before:bg-muted whitespace-nowrap">
+        <div className="font-mono text-[clamp(7px,1.5vw,10px)] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 md:before:content-[''] md:before:w-7 md:before:h-[1px] md:before:bg-muted whitespace-nowrap">
           Estúdio Digital · Experiências que Convertem
         </div>
 
         <h1 className="font-display text-[clamp(48px,11.5vw,165px)] leading-[1] tracking-[-0.02em] text-foreground">
-          <span className="block overflow-hidden py-1 h-[1.1em]">
+          <span className="block overflow-hidden py-1 h-[1.2em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards]">NÃO FAZEMOS</span>
           </span>
-          <span className="block overflow-hidden py-1 h-[1.1em]">
+          <span className="block overflow-hidden py-1 h-[1.2em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_0.08s_cubic-bezier(0.16,1,0.3,1)_forwards] word-out">SITES.</span>
           </span>
-          <span className="block overflow-hidden py-1 h-[1.1em]">
+          <span className="block overflow-hidden py-1 h-[1.2em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_0.16s_cubic-bezier(0.16,1,0.3,1)_forwards]">
               CRIAMOS <span className="word-acc">EXPERIÊNCIAS.</span>
             </span>
@@ -77,10 +77,10 @@ export default function Hero() {
         </h1>
 
         <div className="mt-20 flex flex-col md:flex-row items-center md:items-end justify-between w-full gap-10">
-          <p className="text-[clamp(15px,1.8vw,19px)] font-normal leading-[1.65] text-muted max-w-[480px] animate-[fdUp_0.8s_0.75s_forwards] opacity-0">
+          <p className="text-[clamp(15px,1.8vw,19px)] font-normal leading-[1.65] text-muted max-w-[480px] animate-[fdUp_0.8s_0.75s_forwards] opacity-0 text-center md:text-left">
             Cada pixel é uma decisão estratégica. Cada animação, uma intenção. O resultado? O melhor site que seus clientes já visitaram na vida.
           </p>
-          <div className="flex flex-col items-center gap-[10px] animate-[fdUp_0.8s_1s_forwards] opacity-0">
+          <div className="flex flex-col items-center gap-[10px] animate-[fdUp_0.8s_1s_forwards] opacity-0 hidden md:flex">
             <div className="w-[1px] h-[60px] bg-border relative overflow-hidden after:content-[''] after:absolute after:top-[-100%] after:left-0 after:w-full after:h-full after:bg-accent after:animate-[drip_1.4s_ease-in-out_infinite]"></div>
             <span className="font-mono text-[9px] tracking-[0.28em] text-muted vertical-rl">SCROLL</span>
           </div>
