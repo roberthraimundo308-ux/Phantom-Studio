@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -18,29 +17,16 @@ const PROJECTS = [
   },
   {
     id: "03",
-    title: "Big Drop Inc",
-    category: "GLOBAL AGENCY",
-    url: "https://www.bigdropinc.com/",
-    scale: 0.85, // Ajuste de visualização para sites de agência
-  },
-  {
-    id: "04",
-    title: "Oak Island",
-    category: "ENTERTAINMENT HUB",
-    url: "https://thecurseofoakisland.com/",
-    scale: 0.9, // Ajuste de visualização para sites de entretenimento
-  },
-  {
-    id: "05",
-    title: "Reportage",
-    category: "ARCHITECTURE & DESIGN",
-    url: "https://reportage.com.tr/",
+    title: "Azulay & Zanella",
+    category: "LEGAL EXCELLENCE",
+    url: "https://azulayezanella.com.br/",
   }
 ];
 
 export default function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const whatsappUrl = "https://wa.me/5547999144160";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +35,7 @@ export default function Portfolio() {
       const windowHeight = window.innerHeight;
       const totalHeight = rect.height;
       
-      // Calculamos o progresso real baseado na altura total do container de 800vh
+      // Calculamos o progresso real baseado na altura total do container
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -58,15 +44,14 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Calibração: 5 projetos em containers de 80vw requerem um deslocamento maior
-  // Ajustado para 80 para garantir que o último trabalho (Reportage) seja totalmente visível
-  const translateX = scrollProgress * 80; 
+  // Para 3 projetos, reduzimos o multiplicador para que o scroll horizontal termine exatamente no último card.
+  const translateX = scrollProgress * 155; 
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[800vh] bg-[#EDE8DE]"
+      className="relative h-[450vh] bg-[#EDE8DE]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
@@ -75,7 +60,7 @@ export default function Portfolio() {
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-accent/20 font-bold">
               TRABALHOS SELECIONADOS
             </span>
-            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505] uppercase">
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505] uppercase transition-all duration-500 hover:word-out-black">
               <span className="word-out-black mr-4">NOSSAS</span> CRIAÇÕES
             </h2>
           </div>
@@ -95,10 +80,10 @@ export default function Portfolio() {
               >
                 <div className="mb-6 md:mb-8">
                   <div className="font-mono text-[10px] md:text-[11px] text-accent mb-3 tracking-widest uppercase flex items-center gap-3">
-                    <span className="w-6 h-[1px] bg-accent/30"></span>
+                    <span className="w-6 h-[1px] bg-accent"></span>
                     {project.category}
                   </div>
-                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-[#050505] leading-[0.85] tracking-[-0.01em] mb-4 md:mb-6 uppercase">
+                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-[#050505] leading-[0.85] tracking-[-0.01em] mb-4 md:mb-6 uppercase transition-all duration-500 group-hover:word-out-black">
                     {project.title}
                   </h3>
                 </div>
@@ -109,7 +94,7 @@ export default function Portfolio() {
                   <div 
                     className="absolute inset-0 w-full transition-transform duration-500 ease-out"
                     style={{ 
-                      transform: `translateY(-${scrollProgress * 25}%) scale(${project.scale || 1})`,
+                      transform: `translateY(-${scrollProgress * 15}%)`,
                       transformOrigin: 'top center'
                     }}
                   >
@@ -122,12 +107,12 @@ export default function Portfolio() {
                   </div>
 
                   <a 
-                    href="https://wa.me/5547999144160"
+                    href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute bottom-8 right-8 z-30 bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 flex items-center gap-2 group/btn relative overflow-hidden transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black"
+                    className="absolute bottom-8 right-8 z-30 bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 flex items-center gap-2 group/btn transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black"
                   >
-                    <span className="relative">Ver Projeto</span>
+                    <span className="relative">Iniciar Projeto</span>
                     <span className="relative transition-all group-hover/btn:translate-x-1">→</span>
                   </a>
                 </div>
