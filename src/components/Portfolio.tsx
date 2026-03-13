@@ -35,7 +35,6 @@ export default function Portfolio() {
       const windowHeight = window.innerHeight;
       const totalHeight = rect.height;
       
-      // Cálculo do progresso real baseado na altura total do container de scroll vertical
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -44,64 +43,62 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Multiplicador de transição horizontal para 3 itens
-  const translateX = scrollProgress * 155; 
+  const translateX = scrollProgress * 180; 
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[450vh] bg-[#EDE8DE]"
+      className="relative h-[400vh] bg-[#EDE8DE]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        <div className="pt-16 md:pt-24 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
-          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-7 mb-8 gap-4">
+        <div className="pt-8 md:pt-12 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
+          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-4 mb-4 gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-accent/20 font-bold">
               TRABALHOS SELECIONADOS
             </span>
-            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505] uppercase transition-all duration-500 hover:word-out-black">
+            <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-[#050505] uppercase transition-all duration-500 hover:word-out-black">
               <span className="word-out-black mr-4">NOSSAS</span> CRIAÇÕES
             </h2>
           </div>
         </div>
 
-        <div className="flex-1 relative flex items-center min-0">
+        <div className="flex-1 relative flex items-center min-h-0">
           <div 
             className="flex h-full items-center transition-transform duration-150 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}%)` }}
           >
-            <div className="min-w-[180px] h-full shrink-0"></div>
+            <div className="min-w-[120px] h-full shrink-0"></div>
 
             {PROJECTS.map((project, idx) => (
               <div 
                 key={idx} 
-                className="relative flex flex-col justify-center min-w-[100vw] md:min-w-[80vw] h-full pr-10 md:pr-32 group"
+                className="relative flex flex-col justify-center min-w-[100vw] md:min-w-[85vw] h-full pr-10 md:pr-40 group"
               >
-                <div className="mb-6 md:mb-8">
-                  <div className="font-mono text-[10px] md:text-[11px] text-accent mb-3 tracking-widest uppercase flex items-center gap-3">
+                <div className="mb-4">
+                  <div className="font-mono text-[10px] text-accent mb-2 tracking-widest uppercase flex items-center gap-3">
                     <span className="w-6 h-[1px] bg-accent"></span>
                     {project.category}
                   </div>
-                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-[#050505] leading-[0.85] tracking-[-0.01em] mb-4 md:mb-6 uppercase transition-all duration-500 group-hover:word-out-black">
+                  <h3 className="font-headline text-[clamp(32px,4.5vw,60px)] text-[#050505] leading-[0.85] tracking-[-0.01em] uppercase transition-all duration-500 group-hover:word-out-black">
                     {project.title}
                   </h3>
                 </div>
                 
-                <div className="relative w-full max-w-[1400px] aspect-[21/9] overflow-hidden grayscale contrast-125 transition-all duration-700 hover:grayscale-0 shadow-2xl bg-white/5 border border-[#050505]/5">
-                  <div className="absolute inset-0 z-10 pointer-events-none border-[12px] border-[#050505]/5"></div>
+                <div className="relative w-full max-w-[1300px] aspect-video max-h-[65vh] overflow-hidden transition-all duration-700 shadow-2xl bg-white/5 border border-[#050505]/10">
+                  <div className="absolute inset-0 z-20 pointer-events-none border-[8px] border-[#050505]/5"></div>
                   
                   <div 
-                    className="absolute inset-0 w-full transition-transform duration-300 ease-out"
+                    className="absolute inset-0 w-full transition-transform duration-300 ease-out z-10"
                     style={{ 
-                      // Aumentado multiplicador de 15 para 45 para dar mais sensação de scroll interno
-                      transform: `translateY(-${scrollProgress * 45}%)`,
+                      transform: `translateY(-${scrollProgress * 65}%)`,
                       transformOrigin: 'top center'
                     }}
                   >
                     <iframe 
                       src={project.url}
-                      className="w-full h-[6000px] border-none pointer-events-none scale-100 origin-top"
+                      className="w-full h-[5000px] border-none pointer-events-auto scale-100 origin-top"
                       title={project.title}
                       loading="lazy"
                     />
@@ -110,12 +107,12 @@ export default function Portfolio() {
               </div>
             ))}
 
-            <div className="min-w-[180px] h-full shrink-0"></div>
+            <div className="min-w-[120px] h-full shrink-0"></div>
           </div>
         </div>
 
         <div className="absolute right-8 bottom-8 z-20 pointer-events-none opacity-[0.03]">
-           <div className="font-headline text-2xl md:text-4xl text-[#050505] tracking-[0.5em] rotate-90 origin-right">
+           <div className="font-headline text-xl md:text-3xl text-[#050505] tracking-[0.5em] rotate-90 origin-right">
              PHANTOM.
            </div>
         </div>
