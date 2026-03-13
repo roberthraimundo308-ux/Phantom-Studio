@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -24,7 +25,6 @@ export default function Hero() {
             y: r * (H / rows),
             ox: c * (W / cols),
             oy: r * (H / rows),
-            // Calibração: Velocidade dos pontos aumentada de 0.3 para 0.8
             vx: (Math.random() - 0.5) * 0.8,
             vy: (Math.random() - 0.5) * 0.8,
             a: Math.random() * 0.5 + 0.1,
@@ -58,8 +58,8 @@ export default function Hero() {
     <section id="hero" className="relative min-h-svh flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] pt-[140px] pb-32 overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
       
-      <div className="relative z-10 w-full">
-        <div className="font-mono text-[10px] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 before:content-[''] before:w-7 before:h-[1px] before:bg-muted">
+      <div className="relative z-10 w-full flex flex-col items-center md:items-start text-center md:text-left">
+        <div className="font-mono text-[9px] md:text-[10px] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 before:content-[''] before:w-7 before:h-[1px] before:bg-muted whitespace-nowrap">
           Estúdio Digital · Experiências que Convertem
         </div>
 
@@ -77,7 +77,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <div className="mt-20 flex items-end justify-between flex-wrap gap-10">
+        <div className="mt-20 flex flex-col md:flex-row items-center md:items-end justify-between w-full gap-10">
           <p className="text-[clamp(15px,1.8vw,19px)] font-normal leading-[1.65] text-muted max-w-[480px] animate-[fdUp_0.8s_0.75s_forwards] opacity-0">
             Cada pixel é uma decisão estratégica. Cada animação, uma intenção. O resultado? O melhor site que seus clientes já visitaram na vida.
           </p>

@@ -100,49 +100,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
-        <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
-          <div className="max-w-[1600px] mx-auto">
-            <ScrollReveal className="rev flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-7 mb-20 gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-accent/20">
-                INVESTIMENTO
-              </span>
-              <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505] uppercase">PLANOS</h2>
-            </ScrollReveal>
-
-            <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
-              {[
-                { tag: 'Essencial', name: 'LANDING PAGE', price: '800', feat: ['Landing Page Conversão', 'Design Personalizado', 'Mobile-first', 'SEO On-page', 'Entrega em 10 dias'] },
-                { tag: '★ Mais Popular', name: 'SITE INSTITUCIONAL', price: '1.500', feat: ['Site Multi-páginas', 'Design Premium', 'CMS Integrado', 'SEO Avançado', 'Core Web Vitals 90+'], highlight: true },
-                { tag: 'Full Experience', name: 'SITE COMPLETO', price: '2.000', feat: ['E-Commerce Completo', 'Animações GSAP', '100/100 PageSpeed', 'Copywriting Profissional', 'Suporte 90 dias'] },
-              ].map((plan, i) => (
-                <div key={i} className={`rev d${i} border border-[#050505]/10 p-9 md:p-[44px] bg-white transition-all duration-350 hover:-translate-y-1 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-[#050505] bg-[#FDFDFD]' : ''}`}>
-                  {plan.highlight && <div className="absolute top-0 inset-x-0 h-[1px] bg-[#050505]"></div>}
-                  <div className={`font-mono text-[9px] tracking-[0.26em] uppercase mb-2 ${plan.highlight ? 'text-accent' : 'text-[#050505]/30'}`}>{plan.tag}</div>
-                  <div className="font-headline text-5xl tracking-[-0.01em] mb-7 text-[#050505] uppercase">{plan.name}</div>
-                  <div className="font-headline text-6xl leading-none mb-1.5 text-[#050505]"><small className="text-lg text-[#050505]/30 align-middle mr-1">R$</small>{plan.price}</div>
-                  <div className="font-mono text-[10px] tracking-[0.16em] text-[#050505]/30 mb-9 uppercase">Pagamento Único</div>
-                  <ul className="list-none flex flex-col gap-3.5 mb-10">
-                    {plan.feat.map((f, fIdx) => (
-                      <li key={fIdx} className="font-body text-[clamp(15px,1.8vw,19px)] leading-tight text-[#050505]/60 flex gap-3 items-start before:content-['→'] before:text-accent before:shrink-0">
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a 
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
-                  >
-                    <span className="relative">Começar Agora</span>
-                    <span className="relative transition-all group-hover:translate-x-1">→</span>
-                  </a>
-                </div>
-              ))}
-            </ScrollReveal>
-          </div>
-        </section>
       </div>
 
       <div className="relative z-50">
@@ -169,9 +126,6 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row items-end justify-between gap-16 md:gap-0 mt-20">
           <div className="flex flex-col items-start w-full md:w-auto">
-            <p className="font-body text-[clamp(14px,1.5vw,16px)] text-accent mb-6 max-w-[340px] leading-relaxed">
-              Estúdio digital especializado em performance e experiências únicas.
-            </p>
             <h1 className="font-headline text-[clamp(80px,18vw,320px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text">
               PHANTOM
             </h1>
