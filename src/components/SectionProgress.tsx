@@ -9,8 +9,7 @@ const SECTIONS = [
   { id: "services", label: "03 Serviços" },
   { id: "portfolio", label: "04 Trabalhos" },
   { id: "process", label: "05 Processo" },
-  { id: "pricing", label: "06 Planos" },
-  { id: "cta", label: "07 Contato" },
+  { id: "cta", label: "06 Contato" },
 ];
 
 export default function SectionProgress() {
@@ -44,7 +43,7 @@ export default function SectionProgress() {
             key={s.id}
             onClick={() => scrollTo(s.id)}
             className={`w-[3px] h-[3px] rounded-full bg-white/20 transition-all duration-400 cursor-pointer ${
-              i === activeIdx ? "bg-accent shadow-[0_0_5px_rgba(200,255,0,0.4)] scale-y-150" : ""
+              i === activeIdx ? "bg-accent shadow-[0_0_5px_rgba(232,85,0,0.4)] scale-y-150" : ""
             }`}
           />
         ))}

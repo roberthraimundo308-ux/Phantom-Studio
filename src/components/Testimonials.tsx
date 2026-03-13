@@ -30,7 +30,7 @@ export default function Testimonials() {
           <div className="flex items-center gap-4">
              <div className="w-8 h-[1px] bg-accent/40"></div>
              <span className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase">
-              07 RECONHECIMENTO
+              06 RECONHECIMENTO
             </span>
           </div>
           <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase">

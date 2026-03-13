@@ -21,7 +21,6 @@ export default function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      // O ponto central deve ser instantâneo
       dot.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
     };
 
@@ -37,7 +36,6 @@ export default function CustomCursor() {
     const handleScroll = () => {
       const portfolio = document.getElementById("portfolio");
       const process = document.getElementById("process");
-      const pricing = document.getElementById("pricing");
       const cta = document.getElementById("cta");
 
       const isInLightSection = (el: HTMLElement | null) => {
@@ -47,7 +45,7 @@ export default function CustomCursor() {
         return rect.top <= midPoint && rect.bottom >= midPoint;
       };
 
-      if (isInLightSection(portfolio) || isInLightSection(process) || isInLightSection(pricing) || isInLightSection(cta)) {
+      if (isInLightSection(portfolio) || isInLightSection(process) || isInLightSection(cta)) {
         setColorMode("muted");
       } else {
         setColorMode("accent");
@@ -59,13 +57,10 @@ export default function CustomCursor() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      // Calibração de agilidade: fator aumentado para 0.25 para suavidade sem lag
-      // Usamos uma interpolação mais alta para evitar o efeito de "distância" excessiva
       const easing = 0.22;
       ringX += (mouseX - ringX) * easing;
       ringY += (mouseY - ringY) * easing;
       
-      // translate3d é mais performático (aceleração de hardware)
       ring.style.transform = `translate3d(${ringX - (isGrowing ? 28 : 18)}px, ${ringY - (isGrowing ? 28 : 18)}px, 0)`;
       
       requestAnimationFrame(animate);

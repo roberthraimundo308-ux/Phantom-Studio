@@ -62,8 +62,7 @@ export default function Home() {
                 FORJADO EM<br />CADA ETAPA.
               </h2>
 
-              {/* Layout Desktop: Lista simples / Layout Mobile: Stacking */}
-              <div className="flex flex-col gap-10 md:gap-0 relative">
+              <div className="flex flex-col gap-10 md:gap-10 relative">
                 {[
                   { n: '01', title: 'Descoberta', desc: 'Mergulhamos profundamente no seu ecossistema para entender objetivos, dores e o público-alvo.' },
                   { n: '02', title: 'Estratégia', desc: 'Definimos a arquitetura de informação e as metas de conversão. Cada clique é planejado.' },
@@ -73,11 +72,10 @@ export default function Home() {
                 ].map((step, i) => (
                   <div 
                     key={i} 
-                    className="md:relative sticky top-[10vh] w-full" 
-                    style={{ paddingTop: typeof window !== 'undefined' && window.innerWidth < 768 ? `${i * 32}px` : '0px' }}
+                    className="md:relative sticky top-[12vh] w-full" 
                   >
                     <ScrollReveal className="rev">
-                      <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500 mb-0 md:mb-10">
+                      <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500">
                         <div className="flex justify-between items-start mb-8 md:mb-12 border-b border-accent/10 pb-6">
                           <h3 className="font-headline text-3xl md:text-6xl text-[#050505] tracking-[-0.01em] uppercase">{step.title}</h3>
                           <span className="font-headline text-4xl md:text-7xl text-accent/10 group-hover:text-accent transition-colors">{step.n}</span>
@@ -106,15 +104,17 @@ export default function Home() {
             <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
             </h2>
-            <a 
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-8 py-4 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
-            >
-              <span className="relative">Vamos conversar</span>
-              <span className="relative transition-all group-hover:translate-x-1">→</span>
-            </a>
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <a 
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-8 py-4 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
+              >
+                <span className="relative">Iniciar Projeto</span>
+                <span className="relative transition-all group-hover:translate-x-1">→</span>
+              </a>
+            </div>
           </div>
         </div>
 

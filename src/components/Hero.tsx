@@ -41,7 +41,7 @@ export default function Hero() {
         if (Math.abs(d.y - d.oy) > 12) d.vy *= -1;
         ctx.beginPath();
         ctx.arc(d.x, d.y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200,255,0,${d.a * 0.25})`;
+        ctx.fillStyle = `rgba(232,85,0,${d.a * 0.15})`;
         ctx.fill();
       });
       requestAnimationFrame(draw);
@@ -58,11 +58,11 @@ export default function Hero() {
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
       
       <div className="relative z-10 w-full flex flex-col items-center md:items-start text-center md:text-left">
-        <div className="font-mono text-[clamp(7px,1.5vw,10px)] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 md:before:content-[''] md:before:w-7 md:before:h-[1px] md:before:bg-muted whitespace-nowrap">
+        <div className="font-mono text-[clamp(8px,1.5vw,10px)] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 md:before:content-[''] md:before:w-7 md:before:h-[1px] md:before:bg-muted whitespace-nowrap">
           Estúdio Digital · Experiências que Convertem
         </div>
 
-        <h1 className="font-display text-[clamp(48px,11.5vw,165px)] leading-[1] tracking-[-0.02em] text-foreground">
+        <h1 className="font-display text-[clamp(44px,11.5vw,165px)] leading-[1] tracking-[-0.02em] text-foreground">
           <span className="block overflow-hidden py-1 h-[1.2em]">
             <span className="block translate-y-[110%] animate-[slideUp_0.9s_cubic-bezier(0.16,1,0.3,1)_forwards]">NÃO FAZEMOS</span>
           </span>
