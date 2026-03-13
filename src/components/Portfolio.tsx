@@ -36,6 +36,7 @@ export default function Portfolio() {
       const totalHeight = rect.height;
       
       // Calculamos o progresso de 0 a 1 baseado no scroll da seção
+      // h-[220vh] garante uma transição mais rápida e sem vácuo no final
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -44,24 +45,25 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Com 3 itens de 85vw, o multiplicador 170-180 é o ideal para chegar no fim sem sobras
-  const translateX = scrollProgress * 170; 
+  // Calibrado para 3 itens de 85vw. 
+  // Multiplicador 160vw cobre a distância necessária para o último card colar na margem direita.
+  const translateX = scrollProgress * 160; 
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[280vh] bg-[#EDE8DE]"
+      className="relative h-[220vh] bg-[#EDE8DE]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
-        {/* Cabeçalho da Seção com margens reduzidas */}
+        {/* Cabeçalho da Seção */}
         <div className="pt-6 md:pt-10 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
           <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-3 mb-2 gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-accent/20 font-bold">
               TRABALHOS SELECIONADOS
             </span>
-            <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-[#050505] uppercase transition-all duration-500 hover:word-out-black">
+            <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-[#050505] uppercase">
               <span className="word-out-black mr-4">NOSSAS</span> CRIAÇÕES
             </h2>
           </div>
@@ -70,16 +72,16 @@ export default function Portfolio() {
         {/* Trilha Horizontal */}
         <div className="flex-1 relative flex items-center min-h-0">
           <div 
-            className="flex h-full items-center transition-transform duration-150 ease-out will-change-transform"
-            style={{ transform: `translateX(-${translateX}%)` }}
+            className="flex h-full items-center transition-transform duration-100 ease-out will-change-transform"
+            style={{ transform: `translateX(-${translateX}vw)` }}
           >
             {/* Spacer inicial */}
-            <div className="min-w-[120px] h-full shrink-0"></div>
+            <div className="min-w-[120px] md:min-w-[180px] h-full shrink-0"></div>
 
             {PROJECTS.map((project, idx) => (
               <div 
                 key={idx} 
-                className="relative flex flex-col justify-center min-w-[100vw] md:min-w-[85vw] h-full pr-10 md:pr-40 group"
+                className="relative flex flex-col justify-center min-w-[85vw] h-full pr-10 md:pr-40 group"
               >
                 <div className="mb-4">
                   <div className="font-mono text-[10px] text-accent mb-2 tracking-widest uppercase flex items-center gap-3">
@@ -95,17 +97,17 @@ export default function Portfolio() {
                 <div className="relative w-full max-w-[1300px] aspect-video max-h-[65vh] overflow-hidden transition-all duration-700 shadow-2xl bg-white border border-[#050505]/10">
                   <div className="absolute inset-0 z-20 pointer-events-none border-[6px] border-[#050505]/5"></div>
                   
-                  {/* Container do Iframe com Scroll Automático Profundo */}
+                  {/* Container do Iframe com Scroll Automático */}
                   <div 
                     className="absolute inset-0 w-full transition-transform duration-300 ease-out z-10"
                     style={{ 
-                      transform: `translateY(-${scrollProgress * 75}%)`,
+                      transform: `translateY(-${scrollProgress * 85}%)`,
                       transformOrigin: 'top center'
                     }}
                   >
                     <iframe 
                       src={project.url}
-                      className="w-full h-[5000px] border-none pointer-events-auto scale-100 origin-top"
+                      className="w-full h-[5000px] border-none pointer-events-auto"
                       title={project.title}
                       loading="lazy"
                     />
@@ -114,8 +116,8 @@ export default function Portfolio() {
               </div>
             ))}
 
-            {/* Spacer final reduzido para alinhar o último card */}
-            <div className="min-w-[40px] h-full shrink-0"></div>
+            {/* Spacer final mínimo conforme pedido ("5cm") */}
+            <div className="min-w-[5vw] h-full shrink-0"></div>
           </div>
         </div>
 
