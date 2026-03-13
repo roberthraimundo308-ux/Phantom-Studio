@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -55,13 +54,13 @@ export default function Home() {
         
         <section id="process" className="relative bg-[#EDE8DE] min-h-screen flex flex-col md:flex-row border-t border-accent/10">
           <div className="w-full md:w-1/2 md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:pl-[180px] md:pr-[80px] py-20 md:py-0 border-b md:border-b-0 md:border-r border-accent/10 relative">
-            <div className="font-mono text-[10px] tracking-[0.3em] text-accent/40 uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20">
+            <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20">
               METODOLOGIA
             </div>
-            <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-accent uppercase mb-12">
+            <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-[#050505] uppercase mb-12">
               FORJADO EM<br />CADA ETAPA.
             </h2>
-            <p className="font-body text-[clamp(15px,1.8vw,19px)] leading-[1.65] text-accent/60 max-w-[400px]">
+            <p className="font-body text-[clamp(15px,1.8vw,19px)] leading-[1.65] text-[#050505]/70 max-w-[400px]">
               Navegar pelas complexidades digitais exige precisão. Nossa metodologia transforma visão em performance bruta, guiando seu projeto com confiança absoluta.
             </p>
 
@@ -83,10 +82,10 @@ export default function Home() {
               <ScrollReveal key={i} className="rev">
                 <div className="bg-white p-10 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.05)] border border-accent/5 relative group hover:-translate-y-2 transition-transform duration-500">
                   <div className="flex justify-between items-start mb-12 border-b border-accent/10 pb-6">
-                    <h3 className="font-headline text-4xl md:text-6xl text-accent tracking-[-0.01em] uppercase">{step.title}</h3>
-                    <span className="font-headline text-5xl md:text-7xl text-accent/10 group-hover:text-accent/20 transition-colors">{step.n}</span>
+                    <h3 className="font-headline text-4xl md:text-6xl text-[#050505] tracking-[-0.01em] uppercase">{step.title}</h3>
+                    <span className="font-headline text-5xl md:text-7xl text-accent/10 group-hover:text-accent transition-colors">{step.n}</span>
                   </div>
-                  <p className="font-body text-[clamp(15px,1.8vw,19px)] leading-[1.65] text-accent/60">
+                  <p className="font-body text-[clamp(15px,1.8vw,19px)] leading-[1.65] text-[#050505]/60">
                     {step.desc}
                   </p>
                   <div className="absolute top-0 left-0 w-4 h-[1px] bg-accent/20"></div>
@@ -101,11 +100,11 @@ export default function Home() {
 
         <section id="pricing" className="relative py-32 md:py-[180px] px-6 md:pl-[180px] md:pr-[80px]">
           <div className="max-w-[1600px] mx-auto">
-            <ScrollReveal className="rev flex flex-col md:flex-row items-baseline justify-between border-b border-black/10 pb-7 mb-20 gap-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-black/40 uppercase flex items-center gap-3 before:content-['06'] before:text-black/20">
+            <ScrollReveal className="rev flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-7 mb-20 gap-4">
+              <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['06'] before:text-accent/20">
                 INVESTIMENTO
               </span>
-              <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-black uppercase">PLANOS</h2>
+              <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505] uppercase">PLANOS</h2>
             </ScrollReveal>
 
             <ScrollReveal className="grid grid-cols-1 lg:grid-cols-3 gap-5" stagger>
@@ -114,20 +113,20 @@ export default function Home() {
                 { tag: '★ Mais Popular', name: 'SITE INSTITUCIONAL', price: '1.500', feat: ['Site Multi-páginas', 'Design Premium', 'CMS Integrado', 'SEO Avançado', 'Core Web Vitals 90+'], highlight: true },
                 { tag: 'Full Experience', name: 'SITE COMPLETO', price: '2.000', feat: ['E-Commerce Completo', 'Animações GSAP', '100/100 PageSpeed', 'Copywriting Profissional', 'Suporte 90 dias'] },
               ].map((plan, i) => (
-                <div key={i} className={`rev d${i} border border-black/10 p-9 md:p-[44px] bg-white transition-all duration-350 hover:-translate-y-1 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-black bg-[#FDFDFD]' : ''}`}>
-                  {plan.highlight && <div className="absolute top-0 inset-x-0 h-[1px] bg-black"></div>}
-                  <div className={`font-mono text-[9px] tracking-[0.26em] uppercase mb-2 ${plan.highlight ? 'text-black' : 'text-black/30'}`}>{plan.tag}</div>
-                  <div className="font-headline text-5xl tracking-[-0.01em] mb-7 text-black uppercase">{plan.name}</div>
-                  <div className="font-headline text-6xl leading-none mb-1.5 text-black"><small className="text-lg text-black/30 align-middle mr-1">R$</small>{plan.price}</div>
-                  <div className="font-mono text-[10px] tracking-[0.16em] text-black/30 mb-9 uppercase">Pagamento Único</div>
+                <div key={i} className={`rev d${i} border border-[#050505]/10 p-9 md:p-[44px] bg-white transition-all duration-350 hover:-translate-y-1 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-[#050505] bg-[#FDFDFD]' : ''}`}>
+                  {plan.highlight && <div className="absolute top-0 inset-x-0 h-[1px] bg-[#050505]"></div>}
+                  <div className={`font-mono text-[9px] tracking-[0.26em] uppercase mb-2 ${plan.highlight ? 'text-accent' : 'text-[#050505]/30'}`}>{plan.tag}</div>
+                  <div className="font-headline text-5xl tracking-[-0.01em] mb-7 text-[#050505] uppercase">{plan.name}</div>
+                  <div className="font-headline text-6xl leading-none mb-1.5 text-[#050505]"><small className="text-lg text-[#050505]/30 align-middle mr-1">R$</small>{plan.price}</div>
+                  <div className="font-mono text-[10px] tracking-[0.16em] text-[#050505]/30 mb-9 uppercase">Pagamento Único</div>
                   <ul className="list-none flex flex-col gap-3.5 mb-10">
                     {plan.feat.map((f, fIdx) => (
-                      <li key={fIdx} className="font-body text-[clamp(13px,1.4vw,15px)] leading-tight text-black/60 flex gap-3 items-start before:content-['→'] before:text-black before:shrink-0">
+                      <li key={fIdx} className="font-body text-[clamp(13px,1.4vw,15px)] leading-tight text-[#050505]/60 flex gap-3 items-start before:content-['→'] before:text-accent before:shrink-0">
                         {f}
                       </li>
                     ))}
                   </ul>
-                  <button className={`w-full py-4 font-mono text-[11px] tracking-[0.2em] uppercase border border-black/10 transition-all duration-300 ${plan.highlight ? 'bg-black text-white border-black hover:bg-accent hover:text-black hover:border-accent' : 'text-black hover:border-accent hover:bg-accent hover:text-black'}`}>
+                  <button className={`w-full py-4 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#050505]/10 transition-all duration-300 ${plan.highlight ? 'bg-accent text-[#050505] border-accent hover:bg-[#050505] hover:text-white hover:border-[#050505]' : 'bg-accent text-[#050505] border-accent hover:bg-[#050505] hover:text-white hover:border-[#050505]'}`}>
                     Começar Agora
                   </button>
                 </div>
@@ -141,17 +140,17 @@ export default function Home() {
         <Testimonials />
       </div>
 
-      <section id="cta" className="relative min-h-[90vh] bg-white text-black px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-black/5">
+      <section id="cta" className="relative min-h-[90vh] bg-white text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
         <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
           <div className="max-w-[550px] md:text-left">
-            <h2 className="font-body text-[clamp(28px,3.2vw,44px)] leading-[1.5] mb-14 tracking-tight text-black font-normal">
+            <h2 className="font-body text-[clamp(28px,3.2vw,44px)] leading-[1.5] mb-14 tracking-tight text-[#050505] font-normal">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
             </h2>
             <a href="#" className="inline-flex items-center gap-3 group pointer-events-auto">
-              <div className="bg-black text-white px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-accent group-hover:text-black group-hover:px-12">
+              <div className="bg-accent text-[#050505] px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-[#050505] group-hover:text-white group-hover:px-12">
                 Vamos conversar
               </div>
-              <div className="bg-black text-white w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-accent group-hover:text-black group-hover:scale-110">
+              <div className="bg-accent text-[#050505] w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-[#050505] group-hover:text-white group-hover:scale-110">
                 <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
               </div>
             </a>
@@ -160,19 +159,19 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row items-end justify-between gap-16 md:gap-0 mt-20">
           <div className="flex flex-col items-start w-full md:w-auto">
-            <p className="font-body text-[clamp(14px,1.5vw,16px)] text-black/40 mb-6 max-w-[340px] leading-relaxed">
+            <p className="font-body text-[clamp(14px,1.5vw,16px)] text-accent mb-6 max-w-[340px] leading-relaxed">
               Estúdio digital especializado em performance e experiências únicas.
             </p>
-            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-black">
+            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text">
               PHANTOM
             </h1>
           </div>
 
           <div className="flex flex-col items-end gap-3 pb-8 md:pb-12 w-full md:w-auto">
-            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">HELLO@PHANTOM.STUDIO</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">LINKEDIN</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors">NOTAS LEGAIS</a>
-            <div className="font-mono text-[9px] text-black/10 mt-6 tracking-[0.1em]">WEBSITE BY PHANTOM STUDIO — © 2025</div>
+            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-accent hover:text-[#050505] transition-colors">HELLO@PHANTOM.STUDIO</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-accent hover:text-[#050505] transition-colors">LINKEDIN</a>
+            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-accent hover:text-[#050505] transition-colors">NOTAS LEGAIS</a>
+            <div className="font-mono text-[9px] text-[#050505]/10 mt-6 tracking-[0.1em]">WEBSITE BY PHANTOM STUDIO — © 2025</div>
           </div>
         </div>
 

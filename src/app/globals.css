@@ -118,3 +118,26 @@ body::after {
   align-items: center;
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+.phantom-footer-text {
+  position: relative;
+  color: black;
+  transition: color 0.5s ease;
+}
+
+.phantom-footer-text::before {
+  content: 'PHANTOM';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.phantom-footer-text:hover::before {
+  clip-path: circle(100% at 50% 50%);
+}
