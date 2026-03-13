@@ -21,12 +21,14 @@ const PROJECTS = [
     title: "Big Drop Inc",
     category: "GLOBAL AGENCY",
     url: "https://www.bigdropinc.com/",
+    scale: 0.85, // Ajuste de visualização para sites de agência
   },
   {
     id: "04",
     title: "Oak Island",
     category: "ENTERTAINMENT HUB",
     url: "https://thecurseofoakisland.com/",
+    scale: 0.9, // Ajuste de visualização para sites de entretenimento
   },
   {
     id: "05",
@@ -47,6 +49,7 @@ export default function Portfolio() {
       const windowHeight = window.innerHeight;
       const totalHeight = rect.height;
       
+      // Calculamos o progresso real baseado na altura total do container de 800vh
       const progress = Math.max(0, Math.min(1, -rect.top / (totalHeight - windowHeight)));
       setScrollProgress(progress);
     };
@@ -55,14 +58,15 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Ajustado para 5 projetos para manter a fluidez do scroll
-  const translateX = scrollProgress * 38; 
+  // Calibração: 5 projetos em containers de 80vw requerem um deslocamento maior
+  // Ajustado para 80 para garantir que o último trabalho (Reportage) seja totalmente visível
+  const translateX = scrollProgress * 80; 
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[600vh] bg-[#EDE8DE]"
+      className="relative h-[800vh] bg-[#EDE8DE]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
@@ -104,17 +108,19 @@ export default function Portfolio() {
                   
                   <div 
                     className="absolute inset-0 w-full transition-transform duration-500 ease-out"
-                    style={{ transform: `translateY(-${scrollProgress * 20}%)` }}
+                    style={{ 
+                      transform: `translateY(-${scrollProgress * 25}%) scale(${project.scale || 1})`,
+                      transformOrigin: 'top center'
+                    }}
                   >
                     <iframe 
                       src={project.url}
-                      className="w-full h-[4000px] border-none pointer-events-none scale-100 origin-top"
+                      className="w-full h-[4500px] border-none pointer-events-none scale-100 origin-top"
                       title={project.title}
                       loading="lazy"
                     />
                   </div>
 
-                  {/* Botão padronizado com o cabeçalho */}
                   <a 
                     href="https://wa.me/5547999144160"
                     target="_blank"

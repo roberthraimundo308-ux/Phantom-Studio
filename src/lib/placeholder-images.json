@@ -47,6 +47,48 @@
       "description": "Portrait of Elena G.",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo9cc56JtvWi934884LjPmVuhTVDQNnYJ6og&s",
       "imageHint": "woman creative"
+    },
+    {
+      "id": "user-9",
+      "description": "Portrait of Miguel",
+      "imageUrl": "https://circuitoacademico.wordpress.com/wp-content/uploads/2018/07/selfie-miguel-2.jpeg",
+      "imageHint": "man smiling"
+    },
+    {
+      "id": "user-10",
+      "description": "Professional Profile",
+      "imageUrl": "https://blog.unyleya.edu.br/wp-content/uploads/2019/07/298696-conheca-os-4-principais-tipos-de-perfis-profissionais.jpg",
+      "imageHint": "person business"
+    },
+    {
+      "id": "user-11",
+      "description": "Corporate Portrait",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyDy35WI5XSTfrLJaTE_4Cr8gvUOJTa2w8aw&s",
+      "imageHint": "man corporate"
+    },
+    {
+      "id": "user-12",
+      "description": "LinkedIn Profile",
+      "imageUrl": "https://media.licdn.com/dms/image/v2/D4E03AQH4cuj0zvMVnA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1709138437013?e=2147483647&v=beta&t=tGfGuGCoA5lA2yUrb_jrbVvuIISZe-3kxGo4JZ9WmHk",
+      "imageHint": "person linkedin"
+    },
+    {
+      "id": "user-13",
+      "description": "Casual Portrait",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3McCSKzC7m88yNdYhUV2d4oCwKgslrNCM-A&s",
+      "imageHint": "woman casual"
+    },
+    {
+      "id": "user-14",
+      "description": "Creative Professional",
+      "imageUrl": "https://i.pinimg.com/736x/fd/fc/ef/fdfcefc24e58a4e3ed4dd6099d530353.jpg",
+      "imageHint": "woman artistic"
+    },
+    {
+      "id": "user-15",
+      "description": "Modern Profile",
+      "imageUrl": "https://creativemakes.com.br/perfil3.jpg",
+      "imageHint": "man modern"
     }
   ]
 }
