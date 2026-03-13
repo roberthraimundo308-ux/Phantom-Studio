@@ -12,7 +12,7 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
-  const whatsappUrl = "https://wa.me/5547999144160";
+  const whatsappUrl = "https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio";
 
   return (
     <main className="bg-background min-h-screen">
@@ -149,8 +149,8 @@ export default function Home() {
         <Testimonials />
       </div>
 
-      <section id="cta" className="relative min-h-[90vh] bg-[#EDE8DE] text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
-        <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
+      <section id="cta" className="relative min-h-[60vh] bg-[#EDE8DE] text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-center py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
+        <div className="flex flex-col md:flex-row justify-end items-start md:items-center">
           <div className="max-w-[800px] md:text-left">
             <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
@@ -172,16 +172,9 @@ export default function Home() {
             <p className="font-body text-[clamp(14px,1.5vw,16px)] text-accent mb-6 max-w-[340px] leading-relaxed">
               Estúdio digital especializado em performance e experiências únicas.
             </p>
-            <h1 className="font-headline text-[clamp(80px,22vw,360px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text">
+            <h1 className="font-headline text-[clamp(80px,18vw,320px)] leading-[0.7] tracking-tighter -ml-2 md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text">
               PHANTOM
             </h1>
-          </div>
-
-          <div className="flex flex-col items-end gap-3 pb-8 md:pb-12 w-full md:w-auto">
-            <a href="mailto:hello@phantom.studio" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-accent hover:text-[#050505] transition-colors">HELLO@PHANTOM.STUDIO</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-accent hover:text-[#050505] transition-colors">LINKEDIN</a>
-            <a href="#" className="font-mono text-[10px] md:text-[11px] tracking-[0.2em] uppercase text-accent hover:text-[#050505] transition-colors">NOTAS LEGAIS</a>
-            <div className="font-mono text-[9px] text-[#050505]/10 mt-6 tracking-[0.1em]">WEBSITE BY PHANTOM STUDIO — © 2025</div>
           </div>
         </div>
 
