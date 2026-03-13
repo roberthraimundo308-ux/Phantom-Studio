@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -17,24 +18,18 @@ const PROJECTS = [
   },
   {
     id: "03",
-    title: "OCI Buzzworthy",
-    category: "DIGITAL INNOVATION",
-    url: "https://oci.madebybuzzworthy.com/",
-  },
-  {
-    id: "04",
     title: "Big Drop Inc",
     category: "GLOBAL AGENCY",
     url: "https://www.bigdropinc.com/",
   },
   {
-    id: "05",
+    id: "04",
     title: "Oak Island",
     category: "ENTERTAINMENT HUB",
     url: "https://thecurseofoakisland.com/",
   },
   {
-    id: "06",
+    id: "05",
     title: "Reportage",
     category: "ARCHITECTURE & DESIGN",
     url: "https://reportage.com.tr/",
@@ -60,7 +55,8 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const translateX = scrollProgress * 46; 
+  // Ajustado para 5 projetos para manter a fluidez do scroll
+  const translateX = scrollProgress * 38; 
 
   return (
     <section 
@@ -81,7 +77,7 @@ export default function Portfolio() {
           </div>
         </div>
 
-        <div className="flex-1 relative flex items-center min-h-0">
+        <div className="flex-1 relative flex items-center min-0">
           <div 
             className="flex h-full items-center transition-transform duration-150 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}%)` }}
@@ -118,9 +114,16 @@ export default function Portfolio() {
                     />
                   </div>
 
-                  <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#EDE8DE] border-l border-t border-[#050505]/10 flex items-center justify-center z-20 cursor-pointer hover:bg-accent group/btn transition-colors">
-                     <span className="text-3xl md:text-4xl text-accent font-light group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all">→</span>
-                  </div>
+                  {/* Botão padronizado com o cabeçalho */}
+                  <a 
+                    href="https://wa.me/5547999144160"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-8 right-8 z-30 bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 flex items-center gap-2 group/btn relative overflow-hidden transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black"
+                  >
+                    <span className="relative">Ver Projeto</span>
+                    <span className="relative transition-all group-hover/btn:translate-x-1">→</span>
+                  </a>
                 </div>
               </div>
             ))}
