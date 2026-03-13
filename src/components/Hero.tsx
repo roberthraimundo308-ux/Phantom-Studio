@@ -24,8 +24,9 @@ export default function Hero() {
             y: r * (H / rows),
             ox: c * (W / cols),
             oy: r * (H / rows),
-            vx: (Math.random() - 0.5) * 0.3,
-            vy: (Math.random() - 0.5) * 0.3,
+            // Calibração: Velocidade dos pontos aumentada de 0.3 para 0.8
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
             a: Math.random() * 0.5 + 0.1,
           });
         }

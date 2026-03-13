@@ -27,13 +27,15 @@ export default function LogosCarousel() {
     const baseSpeed = -0.6;
 
     const onWheel = (e: WheelEvent) => {
-      velocity += e.deltaY * -0.05;
+      // Calibração: Intensidade de resposta ao scroll aumentada
+      velocity += e.deltaY * -0.12;
     };
 
     window.addEventListener("wheel", onWheel, { passive: true });
 
     const animate = () => {
-      velocity += (baseSpeed - velocity) * 0.07;
+      // Calibração: Retorno ao baseSpeed mais rápido (0.07 -> 0.12)
+      velocity += (baseSpeed - velocity) * 0.12;
       offset += velocity;
 
       const halfWidth = track.scrollWidth / 2;

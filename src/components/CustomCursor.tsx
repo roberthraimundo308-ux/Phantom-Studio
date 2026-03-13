@@ -58,8 +58,9 @@ export default function CustomCursor() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      ringX += (mouseX - ringX) * 0.38;
-      ringY += (mouseY - ringY) * 0.38;
+      // Calibração: Aumentado de 0.38 para 0.55 para maior agilidade
+      ringX += (mouseX - ringX) * 0.55;
+      ringY += (mouseY - ringY) * 0.55;
       ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
       requestAnimationFrame(animate);
     };

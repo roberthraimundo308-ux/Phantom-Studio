@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -84,7 +83,7 @@ export default function Portfolio() {
 
         <div className="flex-1 relative flex items-center min-h-0">
           <div 
-            className="flex h-full items-center transition-transform duration-200 ease-out will-change-transform"
+            className="flex h-full items-center transition-transform duration-150 ease-out will-change-transform"
             style={{ transform: `translateX(-${translateX}%)` }}
           >
             <div className="min-w-[180px] h-full shrink-0"></div>
