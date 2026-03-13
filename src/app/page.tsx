@@ -149,7 +149,7 @@ export default function Home() {
         <Testimonials />
       </div>
 
-      <section id="cta" className="relative min-h-[90vh] bg-white text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
+      <section id="cta" className="relative min-h-[90vh] bg-[#EDE8DE] text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
         <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
           <div className="max-w-[800px] md:text-left">
             <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
@@ -159,7 +159,7 @@ export default function Home() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-black hover:text-white"
+              className="inline-flex items-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
             >
               <span className="relative">Vamos conversar</span>
               <span className="relative transition-all group-hover:translate-x-1">→</span>
