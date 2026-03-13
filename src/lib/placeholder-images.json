@@ -17,6 +17,54 @@
       "description": "Authentic rustic napolitan food textures",
       "imageUrl": "https://picsum.photos/seed/food1/820/490",
       "imageHint": "napolitan pizza"
+    },
+    {
+      "id": "user-roberto",
+      "description": "Portrait of a CEO",
+      "imageUrl": "https://picsum.photos/seed/roberto/100/100",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "user-amanda",
+      "description": "Portrait of an Art Director",
+      "imageUrl": "https://picsum.photos/seed/amanda/100/100",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "user-joao",
+      "description": "Portrait of a Marketing Head",
+      "imageUrl": "https://picsum.photos/seed/joao/100/100",
+      "imageHint": "man professional"
+    },
+    {
+      "id": "user-carla",
+      "description": "Portrait of a CTO",
+      "imageUrl": "https://picsum.photos/seed/carla/100/100",
+      "imageHint": "woman professional"
+    },
+    {
+      "id": "user-lucas",
+      "description": "Portrait of a Founder",
+      "imageUrl": "https://picsum.photos/seed/lucas/100/100",
+      "imageHint": "man startup"
+    },
+    {
+      "id": "user-sofia",
+      "description": "Portrait of a Product Owner",
+      "imageUrl": "https://picsum.photos/seed/sofia/100/100",
+      "imageHint": "woman fashion"
+    },
+    {
+      "id": "user-ricardo",
+      "description": "Portrait of a Lead Developer",
+      "imageUrl": "https://picsum.photos/seed/ricardo/100/100",
+      "imageHint": "man developer"
+    },
+    {
+      "id": "user-elena",
+      "description": "Portrait of a Brand Director",
+      "imageUrl": "https://picsum.photos/seed/elena/100/100",
+      "imageHint": "woman creative"
     }
   ]
 }

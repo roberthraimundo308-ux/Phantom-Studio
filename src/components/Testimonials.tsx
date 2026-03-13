@@ -1,7 +1,10 @@
+
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Cpu, Zap, BarChart3, ShieldCheck, Box } from "lucide-react";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const TESTIMONIALS = [
   {
@@ -10,7 +13,8 @@ const TESTIMONIALS = [
     name: "ROBERTO K.",
     company: "TECHFLOW",
     role: "CEO",
-    icon: <Zap className="w-4 h-4" />
+    icon: <Zap className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-roberto')?.imageUrl
   },
   {
     id: 2,
@@ -18,7 +22,8 @@ const TESTIMONIALS = [
     name: "AMANDA LIMA",
     company: "STUDIO CRIATIVO",
     role: "ART DIRECTOR",
-    icon: <Cpu className="w-4 h-4" />
+    icon: <Cpu className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-amanda')?.imageUrl
   },
   {
     id: 3,
@@ -26,7 +31,8 @@ const TESTIMONIALS = [
     name: "JOÃO MENDES",
     company: "GROWTH CORP",
     role: "MARKETING",
-    icon: <BarChart3 className="w-4 h-4" />
+    icon: <BarChart3 className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-joao')?.imageUrl
   },
   {
     id: 4,
@@ -34,7 +40,8 @@ const TESTIMONIALS = [
     name: "CARLA DIAS",
     company: "NEOBANK",
     role: "CTO",
-    icon: <ShieldCheck className="w-4 h-4" />
+    icon: <ShieldCheck className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-carla')?.imageUrl
   },
   {
     id: 5,
@@ -42,7 +49,8 @@ const TESTIMONIALS = [
     name: "LUCAS ROCHA",
     company: "DIGITAL EDGE",
     role: "FOUNDER",
-    icon: <Box className="w-4 h-4" />
+    icon: <Box className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-lucas')?.imageUrl
   },
   {
     id: 6,
@@ -50,7 +58,8 @@ const TESTIMONIALS = [
     name: "SOFIA VALLI",
     company: "VOGUE ITALY",
     role: "PRODUCT OWNER",
-    icon: <Zap className="w-4 h-4" />
+    icon: <Zap className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-sofia')?.imageUrl
   },
   {
     id: 7,
@@ -58,7 +67,8 @@ const TESTIMONIALS = [
     name: "RICARDO M.",
     company: "META DESIGN",
     role: "LEAD DEV",
-    icon: <Cpu className="w-4 h-4" />
+    icon: <Cpu className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-ricardo')?.imageUrl
   },
   {
     id: 8,
@@ -66,7 +76,8 @@ const TESTIMONIALS = [
     name: "ELENA G.",
     company: "ULTRA LABS",
     role: "BRAND DIRECTOR",
-    icon: <BarChart3 className="w-4 h-4" />
+    icon: <BarChart3 className="w-4 h-4" />,
+    avatar: PlaceHolderImages.find(img => img.id === 'user-elena')?.imageUrl
   }
 ];
 
@@ -79,7 +90,6 @@ export default function Testimonials() {
       id="testimonials" 
       className="relative h-[140vh] flex flex-col py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
     >
-      {/* Phantom Watermark */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none z-0">
         <div className="font-headline text-[25vw] leading-none text-white tracking-[0.1em]">
           REVIEWS
@@ -87,8 +97,6 @@ export default function Testimonials() {
       </div>
 
       <div className="max-w-[1600px] mx-auto w-full h-full flex flex-col relative z-10">
-        
-        {/* Header Tecnico */}
         <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-white/10 pb-7 mb-16 gap-4 shrink-0">
           <div className="flex items-center gap-4">
              <div className="w-8 h-[1px] bg-accent/40"></div>
@@ -102,10 +110,7 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        {/* Scrolling Columns Grid */}
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden mask-vertical">
-          
-          {/* Column 01 - Slower */}
           <div className="relative overflow-hidden h-full">
             <div className="animate-scroll-slow flex flex-col gap-10 py-10">
               {col1.map((t, idx) => (
@@ -114,7 +119,6 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Column 02 - Faster */}
           <div className="relative overflow-hidden h-full hidden md:block">
             <div className="animate-scroll-fast flex flex-col gap-10 py-10">
               {col2.map((t, idx) => (
@@ -122,7 +126,6 @@ export default function Testimonials() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
 
@@ -151,11 +154,15 @@ export default function Testimonials() {
 function TestimonialCard({ testimonial: t }: { testimonial: any }) {
   return (
     <div className="group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-10 md:p-12 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-8">
-      
-      {/* Icon & Meta */}
       <div className="flex justify-between items-start">
-        <div className="text-accent/40 group-hover:text-accent transition-colors">
-          {t.icon}
+        <div className="relative w-12 h-12 md:w-16 md:h-16 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-white/5 is-cursor">
+           <Image 
+             src={t.avatar || "https://picsum.photos/seed/user/100/100"} 
+             alt={t.name}
+             fill
+             className="object-cover"
+             data-ai-hint="person portrait"
+           />
         </div>
         <div className="flex flex-col items-end">
           <span className="font-mono text-[9px] tracking-[0.2em] text-white/20 group-hover:text-white/40 uppercase">
@@ -167,7 +174,6 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
         </div>
       </div>
 
-      {/* Main Title (Client Name) */}
       <div className="relative">
         <h3 className="font-headline text-3xl md:text-4xl text-foreground tracking-wide uppercase group-hover:text-accent transition-colors">
           {t.name}_
@@ -175,13 +181,14 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-accent/0 group-hover:bg-accent/40 transition-all duration-500 group-hover:-left-8"></div>
       </div>
 
-      {/* Quote Description */}
       <p className="font-mono text-[11px] md:text-[13px] leading-relaxed text-muted group-hover:text-foreground/70 transition-colors uppercase tracking-tight">
         {t.text}
       </p>
 
-      {/* Footer Element - Technical Dots Decor Only */}
-      <div className="mt-4 flex items-center justify-end">
+      <div className="mt-4 flex items-center justify-between">
+        <div className="text-accent/20 group-hover:text-accent/60 transition-colors">
+          {t.icon}
+        </div>
         <div className="flex gap-1.5 opacity-20">
           <div className="w-1 h-1 bg-white"></div>
           <div className="w-1 h-1 bg-white"></div>
@@ -189,7 +196,6 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
         </div>
       </div>
 
-      {/* Corner Lines */}
       <div className="absolute top-0 left-0 w-4 h-[1px] bg-white/5 group-hover:bg-accent/20 transition-colors"></div>
       <div className="absolute top-0 left-0 w-[1px] h-4 bg-white/5 group-hover:bg-accent/20 transition-colors"></div>
     </div>
