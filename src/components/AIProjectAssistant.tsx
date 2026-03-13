@@ -76,11 +76,11 @@ export default function AIProjectAssistant() {
               />
               <button 
                 disabled={loading}
-                className="inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black"
+                className="inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
               >
                 {loading ? <Loader2 className="animate-spin w-4 h-4" /> : null}
                 <span className="relative">GERAR AGORA</span>
-                <span className="relative">→</span>
+                <span className="relative transition-all group-hover:translate-x-1">→</span>
               </button>
             </form>
           </div>

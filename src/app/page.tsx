@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -127,9 +128,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <button className="w-full inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black">
+                  <button className="w-full inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black">
                     <span className="relative">Começar Agora</span>
-                    <span className="relative">→</span>
+                    <span className="relative transition-all group-hover:translate-x-1">→</span>
                   </button>
                 </div>
               ))}
@@ -148,9 +149,9 @@ export default function Home() {
             <h2 className="font-body text-[clamp(28px,3.2vw,44px)] leading-[1.5] mb-14 tracking-tight text-[#050505] font-normal">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
             </h2>
-            <a href="#" className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 hover:bg-black hover:text-white group">
+            <a href="#" className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-black hover:text-white">
               <span className="relative">Vamos conversar</span>
-              <span className="relative">→</span>
+              <span className="relative transition-all group-hover:translate-x-1">→</span>
             </a>
           </div>
         </div>

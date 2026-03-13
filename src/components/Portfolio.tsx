@@ -95,8 +95,8 @@ export default function Portfolio() {
                 className="relative flex flex-col justify-center min-w-[100vw] md:min-w-[80vw] h-full pr-10 md:pr-32 group"
               >
                 <div className="mb-6 md:mb-8">
-                  <div className="font-mono text-[10px] md:text-[11px] text-[#050505]/40 mb-3 tracking-widest uppercase flex items-center gap-3">
-                    <span className="w-6 h-[1px] bg-[#050505]/20"></span>
+                  <div className="font-mono text-[10px] md:text-[11px] text-accent mb-3 tracking-widest uppercase flex items-center gap-3">
+                    <span className="w-6 h-[1px] bg-accent/30"></span>
                     {project.category}
                   </div>
                   <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-[#050505] leading-[0.85] tracking-[-0.01em] mb-4 md:mb-6 uppercase">
