@@ -1,8 +1,9 @@
+
 "use client";
 
 import React, { useState } from "react";
 import { generateProjectDescription } from "@/ai/flows/generate-project-description";
-import { Sparkles, Loader2, Send } from "lucide-react";
+import { Sparkles, Loader2 } from "lucide-react";
 
 export default function AIProjectAssistant() {
   const [loading, setLoading] = useState(false);
@@ -75,10 +76,11 @@ export default function AIProjectAssistant() {
               />
               <button 
                 disabled={loading}
-                className="bg-[#050505] text-white font-mono text-[10px] tracking-[0.2em] uppercase py-5 flex items-center justify-center gap-3 hover:bg-accent hover:text-black transition-all rounded-none"
+                className="inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black"
               >
-                {loading ? <Loader2 className="animate-spin w-4 h-4" /> : <Send className="w-4 h-4" />}
-                GERAR AGORA
+                {loading ? <Loader2 className="animate-spin w-4 h-4" /> : null}
+                <span className="relative">GERAR AGORA</span>
+                <span className="relative">→</span>
               </button>
             </form>
           </div>

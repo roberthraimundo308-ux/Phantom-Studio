@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -126,8 +127,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <button className={`w-full py-4 font-mono text-[11px] tracking-[0.2em] uppercase border border-[#050505]/10 transition-all duration-300 ${plan.highlight ? 'bg-accent text-[#050505] border-accent hover:bg-[#050505] hover:text-white hover:border-[#050505]' : 'bg-accent text-[#050505] border-accent hover:bg-[#050505] hover:text-white hover:border-[#050505]'}`}>
-                    Começar Agora
+                  <button className="w-full inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 hover:bg-accent hover:text-black">
+                    <span className="relative">Começar Agora</span>
+                    <span className="relative">→</span>
                   </button>
                 </div>
               ))}
@@ -146,13 +148,9 @@ export default function Home() {
             <h2 className="font-body text-[clamp(28px,3.2vw,44px)] leading-[1.5] mb-14 tracking-tight text-[#050505] font-normal">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
             </h2>
-            <a href="#" className="inline-flex items-center gap-3 group pointer-events-auto">
-              <div className="bg-accent text-[#050505] px-10 py-5 rounded-full font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group-hover:bg-[#050505] group-hover:text-white group-hover:px-12">
-                Vamos conversar
-              </div>
-              <div className="bg-accent text-[#050505] w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-[#050505] group-hover:text-white group-hover:scale-110">
-                <span className="text-2xl transition-transform group-hover:translate-x-1">→</span>
-              </div>
+            <a href="#" className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 hover:bg-black hover:text-white group">
+              <span className="relative">Vamos conversar</span>
+              <span className="relative">→</span>
             </a>
           </div>
         </div>

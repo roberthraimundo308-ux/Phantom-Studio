@@ -75,9 +75,9 @@ export default function Services() {
                   {s.desc}
                 </p>
 
-                <button className="group/btn relative flex items-center gap-5 bg-black text-white font-mono text-[11px] font-bold tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:bg-accent hover:text-black">
-                  <span className="relative z-10">Saber Mais</span>
-                  <span className="relative z-10 text-lg transition-transform group-hover/btn:translate-x-1">→</span>
+                <button className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 hover:brightness-110">
+                  <span className="relative">Saber Mais</span>
+                  <span className="relative">→</span>
                 </button>
 
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-border/20 border border-border/20">
