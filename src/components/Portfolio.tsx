@@ -72,12 +72,12 @@ export default function Portfolio() {
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
         <div className="pt-16 md:pt-24 px-6 md:pl-[180px] md:pr-[80px] z-20 shrink-0">
-          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-accent/10 pb-7 mb-8 gap-4">
+          <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-[#050505]/10 pb-7 mb-8 gap-4">
             <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['04'] before:text-accent/20 font-bold">
               TRABALHOS SELECIONADOS
             </span>
-            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-accent uppercase">
-              <span className="word-out-accent mr-4">NOSSAS</span> CRIAÇÕES
+            <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-[#050505] uppercase">
+              <span className="word-out-black mr-4">NOSSAS</span> CRIAÇÕES
             </h2>
           </div>
         </div>
@@ -95,17 +95,17 @@ export default function Portfolio() {
                 className="relative flex flex-col justify-center min-w-[100vw] md:min-w-[80vw] h-full pr-10 md:pr-32 group"
               >
                 <div className="mb-6 md:mb-8">
-                  <div className="font-mono text-[10px] md:text-[11px] text-accent/40 mb-3 tracking-widest uppercase flex items-center gap-3">
-                    <span className="w-6 h-[1px] bg-accent/20"></span>
+                  <div className="font-mono text-[10px] md:text-[11px] text-[#050505]/40 mb-3 tracking-widest uppercase flex items-center gap-3">
+                    <span className="w-6 h-[1px] bg-[#050505]/20"></span>
                     {project.category}
                   </div>
-                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-accent leading-[0.85] tracking-[-0.01em] mb-4 md:mb-6 uppercase">
+                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-[#050505] leading-[0.85] tracking-[-0.01em] mb-4 md:mb-6 uppercase">
                     {project.title}
                   </h3>
                 </div>
                 
-                <div className="relative w-full max-w-[1400px] aspect-[21/9] overflow-hidden grayscale contrast-125 transition-all duration-700 hover:grayscale-0 shadow-2xl bg-white/5 border border-accent/5">
-                  <div className="absolute inset-0 z-10 pointer-events-none border-[12px] border-accent/5"></div>
+                <div className="relative w-full max-w-[1400px] aspect-[21/9] overflow-hidden grayscale contrast-125 transition-all duration-700 hover:grayscale-0 shadow-2xl bg-white/5 border border-[#050505]/5">
+                  <div className="absolute inset-0 z-10 pointer-events-none border-[12px] border-[#050505]/5"></div>
                   
                   <div 
                     className="absolute inset-0 w-full transition-transform duration-500 ease-out"
@@ -119,7 +119,7 @@ export default function Portfolio() {
                     />
                   </div>
 
-                  <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#EDE8DE] border-l border-t border-accent/10 flex items-center justify-center z-20 cursor-pointer hover:bg-accent group/btn transition-colors">
+                  <div className="absolute bottom-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#EDE8DE] border-l border-t border-[#050505]/10 flex items-center justify-center z-20 cursor-pointer hover:bg-accent group/btn transition-colors">
                      <span className="text-3xl md:text-4xl text-accent font-light group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all">→</span>
                   </div>
                 </div>
@@ -131,14 +131,14 @@ export default function Portfolio() {
         </div>
 
         <div className="absolute right-8 bottom-8 z-20 pointer-events-none opacity-[0.03]">
-           <div className="font-headline text-2xl md:text-4xl text-accent tracking-[0.5em] rotate-90 origin-right">
+           <div className="font-headline text-2xl md:text-4xl text-[#050505] tracking-[0.5em] rotate-90 origin-right">
              PHANTOM.
            </div>
         </div>
       </div>
       <style jsx>{`
-        .word-out-accent {
-          -webkit-text-stroke: 1.5px var(--accent);
+        .word-out-black {
+          -webkit-text-stroke: 1.5px #050505;
           color: transparent;
         }
       `}</style>
