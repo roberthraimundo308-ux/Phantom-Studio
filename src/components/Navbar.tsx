@@ -16,7 +16,6 @@ export default function Navbar() {
       const checkInView = (el: HTMLElement | null) => {
         if (!el) return false;
         const rect = el.getBoundingClientRect();
-        // Verifica se o topo da tela está dentro da seção
         return rect.top <= 60 && rect.bottom >= 60;
       };
 

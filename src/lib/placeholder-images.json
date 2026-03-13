@@ -1,69 +1,51 @@
 {
   "placeholderImages": [
     {
-      "id": "adovasio-bg",
-      "description": "Abstract elegant Italian fashion background",
-      "imageUrl": "https://picsum.photos/seed/fashion1/820/490",
-      "imageHint": "italian fashion"
-    },
-    {
-      "id": "refract-bg",
-      "description": "High tech dark aesthetic background",
-      "imageUrl": "https://picsum.photos/seed/tech1/820/490",
-      "imageHint": "tech dark"
-    },
-    {
-      "id": "panuozzeria-bg",
-      "description": "Authentic rustic napolitan food textures",
-      "imageUrl": "https://picsum.photos/seed/food1/820/490",
-      "imageHint": "napolitan pizza"
-    },
-    {
       "id": "user-roberto",
-      "description": "Portrait of a CEO",
-      "imageUrl": "https://picsum.photos/seed/roberto/100/100",
+      "description": "Portrait of Roberto K.",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7SgpEZGTQEXXRiwi1tOE3JcFtzxzPLJp7Hg&s",
       "imageHint": "man portrait"
     },
     {
       "id": "user-amanda",
-      "description": "Portrait of an Art Director",
-      "imageUrl": "https://picsum.photos/seed/amanda/100/100",
+      "description": "Portrait of Amanda Lima",
+      "imageUrl": "https://ciclovivo.com.br/wp-content/uploads/2018/10/iStock-929930552-1024x683.jpg",
       "imageHint": "woman portrait"
     },
     {
       "id": "user-joao",
-      "description": "Portrait of a Marketing Head",
-      "imageUrl": "https://picsum.photos/seed/joao/100/100",
+      "description": "Portrait of João Mendes",
+      "imageUrl": "https://www.infomoney.com.br/wp-content/uploads/2019/06/pessoa-feliz.jpg?fit=900%2C600&quality=50&strip=all",
       "imageHint": "man professional"
     },
     {
       "id": "user-carla",
-      "description": "Portrait of a CTO",
-      "imageUrl": "https://picsum.photos/seed/carla/100/100",
+      "description": "Portrait of Carla Dias",
+      "imageUrl": "https://www.psicologo.com.br/wp-content/uploads/10-caracteristicas-de-pessoas-carismaticas-1024x768.jpg",
       "imageHint": "woman professional"
     },
     {
       "id": "user-lucas",
-      "description": "Portrait of a Founder",
-      "imageUrl": "https://picsum.photos/seed/lucas/100/100",
+      "description": "Portrait of Lucas Rocha",
+      "imageUrl": "https://secult.es.gov.br/Media/Secult/_Profiles/c4d8c6e6/4fe9c4e9/Vanessa%20Darmani2.jpeg?v=638986496942065940",
       "imageHint": "man startup"
     },
     {
       "id": "user-sofia",
-      "description": "Portrait of a Product Owner",
-      "imageUrl": "https://picsum.photos/seed/sofia/100/100",
+      "description": "Portrait of Sofia Valli",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnlH6s3wv6plOo0UqtewztLNfrnq745Tmg7Q&s",
       "imageHint": "woman fashion"
     },
     {
       "id": "user-ricardo",
-      "description": "Portrait of a Lead Developer",
-      "imageUrl": "https://picsum.photos/seed/ricardo/100/100",
+      "description": "Portrait of Ricardo M.",
+      "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/1a/68/5c/cf/selfie-muito-desfocada.jpg",
       "imageHint": "man developer"
     },
     {
       "id": "user-elena",
-      "description": "Portrait of a Brand Director",
-      "imageUrl": "https://picsum.photos/seed/elena/100/100",
+      "description": "Portrait of Elena G.",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo9cc56JtvWi934884LjPmVuhTVDQNnYJ6og&s",
       "imageHint": "woman creative"
     }
   ]

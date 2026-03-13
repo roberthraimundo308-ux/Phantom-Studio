@@ -13,7 +13,7 @@ const TESTIMONIALS = [
     company: "TECHFLOW",
     role: "CEO",
     icon: <Zap className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-roberto')?.imageUrl
+    avatarId: 'user-roberto'
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const TESTIMONIALS = [
     company: "STUDIO CRIATIVO",
     role: "ART DIRECTOR",
     icon: <Cpu className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-amanda')?.imageUrl
+    avatarId: 'user-amanda'
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const TESTIMONIALS = [
     company: "GROWTH CORP",
     role: "MARKETING",
     icon: <BarChart3 className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-joao')?.imageUrl
+    avatarId: 'user-joao'
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const TESTIMONIALS = [
     company: "NEOBANK",
     role: "CTO",
     icon: <ShieldCheck className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-carla')?.imageUrl
+    avatarId: 'user-carla'
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ const TESTIMONIALS = [
     company: "DIGITAL EDGE",
     role: "FOUNDER",
     icon: <Box className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-lucas')?.imageUrl
+    avatarId: 'user-lucas'
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const TESTIMONIALS = [
     company: "VOGUE ITALY",
     role: "PRODUCT OWNER",
     icon: <Zap className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-sofia')?.imageUrl
+    avatarId: 'user-sofia'
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ const TESTIMONIALS = [
     company: "META DESIGN",
     role: "LEAD DEV",
     icon: <Cpu className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-ricardo')?.imageUrl
+    avatarId: 'user-ricardo'
   },
   {
     id: 8,
@@ -76,7 +76,7 @@ const TESTIMONIALS = [
     company: "ULTRA LABS",
     role: "BRAND DIRECTOR",
     icon: <BarChart3 className="w-4 h-4" />,
-    avatar: PlaceHolderImages.find(img => img.id === 'user-elena')?.imageUrl
+    avatarId: 'user-elena'
   }
 ];
 
@@ -151,12 +151,14 @@ export default function Testimonials() {
 }
 
 function TestimonialCard({ testimonial: t }: { testimonial: any }) {
+  const avatarUrl = PlaceHolderImages.find(img => img.id === t.avatarId)?.imageUrl || "https://picsum.photos/seed/user/100/100";
+
   return (
     <div className="group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-10 md:p-12 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-8">
       <div className="flex justify-between items-start">
         <div className="relative w-12 h-12 md:w-16 md:h-16 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-white/5 is-cursor">
            <Image 
-             src={t.avatar || "https://picsum.photos/seed/user/100/100"} 
+             src={avatarUrl} 
              alt={t.name}
              fill
              className="object-cover"
