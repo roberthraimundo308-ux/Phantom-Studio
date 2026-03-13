@@ -21,12 +21,13 @@ export default function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+      // O ponto central deve ser instantâneo
+      dot.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
     };
 
     const handleInteraction = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.closest("a, button, .cursor-pointer")) {
+      if (target.closest("a, button, .cursor-pointer, .is-cursor")) {
         setIsGrowing(true);
       } else {
         setIsGrowing(false);
@@ -58,10 +59,15 @@ export default function CustomCursor() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      // Calibração: Aumentado de 0.38 para 0.55 para maior agilidade
-      ringX += (mouseX - ringX) * 0.55;
-      ringY += (mouseY - ringY) * 0.55;
-      ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+      // Calibração de agilidade: fator aumentado para 0.25 para suavidade sem lag
+      // Usamos uma interpolação mais alta para evitar o efeito de "distância" excessiva
+      const easing = 0.22;
+      ringX += (mouseX - ringX) * easing;
+      ringY += (mouseY - ringY) * easing;
+      
+      // translate3d é mais performático (aceleração de hardware)
+      ring.style.transform = `translate3d(${ringX - (isGrowing ? 28 : 18)}px, ${ringY - (isGrowing ? 28 : 18)}px, 0)`;
+      
       requestAnimationFrame(animate);
     };
     const frame = requestAnimationFrame(animate);
@@ -72,7 +78,7 @@ export default function CustomCursor() {
       window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [isGrowing]);
 
   const dotColorClass = "bg-accent";
   const ringColorClass = colorMode === "accent" ? "border-accent opacity-40" : "border-accent opacity-80";
@@ -86,9 +92,9 @@ export default function CustomCursor() {
       />
       <div
         ref={ringRef}
-        className={`fixed border-[1.5px] z-[99999] pointer-events-none transition-all duration-300 is-cursor ${ringColorClass} ${
+        className={`fixed border-[1.5px] z-[99999] pointer-events-none is-cursor ${ringColorClass} ${
           isGrowing ? "w-14 h-14" : "w-9 h-9"
-        }`}
+        } transition-[width,height,border-color,opacity] duration-300 ease-out`}
         style={{ top: 0, left: 0 }}
       />
     </>
