@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -174,7 +175,7 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
       </div>
 
       <div className="relative">
-        <h3 className="font-headline text-3xl md:text-4xl text-foreground tracking-wide uppercase group-hover:text-accent transition-colors">
+        <h3 className="font-headline text-3xl md:text-5xl text-foreground tracking-[-0.01em] uppercase group-hover:text-accent transition-colors">
           {t.name}
         </h3>
         <div className="absolute -left-12 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-accent/0 group-hover:bg-accent/40 transition-all duration-500 group-hover:-left-8"></div>

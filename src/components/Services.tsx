@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -66,15 +67,15 @@ export default function Services() {
                   Especialidade {s.num}
                 </div>
                 
-                <h3 className="font-headline text-[clamp(34px,4.5vw,64px)] tracking-wider leading-[1] text-foreground mb-8 max-w-[700px] uppercase">
+                <h3 className="font-headline text-[clamp(34px,4.5vw,64px)] tracking-[-0.01em] leading-[1] text-foreground mb-8 max-w-[700px] uppercase">
                   {s.name}
                 </h3>
                 
-                <p className="font-body text-[clamp(15px,1.6vw,19px)] leading-[1.65] text-muted max-w-[540px] mb-12">
+                <p className="font-body text-[clamp(15px,1.8vw,19px)] leading-[1.65] text-muted max-w-[540px] mb-12">
                   {s.desc}
                 </p>
 
-                <button className="group/btn relative flex items-center gap-5 bg-accent text-black font-mono text-[11px] font-bold tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:brightness-110">
+                <button className="group/btn relative flex items-center gap-5 bg-accent text-black font-mono text-[11px] font-bold tracking-[0.25em] uppercase px-10 py-5 transition-all duration-400 hover:gap-8 hover:bg-accent hover:brightness-110">
                   <span className="relative z-10">Saber Mais</span>
                   <span className="relative z-10 text-lg transition-transform group-hover/btn:translate-x-1">→</span>
                 </button>

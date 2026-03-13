@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -27,7 +28,7 @@ export default function Home() {
               MANIFESTO
             </div>
             <ScrollReveal className="rev">
-              <p className="text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] text-foreground">
+              <p className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] text-foreground">
                 <span className="text-muted">A maioria das agências cria sites.</span><br />
                 Nós criamos <em className="not-italic text-accent">experiências que ninguém esquece.</em><br />
                 <span className="text-muted">Enquanto seus concorrentes usam templates,</span><br />
@@ -60,7 +61,7 @@ export default function Home() {
             <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-accent uppercase mb-12">
               FORJADO EM<br />CADA ETAPA.
             </h2>
-            <p className="font-body text-[clamp(15px,1.6vw,18px)] leading-[1.65] text-accent/60 max-w-[400px]">
+            <p className="font-body text-[clamp(15px,1.8vw,19px)] leading-[1.65] text-accent/60 max-w-[400px]">
               Navegar pelas complexidades digitais exige precisão. Nossa metodologia transforma visão em performance bruta, guiando seu projeto com confiança absoluta.
             </p>
 
@@ -82,10 +83,10 @@ export default function Home() {
               <ScrollReveal key={i} className="rev">
                 <div className="bg-white p-10 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.05)] border border-accent/5 relative group hover:-translate-y-2 transition-transform duration-500">
                   <div className="flex justify-between items-start mb-12 border-b border-accent/10 pb-6">
-                    <h3 className="font-headline text-4xl md:text-5xl text-accent tracking-wide uppercase">{step.title}</h3>
-                    <span className="font-headline text-5xl md:text-6xl text-accent/10 group-hover:text-accent/20 transition-colors">{step.n}</span>
+                    <h3 className="font-headline text-4xl md:text-6xl text-accent tracking-[-0.01em] uppercase">{step.title}</h3>
+                    <span className="font-headline text-5xl md:text-7xl text-accent/10 group-hover:text-accent/20 transition-colors">{step.n}</span>
                   </div>
-                  <p className="font-body text-[clamp(14px,1.5vw,17px)] leading-[1.65] text-accent/60">
+                  <p className="font-body text-[clamp(15px,1.8vw,19px)] leading-[1.65] text-accent/60">
                     {step.desc}
                   </p>
                   <div className="absolute top-0 left-0 w-4 h-[1px] bg-accent/20"></div>
@@ -116,7 +117,7 @@ export default function Home() {
                 <div key={i} className={`rev d${i} border border-black/10 p-9 md:p-[44px] bg-white transition-all duration-350 hover:-translate-y-1 relative overflow-hidden group cursor-pointer ${plan.highlight ? 'border-black bg-[#FDFDFD]' : ''}`}>
                   {plan.highlight && <div className="absolute top-0 inset-x-0 h-[1px] bg-black"></div>}
                   <div className={`font-mono text-[9px] tracking-[0.26em] uppercase mb-2 ${plan.highlight ? 'text-black' : 'text-black/30'}`}>{plan.tag}</div>
-                  <div className="font-headline text-4xl tracking-[0.05em] mb-7 text-black">{plan.name}</div>
+                  <div className="font-headline text-5xl tracking-[-0.01em] mb-7 text-black uppercase">{plan.name}</div>
                   <div className="font-headline text-6xl leading-none mb-1.5 text-black"><small className="text-lg text-black/30 align-middle mr-1">R$</small>{plan.price}</div>
                   <div className="font-mono text-[10px] tracking-[0.16em] text-black/30 mb-9 uppercase">Pagamento Único</div>
                   <ul className="list-none flex flex-col gap-3.5 mb-10">

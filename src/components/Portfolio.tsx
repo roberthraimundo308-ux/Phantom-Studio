@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -98,7 +99,7 @@ export default function Portfolio() {
                     <span className="w-6 h-[1px] bg-accent/20"></span>
                     {project.category}
                   </div>
-                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-accent leading-[0.85] mb-4 md:mb-6 uppercase">
+                  <h3 className="font-headline text-[clamp(40px,5vw,72px)] text-accent leading-[0.85] tracking-[-0.01em] mb-4 md:mb-6 uppercase">
                     {project.title}
                   </h3>
                 </div>
