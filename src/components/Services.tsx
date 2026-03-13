@@ -75,10 +75,15 @@ export default function Services() {
                   {s.desc}
                 </p>
 
-                <button className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 group hover:brightness-110">
+                <a 
+                  href="https://wa.me/5547999144160"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 group hover:brightness-110"
+                >
                   <span className="relative">Saber Mais</span>
                   <span className="relative transition-all group-hover:translate-x-1">→</span>
-                </button>
+                </a>
 
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-border/20 border border-border/20">
                   {s.features.map((f, idx) => (

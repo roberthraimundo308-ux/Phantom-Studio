@@ -17,7 +17,6 @@ export default function Navbar() {
       const checkInView = (el: HTMLElement | null) => {
         if (!el) return false;
         const rect = el.getBoundingClientRect();
-        // Verifica se a seção está passando pela área do topo (onde a navbar fica)
         return rect.top <= 60 && rect.bottom >= 60;
       };
 
@@ -29,7 +28,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check inicial
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -52,27 +51,26 @@ export default function Navbar() {
     }, 500);
   };
 
-  // Dinâmica de Cores:
-  // Seção Clara -> Botão Preto com Hover Laranja
-  // Seção Escura -> Botão Laranja com Hover Laranja Vibrante
   const btnStyles = isLightSection 
     ? "bg-black text-white hover:bg-accent hover:text-black" 
     : "bg-accent text-black hover:brightness-110";
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[500] flex items-center justify-between py-6 px-13 md:px-[52px] pointer-events-none">
+    <nav className="fixed top-0 left-0 right-0 z-[500] flex items-center justify-between py-6 px-6 md:px-[52px] pointer-events-none">
       <a href="#" className="font-headline text-[22px] tracking-[0.18em] text-foreground no-underline pointer-events-auto mix-blend-difference">
         PHANTOM<span className="text-accent">.</span>
       </a>
       <a
         ref={btnRef}
-        href="#cta"
+        href="https://wa.me/5547999144160"
+        target="_blank"
+        rel="noopener noreferrer"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         className={`magnetic-btn pointer-events-auto font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 flex items-center gap-2 group relative overflow-hidden transition-all duration-300 hover:gap-4 ${btnStyles}`}
       >
         <span className="relative">Iniciar Projeto</span>
-        <span className="relative">→</span>
+        <span className="relative transition-all group-hover:translate-x-1">→</span>
       </a>
     </nav>
   );

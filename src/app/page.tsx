@@ -12,6 +12,8 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
+  const whatsappUrl = "https://wa.me/5547999144160";
+
   return (
     <main className="bg-background min-h-screen">
       <CustomCursor />
@@ -127,10 +129,15 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <button className="w-full inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black">
+                  <a 
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-accent hover:text-black"
+                  >
                     <span className="relative">Começar Agora</span>
                     <span className="relative transition-all group-hover:translate-x-1">→</span>
-                  </button>
+                  </a>
                 </div>
               ))}
             </ScrollReveal>
@@ -148,7 +155,12 @@ export default function Home() {
             <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
               Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
             </h2>
-            <a href="#" className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-black hover:text-white">
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-black hover:text-white"
+            >
               <span className="relative">Vamos conversar</span>
               <span className="relative transition-all group-hover:translate-x-1">→</span>
             </a>
