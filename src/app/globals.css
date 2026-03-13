@@ -121,7 +121,7 @@ body::after {
 
 .phantom-footer-text {
   position: relative;
-  color: black;
+  color: #050505;
   transition: color 0.5s ease;
 }
 
