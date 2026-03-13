@@ -87,7 +87,7 @@ export default function Testimonials() {
   return (
     <section 
       id="testimonials" 
-      className="relative h-[140vh] flex flex-col py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
+      className="relative h-[160vh] md:h-[140vh] flex flex-col py-32 px-6 md:pl-[180px] md:pr-[80px] bg-background overflow-hidden border-t border-white/5"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none z-0">
         <div className="font-headline text-[25vw] leading-none text-white tracking-[0.1em]">
@@ -111,15 +111,15 @@ export default function Testimonials() {
 
         <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden mask-vertical">
           <div className="relative overflow-hidden h-full">
-            <div className="animate-scroll-slow flex flex-col gap-10 py-10">
+            <div className="animate-scroll-up flex flex-col gap-10 py-10">
               {col1.map((t, idx) => (
                 <TestimonialCard key={`col1-${t.id}-${idx}`} testimonial={t} />
               ))}
             </div>
           </div>
 
-          <div className="relative overflow-hidden h-full hidden md:block">
-            <div className="animate-scroll-fast flex flex-col gap-10 py-10">
+          <div className="relative overflow-hidden h-full">
+            <div className="animate-scroll-down flex flex-col gap-10 py-10">
               {col2.map((t, idx) => (
                 <TestimonialCard key={`col2-${t.id}-${idx}`} testimonial={t} />
               ))}
@@ -129,18 +129,22 @@ export default function Testimonials() {
       </div>
 
       <style jsx>{`
-        .animate-scroll-slow {
-          animation: scrollVertical 40s linear infinite;
+        .animate-scroll-up {
+          animation: scrollUp 40s linear infinite;
         }
-        .animate-scroll-fast {
-          animation: scrollVertical 28s linear infinite;
+        .animate-scroll-down {
+          animation: scrollDown 40s linear infinite;
         }
-        .animate-scroll-slow:hover, .animate-scroll-fast:hover {
+        .animate-scroll-up:hover, .animate-scroll-down:hover {
           animation-play-state: paused;
         }
-        @keyframes scrollVertical {
+        @keyframes scrollUp {
           from { transform: translateY(0); }
           to { transform: translateY(-50%); }
+        }
+        @keyframes scrollDown {
+          from { transform: translateY(-50%); }
+          to { transform: translateY(0); }
         }
         .mask-vertical {
           mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
