@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -82,7 +80,7 @@ export default function Home() {
               { n: '05', title: 'Lançamento', desc: 'SEO avançado, testes rigorosos de qualidade e suporte contínuo para garantir o sucesso.' }
             ].map((step, i) => (
               <ScrollReveal key={i} className="rev">
-                <div className="bg-white p-10 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.05)] border border-accent/5 relative group hover:-translate-y-2 transition-transform duration-500">
+                <div className="bg-white p-10 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.12)] border border-accent/10 relative group hover:-translate-y-2 transition-transform duration-500">
                   <div className="flex justify-between items-start mb-12 border-b border-accent/10 pb-6">
                     <h3 className="font-headline text-4xl md:text-6xl text-[#050505] tracking-[-0.01em] uppercase">{step.title}</h3>
                     <span className="font-headline text-5xl md:text-7xl text-accent/10 group-hover:text-accent transition-colors">{step.n}</span>
