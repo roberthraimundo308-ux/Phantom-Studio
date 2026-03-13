@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -121,7 +122,7 @@ export default function Home() {
                   <div className="font-mono text-[10px] tracking-[0.16em] text-[#050505]/30 mb-9 uppercase">Pagamento Único</div>
                   <ul className="list-none flex flex-col gap-3.5 mb-10">
                     {plan.feat.map((f, fIdx) => (
-                      <li key={fIdx} className="font-body text-[clamp(13px,1.4vw,15px)] leading-tight text-[#050505]/60 flex gap-3 items-start before:content-['→'] before:text-accent before:shrink-0">
+                      <li key={fIdx} className="font-body text-[clamp(15px,1.8vw,19px)] leading-tight text-[#050505]/60 flex gap-3 items-start before:content-['→'] before:text-accent before:shrink-0">
                         {f}
                       </li>
                     ))}
@@ -143,9 +144,9 @@ export default function Home() {
 
       <section id="cta" className="relative min-h-[90vh] bg-white text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-between py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
         <div className="flex flex-col md:flex-row justify-end items-start md:items-center mt-10 md:mt-20">
-          <div className="max-w-[550px] md:text-left">
-            <h2 className="font-body text-[clamp(28px,3.2vw,44px)] leading-[1.5] mb-14 tracking-tight text-[#050505] font-normal">
-              Uma ideia, um projeto, ou simplesmente precisa desafiar o status quo?
+          <div className="max-w-[800px] md:text-left">
+            <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
+              Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
             </h2>
             <a href="#" className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 group hover:gap-4 hover:bg-black hover:text-white">
               <span className="relative">Vamos conversar</span>
