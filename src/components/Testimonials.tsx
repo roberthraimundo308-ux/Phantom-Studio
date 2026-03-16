@@ -1,10 +1,10 @@
+
 "use client";
 
 import React from "react";
 import Image from "next/image";
 import { Cpu, Zap, BarChart3, ShieldCheck, Box } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import ScrollReveal from "./ScrollReveal";
 
 const TESTIMONIALS = [
   { id: 1, text: "A Phantom transformou nossa visão em uma arma digital. O resultado superou todas as expectativas.", name: "ROBERTO K.", company: "TECHFLOW", role: "CEO", icon: <Zap className="w-4 h-4" />, avatarId: 'user-roberto' },
@@ -34,24 +34,15 @@ export default function Testimonials() {
               06 RECONHECIMENTO
             </span>
           </div>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase">
+          <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-foreground uppercase">
             <span className="word-out text-white/10 mr-4">O QUE</span>
             <span className="text-foreground">DIZEM</span>
           </h2>
         </div>
       </div>
 
-      {/* Versão Desktop: Grid com Scroll Reveal */}
-      <div className="hidden md:block px-6 md:pl-[180px] md:pr-[80px]">
-        <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" stagger>
-          {TESTIMONIALS.map((t) => (
-            <TestimonialCard key={t.id} testimonial={t} />
-          ))}
-        </ScrollReveal>
-      </div>
-
-      {/* Versão Mobile: Carrosséis Horizontais */}
-      <div className="md:hidden flex flex-col gap-10">
+      {/* Carrosséis Horizontais Dinâmicos */}
+      <div className="flex flex-col gap-10">
         <div className="flex overflow-hidden group">
           <div className="flex gap-10 animate-marquee py-5">
             {row1.map((t, idx) => (
@@ -71,10 +62,10 @@ export default function Testimonials() {
 
       <style jsx>{`
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
         }
         .animate-marquee-reverse {
-          animation: marquee-reverse 30s linear infinite;
+          animation: marquee-reverse 40s linear infinite;
         }
         @keyframes marquee {
           from { transform: translateX(0); }
@@ -93,7 +84,7 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
   const avatarUrl = PlaceHolderImages.find(img => img.id === t.avatarId)?.imageUrl || "https://picsum.photos/seed/user/100/100";
 
   return (
-    <div className="rev shrink-0 w-[280px] md:w-full group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-8 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-6">
+    <div className="shrink-0 w-[300px] md:w-[450px] group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-8 md:p-12 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-6">
       <div className="flex justify-between items-start">
         <div className="relative w-12 h-12 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-white/5 is-cursor">
            <Image 
@@ -118,7 +109,7 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
         {t.name}
       </h3>
 
-      <p className="font-body text-xs leading-[1.6] text-muted group-hover:text-foreground/70 transition-colors">
+      <p className="font-body text-xs md:text-sm leading-[1.6] text-muted group-hover:text-foreground/70 transition-colors">
         "{t.text}"
       </p>
 

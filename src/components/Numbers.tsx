@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
@@ -52,7 +53,7 @@ export default function Numbers() {
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['02'] before:text-muted">
             IMPACTO REAL
           </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase text-right">MÉTRICAS</h2>
+          <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-foreground uppercase text-right">MÉTRICAS</h2>
         </div>
 
         <ScrollReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-white/5 bg-white/5 gap-[1px]" stagger>

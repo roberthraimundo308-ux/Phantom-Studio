@@ -43,7 +43,7 @@ export default function Services() {
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['03'] before:text-muted">
             NOSSA EXPERTISE
           </span>
-          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase">SERVIÇOS</h2>
+          <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-foreground uppercase">SERVIÇOS</h2>
         </div>
 
         <div className="flex flex-col gap-10">
@@ -76,7 +76,7 @@ export default function Services() {
                 </p>
 
                 <a 
-                  href="https://wa.me/5547999144160"
+                  href="https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 group hover:brightness-110"

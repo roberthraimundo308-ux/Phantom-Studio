@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -69,7 +70,7 @@ export default function Home() {
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
                 </div>
-                <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase mb-12 md:mb-0">
+                <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase mb-12 md:mb-0">
                   FORJADO EM<br />CADA ETAPA.
                 </h2>
               </div>
