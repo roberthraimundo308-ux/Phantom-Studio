@@ -34,7 +34,7 @@ export default function Testimonials() {
               06 RECONHECIMENTO
             </span>
           </div>
-          <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-foreground uppercase">
+          <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-tight text-foreground uppercase">
             <span className="word-out text-white/10 mr-4">O QUE</span>
             <span className="text-foreground">DIZEM</span>
           </h2>

@@ -64,18 +64,20 @@ export default function Home() {
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32">
           <div className="max-w-[1600px] mx-auto px-6 md:pl-[180px] md:pr-[80px]">
+            {/* Layout Split-Screen para Desktop / Empilhamento para Mobile */}
             <div className="flex flex-col md:flex-row gap-10 md:gap-32 relative items-start">
-              {/* Lado Esquerdo Fixo no Desktop */}
-              <div className="md:sticky md:top-40 w-full md:w-[40%]">
+              
+              {/* Lado Esquerdo: Fixo no Desktop */}
+              <div className="md:sticky md:top-40 w-full md:w-[40%] h-auto">
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
                 </div>
-                <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase mb-12 md:mb-0">
+                <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase">
                   FORJADO EM<br />CADA ETAPA.
                 </h2>
               </div>
 
-              {/* Lado Direito: Lista no Desktop | Empilhamento no Mobile */}
+              {/* Lado Direito: Cards Roláveis */}
               <div className="flex-1 flex flex-col gap-10 md:gap-16 w-full pb-20 md:pb-32">
                 {steps.map((step, i) => (
                   <div 
