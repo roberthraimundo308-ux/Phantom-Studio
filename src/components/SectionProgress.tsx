@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -9,7 +10,8 @@ const SECTIONS = [
   { id: "services", label: "03 Serviços" },
   { id: "portfolio", label: "04 Trabalhos" },
   { id: "process", label: "05 Processo" },
-  { id: "cta", label: "06 Contato" },
+  { id: "testimonials", label: "06 Reconhecimento" },
+  { id: "cta", label: "07 Contato" },
 ];
 
 export default function SectionProgress() {
