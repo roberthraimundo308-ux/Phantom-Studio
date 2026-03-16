@@ -70,7 +70,7 @@ export default function Home() {
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
                 </div>
-                <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase">
+                <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase">
                   FORJADO EM<br />CADA ETAPA.
                 </h2>
               </div>
@@ -109,12 +109,12 @@ export default function Home() {
 
       <section id="cta" className="relative min-h-[60vh] bg-[#EDE8DE] text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-center pt-24 md:pt-32 overflow-hidden z-[60] border-t border-[#050505]/5">
         <div className="max-w-[1600px] mx-auto w-full flex flex-col h-full">
-          <div className="flex flex-col md:flex-row justify-center md:justify-end items-center mb-16 md:mb-24">
-            <div className="max-w-[800px] text-center md:text-left">
+          <div className="flex flex-col md:flex-row justify-center items-center mb-16 md:mb-24">
+            <div className="max-w-[800px] text-center">
               <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
                 Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
               </h2>
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center">
                 <a 
                   href={whatsappUrl}
                   target="_blank"
@@ -128,8 +128,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center md:justify-start mt-auto relative overflow-hidden h-[15vh] md:h-auto">
-            <h1 className="font-headline text-[42vw] md:text-[clamp(80px,18vw,320px)] leading-[1] md:leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text translate-y-[50%] md:translate-y-0 w-full text-center md:text-left">
+          <div className="flex justify-center mt-auto relative overflow-hidden h-[15vh] md:h-[22vh]">
+            <h1 className="font-headline text-[42vw] md:text-[22vw] leading-[1] md:leading-[0.8] tracking-tighter uppercase select-none text-[#050505] phantom-footer-text translate-y-[50%] w-full text-center">
               PHANTOM
             </h1>
           </div>
