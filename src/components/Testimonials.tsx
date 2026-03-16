@@ -41,7 +41,8 @@ export default function Testimonials() {
       </div>
 
       <div className="flex flex-col gap-10">
-        <div className="flex overflow-hidden group">
+        {/* Row 1 - Marquee */}
+        <div className="flex overflow-hidden">
           <div className="flex gap-10 animate-marquee py-5">
             {row1.map((t, idx) => (
               <TestimonialCard key={`row1-${t.id}-${idx}`} testimonial={t} />
@@ -49,7 +50,8 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="flex overflow-hidden group">
+        {/* Row 2 - Marquee Reverse */}
+        <div className="flex overflow-hidden">
           <div className="flex gap-10 animate-marquee-reverse py-5">
             {row2.map((t, idx) => (
               <TestimonialCard key={`row2-${t.id}-${idx}`} testimonial={t} />
