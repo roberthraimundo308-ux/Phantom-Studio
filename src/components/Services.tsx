@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -75,7 +76,7 @@ export default function Services() {
                 </p>
 
                 <a 
-                  href="https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio"
+                  href="https://wa.me/5547999144160?text=ola%20vim%20do%20anuncio%20e%20quero%20um%20site%20profissional%20para%20o%20meu%20neg%C3%B3cio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-accent text-black font-mono text-[10px] tracking-[0.22em] uppercase px-5 py-3 gap-2 transition-all duration-300 hover:gap-4 group hover:brightness-110"

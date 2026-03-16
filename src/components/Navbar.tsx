@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
@@ -67,7 +68,7 @@ export default function Navbar() {
       </a>
       <a
         ref={btnRef}
-        href="https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio"
+        href="https://wa.me/5547999144160?text=ola%20vim%20do%20anuncio%20e%20quero%20um%20site%20profissional%20para%20o%20meu%20neg%C3%B3cio"
         target="_blank"
         rel="noopener noreferrer"
         onMouseMove={handleMouseMove}

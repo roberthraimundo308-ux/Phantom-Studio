@@ -12,7 +12,7 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
-  const whatsappUrl = "https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio";
+  const whatsappUrl = "https://wa.me/5547999144160?text=ola%20vim%20do%20anuncio%20e%20quero%20um%20site%20profissional%20para%20o%20meu%20neg%C3%B3cio";
 
   const steps = [
     { n: '01', title: 'Descoberta', desc: 'Mergulhamos profundamente no seu ecossistema para entender objetivos, dores e o público-alvo.' },
