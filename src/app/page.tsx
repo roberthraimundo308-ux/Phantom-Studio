@@ -32,7 +32,7 @@ export default function Home() {
         <Hero />
         <LogosCarousel />
         
-        <section id="manifesto" className="relative min-h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px] mb-20 md:mb-0">
+        <section id="manifesto" className="relative min-h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px] mb-32 md:mb-0">
           <div className="max-w-[1600px] mx-auto w-full">
             <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
               MANIFESTO
@@ -66,7 +66,6 @@ export default function Home() {
           <div className="max-w-[1600px] mx-auto px-6 md:pl-[180px] md:pr-[80px]">
             <div className="flex flex-col md:flex-row gap-10 md:gap-32 relative items-start">
               
-              {/* Título: Fixo no Desktop */}
               <div className="md:sticky md:top-40 w-full md:w-[40%] h-auto">
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
@@ -76,13 +75,12 @@ export default function Home() {
                 </h2>
               </div>
 
-              {/* Cards: Empilhamento no Mobile / Scroll no Desktop */}
               <div className="flex-1 flex flex-col gap-6 md:gap-16 w-full pb-20 md:pb-32">
                 {steps.map((step, i) => (
                   <div 
                     key={i} 
                     className="sticky md:relative w-full" 
-                    style={{ top: `calc(10vh + ${i * 20}px)` }}
+                    style={{ top: `calc(12vh + ${i * 20}px)` }}
                   >
                     <ScrollReveal className="rev">
                       <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500">
@@ -131,7 +129,7 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center md:justify-start mt-auto relative overflow-hidden h-[15vh] md:h-auto">
-            <h1 className="font-headline text-[22vw] md:text-[clamp(80px,18vw,320px)] leading-[1] md:leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text translate-y-[35%] md:translate-y-0">
+            <h1 className="font-headline text-[28vw] md:text-[clamp(80px,18vw,320px)] leading-[1] md:leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text translate-y-[40%] md:translate-y-0 w-full text-center md:text-left">
               PHANTOM
             </h1>
           </div>
