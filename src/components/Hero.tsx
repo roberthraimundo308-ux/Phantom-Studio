@@ -58,7 +58,7 @@ export default function Hero() {
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
       
       <div className="relative z-10 w-full flex flex-col items-center md:items-start text-center md:text-left">
-        <div className="font-mono text-[7px] md:text-[10px] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 md:before:content-[''] md:before:w-7 md:before:h-[1px] md:before:bg-muted whitespace-nowrap">
+        <div className="font-mono text-[8px] md:text-[10px] tracking-[0.32em] text-muted uppercase mb-[48px] flex items-center gap-[14px] animate-[fdUp_0.8s_0.2s_forwards] opacity-0 md:before:content-[''] md:before:w-7 md:before:h-[1px] md:before:bg-muted whitespace-nowrap">
           Estúdio Digital · Experiências que Convertem
         </div>
 

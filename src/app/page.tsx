@@ -64,7 +64,7 @@ export default function Home() {
         <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32 overflow-hidden">
           <div className="max-w-[1600px] mx-auto px-6 md:pl-[180px] md:pr-[80px]">
             <div className="flex flex-col md:flex-row gap-10 md:gap-32 relative items-start">
-              {/* Lado Esquerdo - Título Fixo no Desktop */}
+              {/* Desktop: Lado Esquerdo Fixo | Mobile: Normal */}
               <div className="md:sticky md:top-32 w-full md:w-[40%]">
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
@@ -74,7 +74,7 @@ export default function Home() {
                 </h2>
               </div>
 
-              {/* Lado Direito - Cards (Stacking no Mobile, Lista no Desktop) */}
+              {/* Desktop: Lista Rolável | Mobile: Stacking via Sticky */}
               <div className="flex-1 flex flex-col gap-10 md:gap-16 w-full pb-20 md:pb-32">
                 {steps.map((step, i) => (
                   <div 
