@@ -11,7 +11,7 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
-  const whatsappUrl = "https://wa.me/5547999144160?text=Ol%C3%A1%2C%20vim%20do%20an%C3%BAncio";
+  const whatsappUrl = "https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio";
 
   const steps = [
     { n: '01', title: 'Descoberta', desc: 'Mergulhamos profundamente no seu ecossistema para entender objetivos, dores e o público-alvo.' },
@@ -69,12 +69,12 @@ export default function Home() {
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
                 </div>
-                <h2 className="font-headline text-[clamp(50px,8vw,120px)] leading-[0.85] text-[#050505] uppercase mb-12 md:mb-0">
+                <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase mb-12 md:mb-0">
                   FORJADO EM<br />CADA ETAPA.
                 </h2>
               </div>
 
-              {/* Lado Direito - Cards */}
+              {/* Lado Direito - Cards (Stacking no Mobile, Lista no Desktop) */}
               <div className="flex-1 flex flex-col gap-10 md:gap-16 w-full">
                 {steps.map((step, i) => (
                   <div 
