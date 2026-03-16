@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -41,7 +40,6 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Carrosséis Horizontais Dinâmicos */}
       <div className="flex flex-col gap-10">
         <div className="flex overflow-hidden group">
           <div className="flex gap-10 animate-marquee py-5">

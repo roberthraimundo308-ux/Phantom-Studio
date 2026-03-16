@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -62,7 +61,7 @@ export default function Home() {
       </div>
 
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
-        <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32">
+        <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32 overflow-hidden">
           <div className="max-w-[1600px] mx-auto px-6 md:pl-[180px] md:pr-[80px]">
             <div className="flex flex-col md:flex-row gap-10 md:gap-32 relative items-start">
               {/* Lado Esquerdo - Título Fixo no Desktop */}
@@ -76,11 +75,11 @@ export default function Home() {
               </div>
 
               {/* Lado Direito - Cards (Stacking no Mobile, Lista no Desktop) */}
-              <div className="flex-1 flex flex-col gap-10 md:gap-16 w-full">
+              <div className="flex-1 flex flex-col gap-10 md:gap-16 w-full pb-20 md:pb-32">
                 {steps.map((step, i) => (
                   <div 
                     key={i} 
-                    className="md:relative sticky top-[12vh] md:top-0 w-full" 
+                    className="md:relative sticky top-[15vh] md:top-0 w-full" 
                   >
                     <ScrollReveal className="rev">
                       <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500">
