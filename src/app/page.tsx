@@ -129,7 +129,7 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center md:justify-start mt-auto relative overflow-hidden h-[15vh] md:h-auto">
-            <h1 className="font-headline text-[28vw] md:text-[clamp(80px,18vw,320px)] leading-[1] md:leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text translate-y-[40%] md:translate-y-0 w-full text-center md:text-left">
+            <h1 className="font-headline text-[42vw] md:text-[clamp(80px,18vw,320px)] leading-[1] md:leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text translate-y-[50%] md:translate-y-0 w-full text-center md:text-left">
               PHANTOM
             </h1>
           </div>
