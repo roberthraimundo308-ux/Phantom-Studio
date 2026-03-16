@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Cpu, Zap, BarChart3, ShieldCheck, Box } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import ScrollReveal from "./ScrollReveal";
 
 const TESTIMONIALS = [
   { id: 1, text: "A Phantom transformou nossa visão em uma arma digital. O resultado superou todas as expectativas.", name: "ROBERTO K.", company: "TECHFLOW", role: "CEO", icon: <Zap className="w-4 h-4" />, avatarId: 'user-roberto' },
@@ -40,9 +41,19 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-10">
+      {/* Versão Desktop: Grid com Scroll Reveal */}
+      <div className="hidden md:block px-6 md:pl-[180px] md:pr-[80px]">
+        <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" stagger>
+          {TESTIMONIALS.map((t) => (
+            <TestimonialCard key={t.id} testimonial={t} />
+          ))}
+        </ScrollReveal>
+      </div>
+
+      {/* Versão Mobile: Carrosséis Horizontais */}
+      <div className="md:hidden flex flex-col gap-10">
         <div className="flex overflow-hidden group">
-          <div className="flex gap-10 animate-marquee py-5 hover:[animation-play-state:paused]">
+          <div className="flex gap-10 animate-marquee py-5">
             {row1.map((t, idx) => (
               <TestimonialCard key={`row1-${t.id}-${idx}`} testimonial={t} />
             ))}
@@ -50,7 +61,7 @@ export default function Testimonials() {
         </div>
 
         <div className="flex overflow-hidden group">
-          <div className="flex gap-10 animate-marquee-reverse py-5 hover:[animation-play-state:paused]">
+          <div className="flex gap-10 animate-marquee-reverse py-5">
             {row2.map((t, idx) => (
               <TestimonialCard key={`row2-${t.id}-${idx}`} testimonial={t} />
             ))}
@@ -82,7 +93,7 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
   const avatarUrl = PlaceHolderImages.find(img => img.id === t.avatarId)?.imageUrl || "https://picsum.photos/seed/user/100/100";
 
   return (
-    <div className="shrink-0 w-[300px] md:w-[450px] group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-8 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-6">
+    <div className="rev shrink-0 w-[300px] md:w-full group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-8 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-6">
       <div className="flex justify-between items-start">
         <div className="relative w-12 h-12 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-white/5 is-cursor">
            <Image 
@@ -103,11 +114,11 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
         </div>
       </div>
 
-      <h3 className="font-headline text-2xl md:text-4xl text-foreground tracking-[-0.01em] uppercase group-hover:text-accent transition-colors">
+      <h3 className="font-headline text-2xl md:text-3xl text-foreground tracking-[-0.01em] uppercase group-hover:text-accent transition-colors">
         {t.name}
       </h3>
 
-      <p className="font-body text-xs md:text-sm leading-[1.6] text-muted group-hover:text-foreground/70 transition-colors">
+      <p className="font-body text-xs leading-[1.6] text-muted group-hover:text-foreground/70 transition-colors">
         "{t.text}"
       </p>
 

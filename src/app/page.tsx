@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
@@ -73,7 +72,7 @@ export default function Home() {
                 ].map((step, i) => (
                   <div 
                     key={i} 
-                    className="md:relative sticky top-[12vh] w-full" 
+                    className="md:relative sticky top-[12vh] md:top-0 w-full" 
                   >
                     <ScrollReveal className="rev">
                       <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500">
