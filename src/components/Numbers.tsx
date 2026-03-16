@@ -47,13 +47,13 @@ function Counter({ target }: { target: number }) {
 
 export default function Numbers() {
   return (
-    <section id="numbers" className="relative h-screen flex flex-col justify-center bg-background py-20 px-6 md:pl-[180px] md:pr-[80px]">
+    <section id="numbers" className="relative min-h-screen flex flex-col justify-center bg-background py-32 px-6 md:pl-[180px] md:pr-[80px]">
       <div className="max-w-[1600px] mx-auto w-full">
         <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-border pb-7 mb-20 gap-4">
           <span className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase flex items-center gap-3 before:content-['02'] before:text-muted">
             IMPACTO REAL
           </span>
-          <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-foreground uppercase text-right">MÉTRICAS</h2>
+          <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-tight text-foreground uppercase md:text-right">MÉTRICAS</h2>
         </div>
 
         <ScrollReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-white/5 bg-white/5 gap-[1px]" stagger>
@@ -63,7 +63,7 @@ export default function Numbers() {
                 {item.prefix && <span className="text-accent text-[0.45em] mr-1 align-middle">{item.prefix}</span>}
                 <Counter target={item.val} />
                 <span className="text-foreground">{item.suffix}</span>
-                {item.hasStar && <Star className="fill-accent text-accent w-12 h-12 ml-2 mb-2" />}
+                {item.hasStar && <Star className="fill-accent text-accent w-10 h-10 md:w-12 md:h-12 ml-2 mb-2" />}
               </div>
               
               <div className="font-mono text-[10px] tracking-[0.3em] text-muted uppercase">

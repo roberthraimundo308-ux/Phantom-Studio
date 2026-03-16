@@ -32,7 +32,7 @@ export default function Home() {
         <Hero />
         <LogosCarousel />
         
-        <section id="manifesto" className="relative min-h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px]">
+        <section id="manifesto" className="relative min-h-screen flex items-center py-32 px-6 md:pl-[180px] md:pr-[80px] mb-20 md:mb-0">
           <div className="max-w-[1600px] mx-auto w-full">
             <div className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase mb-[52px] flex items-center gap-[14px] before:content-['01'] before:text-muted">
               MANIFESTO
@@ -64,25 +64,25 @@ export default function Home() {
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32">
           <div className="max-w-[1600px] mx-auto px-6 md:pl-[180px] md:pr-[80px]">
-            {/* Layout Split-Screen para Desktop / Empilhamento para Mobile */}
             <div className="flex flex-col md:flex-row gap-10 md:gap-32 relative items-start">
               
-              {/* Lado Esquerdo: Fixo no Desktop */}
+              {/* Título: Fixo no Desktop */}
               <div className="md:sticky md:top-40 w-full md:w-[40%] h-auto">
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
                 </div>
-                <h2 className="font-headline text-[clamp(44px,5.5vw,76px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase">
+                <h2 className="font-headline text-[clamp(40px,5vw,64px)] tracking-[0.03em] leading-[1.1] text-[#050505] uppercase">
                   FORJADO EM<br />CADA ETAPA.
                 </h2>
               </div>
 
-              {/* Lado Direito: Cards Roláveis */}
-              <div className="flex-1 flex flex-col gap-10 md:gap-16 w-full pb-20 md:pb-32">
+              {/* Cards: Empilhamento no Mobile / Scroll no Desktop */}
+              <div className="flex-1 flex flex-col gap-6 md:gap-16 w-full pb-20 md:pb-32">
                 {steps.map((step, i) => (
                   <div 
                     key={i} 
-                    className="md:relative sticky top-[15vh] md:top-0 w-full" 
+                    className="sticky md:relative w-full" 
+                    style={{ top: `calc(10vh + ${i * 20}px)` }}
                   >
                     <ScrollReveal className="rev">
                       <div className="bg-white p-8 md:p-14 shadow-[20px_20px_60px_rgba(232,85,0,0.08)] border border-accent/10 relative group transition-all duration-500">
@@ -109,9 +109,9 @@ export default function Home() {
         <Testimonials />
       </div>
 
-      <section id="cta" className="relative min-h-[60vh] bg-[#EDE8DE] text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-center py-24 md:py-32 overflow-hidden z-[60] border-t border-[#050505]/5">
-        <div className="max-w-[1600px] mx-auto w-full flex flex-col">
-          <div className="flex flex-col md:flex-row justify-center md:justify-end items-center mb-24">
+      <section id="cta" className="relative min-h-[60vh] bg-[#EDE8DE] text-[#050505] px-6 md:pl-[180px] md:pr-[80px] flex flex-col justify-center pt-24 md:pt-32 overflow-hidden z-[60] border-t border-[#050505]/5">
+        <div className="max-w-[1600px] mx-auto w-full flex flex-col h-full">
+          <div className="flex flex-col md:flex-row justify-center md:justify-end items-center mb-16 md:mb-24">
             <div className="max-w-[800px] text-center md:text-left">
               <h2 className="font-body text-[clamp(26px,3.8vw,50px)] font-semibold leading-[1.4] mb-14 text-[#050505]">
                 Uma ideia, um projeto, ou simplesmente precisa desafiar o <span className="text-accent">status quo?</span>
@@ -130,8 +130,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center md:justify-start">
-            <h1 className="font-headline text-[clamp(80px,18vw,320px)] leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text">
+          <div className="flex justify-center md:justify-start mt-auto relative overflow-hidden h-[15vh] md:h-auto">
+            <h1 className="font-headline text-[22vw] md:text-[clamp(80px,18vw,320px)] leading-[1] md:leading-[0.7] tracking-tighter md:-ml-8 uppercase select-none text-[#050505] phantom-footer-text translate-y-[35%] md:translate-y-0">
               PHANTOM
             </h1>
           </div>
