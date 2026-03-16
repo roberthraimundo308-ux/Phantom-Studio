@@ -61,7 +61,7 @@ export default function LogosCarousel() {
   }, []);
 
   return (
-    <div className="logos-section relative py-6 md:py-10 overflow-hidden bg-transparent flex flex-col gap-4 md:gap-8 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-[80px] md:before:w-[200px] before:z-[2] before:bg-gradient-to-r before:from-background before:to-transparent after:content-[''] after:absolute after:inset-y-0 after:right-0 after:w-[80px] md:after:w-[200px] after:z-[2] after:bg-gradient-to-l after:from-background after:to-transparent">
+    <div className="logos-section relative py-4 md:py-6 overflow-hidden bg-transparent flex flex-col gap-3 md:gap-6 before:content-[''] before:absolute before:inset-y-0 before:left-0 before:w-[80px] md:before:w-[200px] before:z-[2] before:bg-gradient-to-r before:from-background before:to-transparent after:content-[''] after:absolute after:inset-y-0 after:right-0 after:w-[80px] md:after:w-[200px] after:z-[2] after:bg-gradient-to-l after:from-background after:to-transparent">
       {/* Row 1 */}
       <div ref={track1Ref} className="flex items-center gap-[40px] md:gap-[100px] w-max will-change-transform">
         {[...LOGOS, ...LOGOS].map((logo, idx) => (

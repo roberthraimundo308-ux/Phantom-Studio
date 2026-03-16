@@ -30,7 +30,7 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row items-baseline justify-between border-b border-white/10 pb-7 mb-16 gap-4">
           <div className="flex items-center gap-4">
              <div className="w-8 h-[1px] bg-accent/40"></div>
-             <span className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase">
+             <span className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase font-bold">
               06 RECONHECIMENTO
             </span>
           </div>
@@ -71,10 +71,10 @@ export default function Testimonials() {
 
       <style jsx>{`
         .animate-marquee {
-          animation: marquee 50s linear infinite;
+          animation: marquee 30s linear infinite;
         }
         .animate-marquee-reverse {
-          animation: marquee-reverse 50s linear infinite;
+          animation: marquee-reverse 30s linear infinite;
         }
         @keyframes marquee {
           from { transform: translateX(0); }
@@ -93,7 +93,7 @@ function TestimonialCard({ testimonial: t }: { testimonial: any }) {
   const avatarUrl = PlaceHolderImages.find(img => img.id === t.avatarId)?.imageUrl || "https://picsum.photos/seed/user/100/100";
 
   return (
-    <div className="rev shrink-0 w-[300px] md:w-full group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-8 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-6">
+    <div className="rev shrink-0 w-[280px] md:w-full group relative bg-s1/40 backdrop-blur-sm border border-white/5 p-8 transition-all duration-500 hover:bg-s1/60 hover:border-accent/20 cursor-none flex flex-col gap-6">
       <div className="flex justify-between items-start">
         <div className="relative w-12 h-12 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-white/5 is-cursor">
            <Image 

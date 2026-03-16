@@ -11,7 +11,15 @@ import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
-  const whatsappUrl = "https://wa.me/5547999144160?text=Olá,%20vim%20do%20anúncio";
+  const whatsappUrl = "https://wa.me/5547999144160?text=Ol%C3%A1%2C%20vim%20do%20an%C3%BAncio";
+
+  const steps = [
+    { n: '01', title: 'Descoberta', desc: 'Mergulhamos profundamente no seu ecossistema para entender objetivos, dores e o público-alvo.' },
+    { n: '02', title: 'Estratégia', desc: 'Definimos a arquitetura de informação e as metas de conversão. Cada clique é planejado.' },
+    { n: '03', title: 'Design', desc: 'Criamos uma identidade visual única e disruptiva. Design autoral que comunica força e autoridade.' },
+    { n: '04', title: 'Código', desc: 'Desenvolvimento de elite. Limpo, rápido e escalável. Focamos em performance máxima em qualquer dispositivo.' },
+    { n: '05', title: 'Lançamento', desc: 'SEO avançado, testes rigorosos de qualidade e suporte contínuo para garantir o sucesso.' }
+  ];
 
   return (
     <main className="bg-background min-h-screen">
@@ -55,21 +63,20 @@ export default function Home() {
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
         <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32">
           <div className="max-w-[1600px] mx-auto px-6 md:pl-[180px] md:pr-[80px]">
-             <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20">
-                METODOLOGIA
+            <div className="flex flex-col md:flex-row gap-10 md:gap-32 relative items-start">
+              {/* Lado Esquerdo - Título Fixo no Desktop */}
+              <div className="md:sticky md:top-32 w-full md:w-[40%]">
+                <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
+                  METODOLOGIA
+                </div>
+                <h2 className="font-headline text-[clamp(50px,8vw,120px)] leading-[0.85] text-[#050505] uppercase mb-12 md:mb-0">
+                  FORJADO EM<br />CADA ETAPA.
+                </h2>
               </div>
-              <h2 className="font-headline text-[clamp(60px,8vw,120px)] leading-[0.85] text-[#050505] uppercase mb-20 md:mb-32">
-                FORJADO EM<br />CADA ETAPA.
-              </h2>
 
-              <div className="flex flex-col gap-10 md:gap-10 relative">
-                {[
-                  { n: '01', title: 'Descoberta', desc: 'Mergulhamos profundamente no seu ecossistema para entender objetivos, dores e o público-alvo.' },
-                  { n: '02', title: 'Estratégia', desc: 'Definimos a arquitetura de informação e as metas de conversão. Cada clique é planejado.' },
-                  { n: '03', title: 'Design', desc: 'Criamos uma identidade visual única e disruptiva. Design autoral que comunica força e autoridade.' },
-                  { n: '04', title: 'Código', desc: 'Desenvolvimento de elite. Limpo, rápido e escalável. Focamos em performance máxima em qualquer dispositivo.' },
-                  { n: '05', title: 'Lançamento', desc: 'SEO avançado, testes rigorosos de qualidade e suporte contínuo para garantir o sucesso.' }
-                ].map((step, i) => (
+              {/* Lado Direito - Cards */}
+              <div className="flex-1 flex flex-col gap-10 md:gap-16 w-full">
+                {steps.map((step, i) => (
                   <div 
                     key={i} 
                     className="md:relative sticky top-[12vh] md:top-0 w-full" 
@@ -90,6 +97,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+            </div>
           </div>
         </section>
       </div>
