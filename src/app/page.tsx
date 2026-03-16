@@ -62,11 +62,11 @@ export default function Home() {
       </div>
 
       <div className="relative z-40 bg-[#EDE8DE] text-[#050505]">
-        <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32 overflow-hidden">
+        <section id="process" className="relative bg-[#EDE8DE] py-20 md:py-32">
           <div className="max-w-[1600px] mx-auto px-6 md:pl-[180px] md:pr-[80px]">
             <div className="flex flex-col md:flex-row gap-10 md:gap-32 relative items-start">
               {/* Lado Esquerdo Fixo no Desktop */}
-              <div className="md:sticky md:top-32 w-full md:w-[40%]">
+              <div className="md:sticky md:top-40 w-full md:w-[40%]">
                 <div className="font-mono text-[10px] tracking-[0.3em] text-accent uppercase mb-8 flex items-center gap-3 before:content-['05'] before:text-accent/20 font-bold">
                   METODOLOGIA
                 </div>
