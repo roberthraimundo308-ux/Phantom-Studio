@@ -7,6 +7,7 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const [isGrowing, setIsGrowing] = useState(false);
+  const [isLightBg, setIsLightBg] = useState(false);
 
   useEffect(() => {
     const dot = dotRef.current;
@@ -22,6 +23,11 @@ export default function CustomCursor() {
       mouseX = e.clientX;
       mouseY = e.clientY;
       dot.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
+
+      // Detectar se o elemento sob o mouse pertence a uma seção clara
+      const element = document.elementFromPoint(mouseX, mouseY);
+      const isOverLight = element?.closest("#portfolio, #process, #cta");
+      setIsLightBg(!!isOverLight);
     };
 
     const handleInteraction = (e: MouseEvent) => {
@@ -55,23 +61,28 @@ export default function CustomCursor() {
     };
   }, [isGrowing]);
 
-  // Usamos mix-blend-mode: difference. 
-  // O cursor laranja (#e85500) sobre fundo laranja resulta em preto.
-  // Sobre fundo preto, ele continua laranja.
-  // Sobre o fundo bege claro, ele assume a cor complementar (azul/ciano).
+  // Se estiver em fundo claro, forçamos o preto e tiramos o mix-blend-mode difference 
+  // que causava o azul. Em fundo escuro, mantemos orange + difference para o preto sobre laranja.
+  const cursorBaseClass = isLightBg 
+    ? "bg-[#050505] mix-blend-normal" 
+    : "bg-accent mix-blend-difference";
+    
+  const ringBaseClass = isLightBg 
+    ? "border-[#050505] mix-blend-normal" 
+    : "border-accent mix-blend-difference";
 
   return (
     <>
       <div
         ref={dotRef}
-        className="fixed w-2 h-2 z-[99999] pointer-events-none is-cursor bg-accent mix-blend-difference"
+        className={`fixed w-2 h-2 z-[99999] pointer-events-none is-cursor transition-colors duration-300 ${cursorBaseClass}`}
         style={{ top: 0, left: 0 }}
       />
       <div
         ref={ringRef}
-        className={`fixed border-[1.5px] border-accent z-[99999] pointer-events-none is-cursor mix-blend-difference ${
+        className={`fixed border-[1.5px] z-[99999] pointer-events-none is-cursor transition-[width,height,border-color] duration-300 ease-out ${ringBaseClass} ${
           isGrowing ? "w-14 h-14" : "w-9 h-9"
-        } transition-[width,height] duration-300 ease-out`}
+        }`}
         style={{ top: 0, left: 0 }}
       />
     </>
