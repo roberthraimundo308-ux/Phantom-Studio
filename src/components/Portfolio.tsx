@@ -42,13 +42,16 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const translateX = scrollProgress * 160; 
+  // Com 4 slides (3 projetos + 1 auditoria), aumentamos o multiplicador para ~250vw
+  const translateX = scrollProgress * 255; 
+
+  const auditoriaUrl = "https://wa.me/5547999144160?text=quero%20uma%20auditoria%20do%20design%20do%20meu%20site%20atual";
 
   return (
     <section 
       ref={containerRef}
       id="portfolio" 
-      className="relative h-[220vh] bg-[#EDE8DE]"
+      className="relative h-[300vh] bg-[#EDE8DE]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         
@@ -72,6 +75,7 @@ export default function Portfolio() {
           >
             <div className="min-w-[40px] md:min-w-[180px] h-full shrink-0"></div>
 
+            {/* Projetos */}
             {PROJECTS.map((project, idx) => (
               <div 
                 key={idx} 
@@ -104,6 +108,28 @@ export default function Portfolio() {
                 </div>
               </div>
             ))}
+
+            {/* Slide de Auditoria UX */}
+            <div className="relative flex flex-col justify-center min-w-[90vw] md:min-w-[85vw] h-full pr-6 md:pr-40">
+              <div className="max-w-[700px]">
+                <div className="font-mono text-[10px] text-accent mb-6 tracking-widest uppercase flex items-center gap-3">
+                  <span className="w-6 h-[1px] bg-accent"></span>
+                  OFERTA EXCLUSIVA
+                </div>
+                <h3 className="font-headline text-[clamp(44px,7vw,96px)] text-[#050505] leading-[0.9] tracking-[-0.01em] uppercase mb-12">
+                  Auditoria UX <br/><span className="word-out-black">Grátis</span> do seu <br/>site atual
+                </h3>
+                <a 
+                  href={auditoriaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-black text-white font-mono text-[10px] tracking-[0.22em] uppercase px-8 py-5 gap-3 transition-all duration-300 group hover:gap-5 hover:bg-accent hover:text-black"
+                >
+                  <span className="relative">Quero uma auditoria</span>
+                  <span className="relative transition-all group-hover:translate-x-1">→</span>
+                </a>
+              </div>
+            </div>
 
             <div className="min-w-[5vw] h-full shrink-0"></div>
           </div>
