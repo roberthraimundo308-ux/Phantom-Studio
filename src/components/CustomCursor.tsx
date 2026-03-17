@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -6,7 +7,6 @@ export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const [isGrowing, setIsGrowing] = useState(false);
-  const [colorMode, setColorMode] = useState<"accent" | "muted">("accent");
 
   useEffect(() => {
     const dot = dotRef.current;
@@ -33,35 +33,16 @@ export default function CustomCursor() {
       }
     };
 
-    const handleScroll = () => {
-      const portfolio = document.getElementById("portfolio");
-      const process = document.getElementById("process");
-      const cta = document.getElementById("cta");
-
-      const isInLightSection = (el: HTMLElement | null) => {
-        if (!el) return false;
-        const rect = el.getBoundingClientRect();
-        const midPoint = window.innerHeight * 0.5;
-        return rect.top <= midPoint && rect.bottom >= midPoint;
-      };
-
-      if (isInLightSection(portfolio) || isInLightSection(process) || isInLightSection(cta)) {
-        setColorMode("muted");
-      } else {
-        setColorMode("accent");
-      }
-    };
-
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseover", handleInteraction);
-    window.addEventListener("scroll", handleScroll, { passive: true });
 
     const animate = () => {
-      const easing = 0.22;
+      const easing = 0.18;
       ringX += (mouseX - ringX) * easing;
       ringY += (mouseY - ringY) * easing;
       
-      ring.style.transform = `translate3d(${ringX - (isGrowing ? 28 : 18)}px, ${ringY - (isGrowing ? 28 : 18)}px, 0)`;
+      const size = isGrowing ? 56 : 36;
+      ring.style.transform = `translate3d(${ringX - size / 2}px, ${ringY - size / 2}px, 0)`;
       
       requestAnimationFrame(animate);
     };
@@ -70,26 +51,27 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseover", handleInteraction);
-      window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(frame);
     };
   }, [isGrowing]);
 
-  const dotColorClass = "bg-accent";
-  const ringColorClass = colorMode === "accent" ? "border-accent opacity-40" : "border-accent opacity-80";
+  // Usamos mix-blend-mode: difference. 
+  // O cursor laranja (#e85500) sobre fundo laranja resulta em preto.
+  // Sobre fundo preto, ele continua laranja.
+  // Sobre o fundo bege claro, ele assume a cor complementar (azul/ciano).
 
   return (
     <>
       <div
         ref={dotRef}
-        className={`fixed w-2 h-2 z-[99999] pointer-events-none is-cursor transition-colors duration-300 ${dotColorClass}`}
+        className="fixed w-2 h-2 z-[99999] pointer-events-none is-cursor bg-accent mix-blend-difference"
         style={{ top: 0, left: 0 }}
       />
       <div
         ref={ringRef}
-        className={`fixed border-[1.5px] z-[99999] pointer-events-none is-cursor ${ringColorClass} ${
+        className={`fixed border-[1.5px] border-accent z-[99999] pointer-events-none is-cursor mix-blend-difference ${
           isGrowing ? "w-14 h-14" : "w-9 h-9"
-        } transition-[width,height,border-color,opacity] duration-300 ease-out`}
+        } transition-[width,height] duration-300 ease-out`}
         style={{ top: 0, left: 0 }}
       />
     </>
